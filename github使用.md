@@ -27,3 +27,7 @@ git config --global user.email "your email" //配置email
 
 #### 本地链接github
 >git clone https://github.com/woylaski/notebook.git
+
+git add XXX
+git commit -m ""
+git push
