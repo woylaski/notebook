@@ -1,0 +1,28 @@
+digraph g{
+	node [shape = record,height=.1];
+ 	node_a[label = "<son> |<val> A|<sibling> "];
+	node_b[label = "<son> |<val> B|<sibling> "];  
+	node_c[label = "<son> |<val> C|<sibling> "];  
+	node_d[label = "<son> |<val> D|<sibling> "];  
+	node_e[label = "<son> |<val> E|<sibling> "];  
+ 	node_f[label = "<son> |<val> F|<sibling> "];  
+	node_g[label = "<son> |<val> G|<sibling> "];  
+	node_h[label = "<son> |<val> H|<sibling> "];   
+	
+	//a
+	"node_a": son->"node_b":val [label="son"];
+
+	//b
+	"node_b": son->"node_d":val [label = "son"];
+	"node_b": sibling->"node_c":val [label="sibling"];
+	
+	//d
+	"node_d": son->"node_h":val [label = "son"];
+	"node_d": sibling->"node_e":val [label="sibling"];
+
+	//c
+	"node_c": son->"node_f":val [label = "son"];
+
+	//f
+	"node_f": sibling->"node_g":val [label = "sibling"];
+}

@@ -1,0 +1,9 @@
+digraph G
+{
+	size="4,4";
+	tree_son [shape=box];
+	a->{b;c};
+	b->{d;e};
+	c->{f;g};
+	d->h;
+}

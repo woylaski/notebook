@@ -1,0 +1,14 @@
+digraph st2{
+	fontname = "Verdana";
+	fontsize = 10;
+	rankdir=TB;
+	node [fontname = "Verdana", fontsize = 10, color="skyblue", shape="record"];
+ 	edge [fontname = "Verdana", fontsize = 10, color="crimson", style="solid"];
+	Trie_node [label="{<head>trienode|count|exist|<next>next[256]}"];
+	Trie_node1 [label="{<head>trienode|count|exist|<next>next[256]}"];
+	Trie_node2 [label="{<head>trienode|count|exist|<next>next[256]}"];
+	Trie_node3 [label="{<head>trienode|count|exist|<next>next[256]}"];
+ 	Trie_node:next -> Trie_node1:head [style="dashed", color="forestgreen"];
+	Trie_node:next -> Trie_node2:head [style="dashed", color="forestgreen"];
+	Trie_node:next -> Trie_node3:head [style="dashed", color="forestgreen"];
+ }

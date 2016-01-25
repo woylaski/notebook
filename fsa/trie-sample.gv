@@ -1,0 +1,41 @@
+digraph trie{
+	node [shape = record,height=.1];
+	node_0 [label="root"];
+	node_a [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_b [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_c [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_aa [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_ab [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_ac [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_ba [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_ca [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_aba [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_abc [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_baa [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_bab [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_bac [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_cab [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_abba [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_baba [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_caba [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_abaca [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+	node_caaba [label="{<head>|<a>a|<b>b|<c>c|<d>d|<exist>}"];
+
+	//node_0
+	node_0->node_a:head [label="a"];
+	node_0->node_b:head [label="b"];
+	node_0->node_c:head [label="c"];
+	
+	//node_a
+	node_a:a->node_aa:head [label="aa"];
+	node_a:b->node_ab:head [label="ab"];
+	node_a:c->node_ac:head [label="ac"];
+
+	//node_b
+	node_b:a->node_ba:head [label="ba"];
+
+	//node_c
+	node_c:a->node_ca:head [label="ca"];
+
+
+}
