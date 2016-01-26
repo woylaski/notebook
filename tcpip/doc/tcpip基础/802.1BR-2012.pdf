@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="content-subnav-wide.html" name="template" />
+    <title>IEEE Standard Association - IEEE Get Program</title>
+    <link href="/styles/style.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/styles/style-print.css" media="print" rel="stylesheet" type="text/css" />
+    <script src="/scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.tooltip.js" type="text/javascript"></script>
+    <script src="/scripts/scripts.js" type="text/javascript"></script>
+    <script src="/scripts/more_scripts.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.scrollTo-1.4.2-min.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.bgiframe.min.js" type="text/javascript"></script>
+    <!-- [if IE 6]>
+<script type="text/javascript" src="/scripts/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+  DD_belatedPNG.fix('.pngFix');
+</script>
+<![endif] -->
+  </head>
+  <body>
+    <div class="content-subnav" id="page">
+      <!-- this text automatically inserted, do not edit -->
+      <div class="clearfix digest-NmCvQZkImIrDBtRbJiILYA replace-inc-func-nav-global-header" id="global-header">
+        <ul>
+          <li><a href="http://www.ieee.org">IEEE.org</a></li>
+          <li><a href="http://ieeexplore.ieee.org/">IEEE <span class="explore">Xplore</span> Digital Library</a>
+          </li>
+          <li><a href="http://standards.ieee.org/">IEEE Standards</a></li>
+          <li><a href="http://spectrum.ieee.org/">IEEE Spectrum</a></li>
+          <li><a href="http://www.ieee.org/sitemap">More Sites</a></li></ul>
+        <div id="ieee-logo"><a href="http://www.ieee.org/portal/site">IEEE</a></div></div>
+      <!-- end of automatically inserted text -->
+      <!-- this text automatically inserted, do not edit -->
+      <div class="clearfix digest-GUfptEjw6mw6KKqo1fBqXg replace-inc-func-nav-header" id="header">
+        <div id="logo">
+          <h2><a href="http://standards.ieee.org/index.html"><img alt="IEEE-SA" height="19" src="http://standards.ieee.org/images/logo.png" width="379" /> <strong>IEEE Standards Association</strong></a></h2>
+        </div>
+        <div id="header-tools">
+          <ul>
+            <li><a href="http://standards.ieee.org/contact/index.html">Contact</a></li>
+            <li><a href="http://standards.ieee.org/faqs/index.html">FAQs</a></li>
+            <li>
+              <form action="http://odysseus.ieee.org/query.html" method="post">
+                <input name="qc" type="hidden" value="sa" />
+                <input name="col" type="hidden" value="sa" />
+                <input name="style" type="hidden" value="sa" />
+                <input class="text" id="search-site-keyword" name="qt" type="text" value="" />
+                <select id="search-site-area" name="qp">
+                  <option selected="selected" value="url:http://standards.ieee.org/">standards.ieee.org only</option>
+                  <option value="url:standards.ieee.org/findstds/standard/"> - Standards</option>
+                  <option value="url:standards.ieee.org/findstds/interps/ url:standards.ieee.org/findstds/errata/ url:standards.ieee.org/findstds/supp/ url:standards.ieee.org/findstds/prod/"> - Standards-Related Material</option>
+                  <option value="url:standards.ieee.org/develop/project/"> - Standards Development Projects</option>
+                  <option value="url:standards.ieee.org/develop/wg/"> - Working Groups</option>
+                  <option value="url:standards.ieee.org/news/"> - Press Releases</option>
+                  <option value="url:standards.ieee.org/develop/indconn/ url:standards.ieee.org/develop/intl/ url:standards.ieee.org/develop/corpchan/ url:standards.ieee.org/develop/pnext/ url:standards.ieee.org/develop/patents/ url:standards.ieee.org/about/get/ url:standards.ieee.org/about/arcflash/"> - Programs &amp; Services</option>
+                  <option value="url:standards.ieee.org/about/bog/ url:standards.ieee.org/about/sasb/ url:standards.ieee.org/about/sba/ url:standards.ieee.org/develop/policies/"> - Policies and Governance</option>
+                  <option value="url:standards.ieee.org/news/swire/ url:standards.ieee.org/develop/corpchan/sfocus/"> - Newsletters</option>
+                  <option value="url:development.standards.ieee.org/pub/mytools">Development Materials &amp; Tools</option>
+                  <option value="">All IEEE-SA Websites</option>
+                </select>
+                <input class="submit" id="search-site-submit" name="search-site-submit" type="submit" value="Go" />
+              </form>
+            </li></ul></div></div>
+      <!-- end of automatically inserted text -->
+      <!-- id="header" -->
+      <!-- this text automatically inserted, do not edit -->
+      <div class="clearfix digest-k2nxCH7RWWzNFOTGT5IsLA replace-inc-main-nav" id="navi">
+        <ul>
+          <li class="headlink"><a class="find-standards" href="/findstds/index.html">Find Standards</a>
+            <ul class="fix-z-index">
+              <li>
+                <div>
+                  <strong>Enter keyword or topic:</strong>
+                  <br />
+                  <form action="http://odysseus.ieee.org/query.html" method="POST">
+                    <input name="qc" type="hidden" value="sa" />
+                    <input name="col" type="hidden" value="sa" />
+                    <input name="style" type="hidden" value="standard" />
+                    <input class="text" id="search-for-a-standard" name="qt" type="text" value="" />
+                    <input class="submit" id="search-for-a-standard-submit" name="search-for-a-standard-submit" type="submit" value="Go" />
+                  </form>
+                </div>
+                <hr />
+                <div class="clearfix">
+                  <div class="section1">
+							Buy Standards
+							<br /><a href="http://www.techstreet.com/ieee/" target="_blank">IEEE Standards Store</a></div>
+                  <div class="section2">
+							Get Standards at no cost
+							<br /><a href="/about/get/index.html">IEEE GET Program</a>!
+						</div></div>
+                <hr />
+                <div class="clearfix">
+                  <div><strong>Additional Standards Resources</strong></div>
+                  <div class="section1">
+                    <p><a href="/about/nesc/index.html">NESC</a></p>
+                    <p><a href="/about/arcflash/index.html">Arc Flash</a></p>
+                    <p><a href="/findstds/3000stds/index.html">IEEE 3000 Standards Collection</a></p>
+                    <p><a href="/findstds/redlines.html">Redline Versions of Standards</a></p></div>
+                  <div class="section2">
+                    <p><a href="/findstds/errata/index.html">Errata</a></p>
+                    <p><a href="/findstds/interps/index.html">Interpretations</a></p>
+                    <p><a href="/findstds/prod/index.html">Related Products</a></p>
+                    <p><a href="/findstds/distrib/index.html">Distributors &amp; Resellers</a></p></div></div>
+                <div class="goto-link">Visit the <a href="/findstds/">Main Find Standards Page</a></div></li></ul></li>
+          <li class="headlink"> <a class="developing" href="/develop/index.html">Develop Standards</a><ul class="fix-z-index"><li><div><strong>Find a Project or Working Group</strong>
+          <br />
+          <form action="http://odysseus.ieee.org/query.html" method="POST"><input name="qc" type="hidden" value="sa" /><input name="col" type="hidden" value="sa" /><input class="text" id="Text2" name="qt" type="text" value="" /><br /><input name="style" type="radio" value="project" /> Active Projects   <input name="style" type="radio" value="wg" /> Working Groups   <input class="submit" id="Submit2" name="search-site-submit" type="submit" value="Go" /></form></div><hr /><div class="clearfix"><div><strong>About IEEE-SA Technology Development</strong></div><div class="section1"><p><a href="/develop/overview.html">Overview</a></p><p><a href="/develop/indconn/index.html">Technology Exploration</a></p><p><a href="/develop/index.html">Standards Development</a></p></div><div class="section2"><p><a href="/develop/policies">Policies &amp; Governance</a></p><p><a href="/about/index.html">Boards &amp; Committees</a></p><p><a href="/getinvolved/index.html">How to Get Involved</a></p></div></div><hr /><div class="clearfix"><div><strong>Technology Development Programs</strong></div><div class="section1"><p><a href="/develop/indconn/index.html">Industry Connections</a></p><p><a href="/about/arcflash/index.html">Arc Flash Research Project</a></p></div><div class="section2"><p><a href="/develop/intl/index.html">Global Partnerships</a></p><p><a href="/develop/corpchan/index.html">Corporate Program</a></p></div></div><hr /><div class="clearfix"><div><strong>Services, Solutions &amp; Support</strong></div><div class="section1"><p><a href="https://development.standards.ieee.org/my-site">eTools</a></p><p><a href="/develop/regauth/index.html">Registration Authority</a></p></div><div class="section2"><p><a href="/develop/svs/index.html">Professional Services</a></p><p><a href="/develop/awards/index.html">Standards Awards</a></p></div></div><div class="goto-link">Visit the <a href="/develop/index.html">Main Development Page</a></div></li></ul></li>
+          <li class="headlink"><a class="membership getinvolved" href="/getinvolved/index.html">Get Involved</a>
+            <ul class="fix-z-index">
+              <li>
+                <div><h4><a href="/getinvolved/index.html">Explore, Nurture &amp; Advance Technology with IEEE</a></h4>
+						Learn about the participation offers available for global
+technology professionals, innovators and leaders.</div>
+                <hr />
+                <div><h4><a href="/membership/index.html">Learn the Benefits of IEEE-SA Membership</a></h4>
+						Our collaborative environment is open to all participants. IEEE
+Corporate &amp; Individual Members can lead groups and ballot.</div>
+                <div class="goto-link">Visit the <a href="/getinvolved/index.html">How To Get Involved Page</a></div></li></ul></li>
+          <li class="headlink"><a class="news-and-events" href="/news/index.html">News &amp; Events</a>
+            <ul class="fix-z-index">
+              <li>
+                <div class="clearfix">
+                  <div class="section1">
+                    <p><a href="/news/index.html#press-release">IEEE-SA Press Room</a></p>
+                    <p><a href="/news/index.html#content-news-left">IEEE-SA Events</a></p></div>
+                  <div class="section2">
+                    <p><a href="/news/index.html#board-approvals">Standards Board Approvals</a></p></div></div>
+                <hr />
+                <div class="clearfix">
+                  <div class="section1">
+                    <h4>Social Media</h4>
+                    <p><a href="http://www.facebook.com/ieeesa" target="_blank">Facebook</a></p>
+                    <p><a href="http://www.twitter.com/ieeesa" target="_blank">Twitter</a></p>
+                    <p><a href="http://www.linkedin.com/groups?gid=1791118" target="_blank">LinkedIn</a></p>
+                    <p><a href="http://www.youtube.com/user/IEEESA" target="_blank">You Tube</a></p></div>
+                  <div class="section2"><h4>Blog &amp; Newsletters</h4><p><a href="http://www.standardsinsight.com" target="_blank">Standards Insight Blog</a></p>					<p><a href="/news/swire/index.html">IEEE-SA Newswire</a></p><p><a href="/develop/corpchan/sfocus/index.html">Standards Focus</a></p></div></div>
+                <div class="goto-link">Visit the <a href="/news/index.html">News &amp; Events Page</a></div></li></ul></li>
+          <li class="headlink"><a class="about-us" href="/about/index.html">About Us</a>
+            <ul class="fix-z-index">
+              <li>
+                <div class="clearfix">
+                  <div><strong>IEEE-SA Programs</strong></div>
+                  <div class="section1">
+                    <p><a href="/develop/indconn/index.html">Industry Connections</a></p>
+                    <p><a href="/develop/corpchan/index.html">Corporate Program</a></p>
+                    <p><a href="/develop/intl/index.html">Global Partnerships</a></p></div>
+                  <div class="section2">
+                    <p><a href="/about/get/index.html">GET Program</a></p>
+                    <p><a href="/about/arcflash/index.html">Arc Flash Initiative</a></p></div></div>
+                <hr />
+                <div class="clearfix">
+                  <div class="section1">
+                    <h4>Board of Governors (BOG)</h4>
+                    <p><a href="/about/bog/index.html">About the BOG</a></p>
+                    <p><a href="/about/bog/meetings.html">Meeting Information</a></p>
+                    <p><a href="https://standards.ieee.org/about/bog/private/index.html">BOG Private Area</a></p>
+                    <p><a href="/about/bog/arcom/index.html">Awards Committee</a></p>
+                    <p><a href="/about/bog/cag.html">Corp. Advisory Group</a></p>
+                    <p><a href="/about/bog/rac.html">Reg. Auth. Committee</a></p>
+                    <p><a href="/about/bog/sppmt/index.html">Strategic Planning &amp; Portfolio Management</a></p></div>
+                  <div class="section2">
+                    <h4>Standards Board (SASB)</h4>
+                    <p><a href="/about/sasb/index.html">About the SASB</a></p>
+                    <p><a href="/about/sasb/meetings.html">Meeting Information</a></p>
+                    <p><a href="/about/sasb/audcom/index.html">AudCom</a></p>
+                    <p><a href="/about/sasb/iccom/index.html">ICCom</a></p>
+                    <p><a href="/about/sasb/nescom/index.html">NesCom</a></p>
+                    <p><a href="/about/sasb/revcom/index.html">RevCom</a></p>
+                    <p><a href="/about/sasb/patcom/index.html">PatCom</a></p>
+                    <p><a href="/about/sasb/procom/index.html">ProCom</a></p></div></div>
+                <hr />
+                <div class="clearfix">
+                  <div class="section1">
+                    <h4>Help &amp; Contact</h4>
+                    <p><a href="/faqs/index.html">FAQs</a></p>
+                    <p><a href="/contact/index.html">Contact Us</a></p>
+                    <p><a href="http://www.ieee.org/security_privacy.html" target="_blank">Legal &amp; Privacy</a></p></div>
+                  <div class="section2">
+                    <h4>Blog &amp; Newsletters</h4>
+                    <p><a href="/news/swire/index.html">IEEE-SA Newswire</a></p>
+                    <p><a href="/develop/corpchan/sfocus/index.html">Standards Focus</a></p>
+                    <p><a href="http://standardsinsight.com">Standards Insight Blog</a></p></div></div>
+                <div class="goto-link">Learn More <a href="/about/">About Us Page</a></div></li></ul></li>
+          <li class="headlink"><a class="buy-standards" href="http://www.techstreet.com/ieee" target="_blank">Buy Standards</a></li>
+          <li class="headlink"><a class="myProject" href="https://development.standards.ieee.org/my-site">eTools</a></li></ul></div>
+      <!-- end of automatically inserted text -->
+      <div class="clearfix" id="title-banner">
+        <h1>IEEE Get Program</h1>
+        <p>Through the IEEE-SA and industry support, select IEEE standards are available for download, in PDF format, at no charge.</p></div>
+      <div id="content">
+        <div class="clearfix" id="content-type-simple">
+          <div id="wide">
+            <div id="content-subnav">
+              <ul id="nav-tree">
+                <li>
+                  <h4><a href="/about/get/index.html">ieee get program</a></h4>
+                  <ul>
+                    <li><a href="http://standards.ieee.org/about/get/802/support.html" target="_blank">Support the 802 Program</a></li>
+                    <li><a href="http://standards.ieee.org/contact/form.html">Contact IEEE Get Program</a></li></ul></li></ul></div>
+            <div class="wide" id="text-content">
+              <p><strong>GET IEEE 802&reg;: LOCAL AND METROPOLITAN AREA NETWORK STANDARDS</strong></p>
+              <p><strong>Terms of Use for IEEE Standards Publications Delivered in Electronic Form</strong>
+              <br />
+The Institute of Electrical and Electronic Engineers, Inc. ("IEEE") shall deliver this IEEE standards publication to you in electronics format upon your acceptance of the following Terms of Use.</p>
+              <p>Read the Terms of Use carefully. By providing the required information and selecting the "accept" button at the bottom of this page, you agree to be legally bound by the Terms of Use contained herein. If you select "do not accept", the file transfer for this standards publication will not continue.</p>
+              <p><strong>Copyright</strong>
+              <br />
+The IEEE Standards publication(s) ("Document") is approved by the IEEE Standards Association ("IEEE-SA") Standards Board and is published in accordance with established IEEE-SA Standards Board bylaws and operations procedures.</p>
+              <p>IEEE owns the copyright to this Document in all forms of media. Copyright in the text retrieved, displayed or output from this Document is owned by IEEE and is protected by the copyright laws of the United States and by international treaties. IEEE reserves all rights not expressly granted.</p>
+              <p>IEEE is providing the Document to you at no charge. However, the Document is not to be considered within the "Public Domain", as IEEE is, and at all times shall remain, the sole copyright holder in the Document.</p>
+              <p><strong>Terms of Use</strong>
+              <br />
+You may retrieve, download and print one (1) copy of each Document in this Program for your personal use. You may retain one (1) additional copy of this Document as your personal archive copy.</p>
+              <p>Except as allowed by the copyright laws of the United States of America or applicable international treaties, or as explicitly allowed in these Terms of Use, you may not further copy, prepare, and/or distribute copies of the Document, nor significant portions of the Document, in any form, without prior written permission from IEEE.</p>
+              <p>Requests for permission to reprint this Document, in whole or in part, or requests for a license to reproduce and/or distribute this Document, in any form, must be submitted via email to the <a href="/contact/form.html">Standards Licensing and Contracts</a>, or in writing to:</p>
+              <p>IEEE-SA Licensing and Contracts
+              <br />
+445 Hoes Lane
+<br />
+Piscataway, NJ 08855</p>
+              <p><strong>Limited Warranties &amp; Limitations of Remedies</strong>
+              <br />
+IEEE does not warrant or represent the accuracy or content of the Document and expressly disclaims any express or implied warranty, including any implied warranty of merchantability or fitness for a specific purpose or that the use of the document is free from patent infringement. The document is supplied ONLY "AS IS."</p>
+              <p><strong>To Report Technical Problems or to Make Inquires Regarding Electronic Delivery of this IEEE Standards Publication</strong>
+              <br />
+If you are unable to receive this Document as requested, or if there is a problem with the transmission, please <a href="/contact/form.html">send us a detailed email</a>.</p>
+              <p><strong>For Inquiries About These Terms of Use</strong>
+              <br />
+If you have questions about these Terms of Use or wish to inquire about options for licensing this Document or any other IEEE Standards Publication, <a href="/contact/form.html">contact Standards Licensing and Contracts</a> for more information. I acknowledge that I have read and fully understand the foregoing information and agree to abide by these Terms of Use.</p>
+              <form action="http://standards.ieee.org/getieee802/download/802.1BR-2012.pdf" enctype="x-www-form-encoded" method="post">
+                <p>
+                  <strong>User Type <em>(Required)</em></strong>
+                  <br />
+                  <select name="user_type">
+                    <option selected="selected">Please select one</option>
+                    <option>Public network service provider</option>
+                    <option>Private network service provider</option>
+                    <option>Network equipment manufacturer</option>
+                    <option>Network silicon manufacturer</option>
+                    <option>Academic/Student</option>
+                    <option>Government</option>
+                    <option>Standards Developer</option>
+                    <option>Network Software Developer/Manufacturer</option>
+                    <option>Systems Administrator</option>
+                    <option>Journalist/Analyst/Author</option>
+                    <option>Other</option>
+                  </select>
+                </p>
+                <p><strong>Email Address:</strong> <input id="Email" maxlength="75" name="Email" type="text" /></p>
+                <p>
+                  <input name="accept_terms" type="submit" value="ACCEPT" />
+                </p>
+              </form>
+              <form action="http://standards.ieee.org/about/get/" enctype="x-www-form-encoded" method="get">
+                <input name="accept_terms" type="submit" value="DO NOT ACCEPT" />
+              </form>
+              <!-- this text automatically inserted, do not edit -->
+              <div class="clearfix digest-01jRXV0lkNCrWLz3WZvEXQ replace-inc-footer" id="footer">
+                <div id="copyright"><a href="/c.html">Copyright 2012 IEEE-SA</a></div>
+                <ul>
+                  <li><a href="/">IEEE-SA Home</a></li>
+                  <li><a href="/sitemap.html">Sitemap</a></li>
+                  <li><a href="http://www.ieee.org/site_terms_conditions.html">Terms &amp; Conditions</a></li>
+                  <li><a href="http://www.ieee.org/about/corporate/governance/p9-26.html">Nondiscrimination Policy</a></li>
+                  <li><a href="http://www.ieee.org/security_privacy.html">Privacy &amp; Opting Out of Cookies</a></li>
+                  <li><a href="https://www.surveymonkey.com/s.aspx?sm=R4nqKmvDnQcdMJPI%2f3AhFQ%3d%3d">Web Site Feedback</a></li></ul>
+                <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22976537-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+              </div>
+              <!-- end of automatically inserted text -->
+              <table>
+                <tr>
+                  <td></td>
+                  <!-- class="alignleft" -->
+                  <!-- side-box -->
+                  <!-- id="content-type-simple" -->
+                  <!-- id="content" -->
+                  <!-- id="page" -->
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div></div></div>
+  </body>
+</html>

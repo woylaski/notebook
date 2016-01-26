@@ -16,4 +16,4 @@ s = socket.socket(socket.AF_INET, socket.SOCK_RAW, dpkt.ip.IP_PROTO_ICMP)
 s.connect(('74.125.67.100', 1))
 sent = s.send(str(icmp))
 
-print 'sent %d bytes' % sent
+print('sent %d bytes' % sent)
