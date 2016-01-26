@@ -31,3 +31,13 @@ git config --global user.email "your email" //配置email
 git add XXX
 git commit -m ""
 git push
+
+#### github 同步更新到本地
+
+如果已经有了，那就这两个命令的其中选一个，但是要注意：fetch 命令只是将远端的数据拉到本地仓库，并不自动合并到当前工作分支，只有当你确实准备好了，才能手工合并，pull 命令自动抓取数据下来，然后将远端分支自动合并到本地仓库中当前分支
+
+git fetch origin
+git pull
+推送到git服务器上用
+
+git push origin master
