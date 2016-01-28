@@ -29,3 +29,15 @@ cd PyQt-gpl-5.3.2
 python3 configure.py  
 sudo make
 sudo make install
+
+7、-lGL
+出现的问题：
+
+:cannot find -lgl
+
+安装：
+
+apt-get install libgl1-mesa-dev
+
+8、Gtk-Message: Failed to load module "canberra-gtk-module"
+ apt-get install libcanberra-gtk3-dev
