@@ -33,3 +33,13 @@ http://blog.163.com/modingfa_002/blog/static/110925466201181445640726/
 http://blog.chinaunix.net/uid-693168-id-3458444.html
 
 http://blog.csdn.net/henreash/article/details/8012189
+
+http://blog.csdn.net/yuxiaohen/article/details/8945498
+
+http://www.cnblogs.com/surfsky/p/4191994.html
+
+http://www.tuicool.com/articles/jM7BNrj
+
+http://blog.sina.com.cn/s/blog_5d8f70870102vio1.html
+
+http://blog.csdn.net/lys211/article/details/43743187
