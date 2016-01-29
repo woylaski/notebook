@@ -40,6 +40,16 @@ http://www.cnblogs.com/surfsky/p/4191994.html
 
 http://www.tuicool.com/articles/jM7BNrj
 
-http://blog.sina.com.cn/s/blog_5d8f70870102vio1.html
+http://www.cnblogs.com/hicjiajia/archive/2012/01/30/2332250.html
 
-http://blog.csdn.net/lys211/article/details/43743187
+http://doc.qt.io/qt-5/qmltypes.html
+
+http://www.cnblogs.com/yanhuiw/p/4719597.html
+
+http://edu.csdn.net/course/detail/335
+
+http://blog.chinaunix.net/uid-374124-id-4661152.html
+
+http://www.devbean.net/category/qt-study-road-2/
+
+http://www.bubuko.com/infodetail-742532.html
