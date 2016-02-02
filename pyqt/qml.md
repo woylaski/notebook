@@ -53,3 +53,17 @@ http://blog.chinaunix.net/uid-374124-id-4661152.html
 http://www.devbean.net/category/qt-study-road-2/
 
 http://www.bubuko.com/infodetail-742532.html
+
+http://askubuntu.com/questions/289747/are-there-any-standard-icons-for-qml-app-development
+
+http://www.cnblogs.com/surfsky/p/4290739.html
+
+http://blog.163.com/wslngcjsdxdr@126/blog/static/16219623020145249467291/
+
+http://www.cnblogs.com/surfsky/p/4309299.html
+
+http://www.cnblogs.com/surfsky/p/4352862.html
+
+http://www.cnblogs.com/surfsky/p/4352898.html
+
+http://doc.qt.io/qt-5/qml-qtquick-controls-treeview.html
