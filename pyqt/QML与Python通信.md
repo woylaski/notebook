@@ -19,3 +19,5 @@ http://bbs.csdn.net/topics/390922430
 http://blog.csdn.net/zhx6044/article/details/45649045
 
 http://stackoverflow.com/questions/19131084/pyqt5-qml-signal-to-python-slot
+
+http://www.cnblogs.com/hhh5460/p/4237863.html
