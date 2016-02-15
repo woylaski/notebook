@@ -1,0 +1,2 @@
+qmlscene 
+qmlviewer
