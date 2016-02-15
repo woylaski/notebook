@@ -1,0 +1,1 @@
+sudo apt-get install gnome-control-center-data libgdm1 gdm3 cinnamon-control-center-data
