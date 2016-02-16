@@ -1,6 +1,9 @@
 QT -QML 快速搭建与使用
 http://ibaoling.com/
 
+Qt 5入门指南之Qt Quick编程示例
+http://blog.csdn.net/chenlong12580/article/details/8567006
+
 在PyQt5里面玩Android 的Material Design风格
 http://blog.csdn.net/harry159821/article/details/43120695
 
