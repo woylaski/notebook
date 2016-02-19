@@ -1962,11 +1962,20 @@ Rectangle{
                             opacity: 1
                         }
 
+						ListModel {
+						    id: resolutionModel
+						    ListElement { text: "Cat" }
+						    ListElement { text: "Dog" }
+						    ListElement { text: "Mouse" }
+						    ListElement { text: "Rabbit" }
+						    ListElement { text: "Horse" }
+						}
+
                         ComboBox {
                             id: color_comp_box
                             opacity: 1
                             model: resolutionModel
-                            textRole: "display"
+                            //textRole: "display"
                             smooth: true
                             x: 0
                             y: 60
@@ -2029,16 +2038,34 @@ Rectangle{
                             y: 95
                             opacity: 1
                         }
-
+                        /*
+						ListModel {
+						    id: stillOutputFormatModel
+						    ListElement { text: "Cat" }
+						    ListElement { text: "Dog" }
+						    ListElement { text: "Mouse" }
+						    ListElement { text: "Rabbit" }
+						    ListElement { text: "Horse" }
+						}
+						*/
                         ComboBox {
                             id: output_value
                             opacity: 1
-                            model:stillOutputFormatModel
-                            textRole: "display"
+
+                            //textRole: "display"
                             smooth: true
                             x: 0
                             y: 115
                             activeFocusOnPress: true
+
+                            model: ListModel {
+							    id: stillOutputFormatModel
+                                ListElement { text: "jpg"  }
+                                ListElement { text: "bmp"  }
+                                ListElement { text: "raw"  }
+                                ListElement { text: "png"  }
+							}
+
                             style: ComboBoxStyle {
                                 background: Image {
                                     id: resolutionSize2
@@ -2062,11 +2089,13 @@ Rectangle{
                                     font.pixelSize: 14
                                 }
                             }
+                            /*
                             onCurrentIndexChanged: {
                                 JS.stillCaptureResolution = output_value.currentText.toString()
                                 if(JS.triggerMode_11cug === 1 || JS.triggerMode_B === 1 || JS.triggerMode_M === 1 || JS.triggerMode_cu51 === 1)
                                     triggerModeCapture()
                             }
+                            */
                         }
 
                         Text {
@@ -2164,7 +2193,8 @@ Rectangle{
                             property bool checkIndex : false
                             opacity: 1
                             activeFocusOnPress: true
-
+                            model: resolutionModel
+                            /*
                             model: ListModel {
                                 id: cbItemsImgFormat
                                 ListElement { text: "jpg"  }
@@ -2172,6 +2202,7 @@ Rectangle{
                                 ListElement { text: "raw"  }
                                 ListElement { text: "png"  }
                             }
+                            */
                             x: 0
                             y: image_format.y + 20
                             style: ComboBoxStyle {
