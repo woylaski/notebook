@@ -18,11 +18,16 @@ class MyClass(QObject):
 
 if __name__ == '__main__':
     path = 'test_1.qml'   # 加载的QML文件
+
     app = QGuiApplication([])
+
     view = QQuickView()
+
     con = MyClass()
+
     context = view.rootContext()
     context.setContextProperty("con", con)
+
     view.engine().quit.connect(app.quit)
     view.setSource(QUrl(path))
     view.show()
