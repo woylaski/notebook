@@ -1,0 +1,22 @@
+<html>
+        <body>
+        <h1>It just works!</h1>
+        <p>Play with me...</p>
+        <button onclick="nativecall();">test</button>
+        <div id="out"></div>
+        <script type="txet/javascript ">
+            function nativecall(){
+                console.log("will try native call");
+                var elem = document.getElementById("out").innerHtMl="clicked";
+                navigator.qt.postMessage('this is a js call');
+            }
+
+            function jsCall(message){
+                var elem = document.getElementById("out").innerHtMl ="and the other way around " + message;
+            }
+            navigator.qt.onmessage = function(ev) {
+                jsCall(ev.data);
+            }
+        </script >
+        </body>
+</html>
