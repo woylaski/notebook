@@ -8,3 +8,8 @@ http://www.tutorialspoint.com/nodejs/
 https://www.airpair.com/javascript/node-js-tutorial
 
 http://nodeguide.com/beginner.html
+
+http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
+
+https://stormpath.com/blog/build-nodejs-express-stormpath-app/
+
