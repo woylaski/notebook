@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qmbsimple.qml</file>
+        <file>oxygen/application-exit.svg</file>
+        <file>oxygen/checkbox.svg</file>
+        <file>oxygen/document-open.svg</file>
+        <file>oxygen/document-open-folder.svg</file>
+        <file>oxygen/document-save-as.svgz</file>
+        <file>oxygen/view-preview.svg</file>
+        <file>oxygen/view-restore.svg</file>
+        <file>oxygen/media-playlist.svg</file>
+        <file>oxygen/office-chart-ring.svg</file>
+        <file>oxygen/preferences-plugin.svg</file>
+        <file>breeze/applications-engineering.png</file>
+        <file>breeze/cuttlefish.png</file>
+        <file>breeze/pixelart-trace.png</file>
+        <file>breeze/plank.png</file>
+        <file>breeze/showfoto.png</file>
+        <file>breeze/user-desktop.png</file>
+        <file>breeze/utilities-system-monitor.png</file>
+        <file>gplv3.png</file>
+        <file>breeze/qmb.png</file>
+        <file>breeze/qtcreator.png</file>
+        <file>breeze/rating.png</file>
+    </qresource>
+</RCC>

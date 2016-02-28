@@ -1,0 +1,61 @@
+* {
+    font-family: Arial; Verdana; sans-serif;
+}
+
+body {
+    background-color: #E8E8E8;
+}
+
+#header {
+    margin: 5px;
+    color: #44A51C;
+    font-size: 26px;
+}
+
+a {
+    color: #333;
+}
+
+h1 {
+    font-size: 14px;
+}
+
+#outer {
+    background-color: green;
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content {
+    width: 800px;
+    background-color: white;
+    border: 1px #EEE;
+    border-radius: 8px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer {
+    margin-top: 20px;
+    font-size: 12px;
+    text-align: center;
+}
+
+#search {
+    text-align: right;
+}
+
+#search input, #search button {
+    font-size: 12px;
+}
+
+textarea, input {
+    border: 1px solid #CCC;
+}
+
+textarea[name=explanation] {
+    width: 400px;
+    height: 60px;
+}

@@ -1,0 +1,268 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-10 11:05+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: manpagesgui.py:71
+msgid "Cancel"
+msgstr ""
+
+#: manpagesgui.py:71
+msgid "OK"
+msgstr ""
+
+#: manpagesgui.py:92
+msgid "Random Page"
+msgstr ""
+
+#: manpagesgui.py:92
+msgid "An error occurred"
+msgstr ""
+
+#: manpagesgui.py:92
+msgid "Not Found"
+msgstr ""
+
+#: manpagesgui.py:111
+msgid "Lost in French countryside but reachable"
+msgstr ""
+
+#: manpagesgui.py:117
+msgid "released on"
+msgstr ""
+
+#: manpagesgui.py:118
+msgid "Created by"
+msgstr ""
+
+#: manpagesgui.py:120
+msgid "Released under GNU GPLv3 license"
+msgstr ""
+
+#: manpagesgui.py:122
+msgid "All rights reserved"
+msgstr ""
+
+#: manpagesgui.py:122
+msgid "This program comes with ABSOLUTELY NO WARRANTY"
+msgstr ""
+
+#: manpagesgui.py:122
+msgid ""
+"This is free software, and you are welcome to redistribute it under certain "
+"conditions"
+msgstr ""
+
+#: manpagesgui.py:462
+msgid "Select All"
+msgstr ""
+
+#: manpagesgui.py:463
+msgid "Unselect All"
+msgstr ""
+
+#: manpagesgui.py:473
+msgid "Name's page"
+msgstr ""
+
+#: manpagesgui.py:473
+msgid "Description"
+msgstr ""
+
+#: manpagesgui.py:473
+msgid "Content page"
+msgstr ""
+
+#: manpagesgui.py:473
+msgid "Search in"
+msgstr ""
+
+#: manpagesgui.py:473
+msgid "Regex string"
+msgstr ""
+
+#: manpagesgui.py:518
+msgid "Control"
+msgstr ""
+
+#: manpagesgui.py:518
+msgid "Alt"
+msgstr ""
+
+#: manpagesgui.py:518
+msgid "Shift"
+msgstr ""
+
+#: manpagesgui.py:555
+msgid "What key combination you want to use"
+msgstr ""
+
+#: manpagesgui.py:555
+msgid "Valid without keybinding for remove"
+msgstr ""
+
+#: manpagesgui.py:557
+msgid "Command line options"
+msgstr ""
+
+#: manpagesgui.py:568
+msgid "Processing error"
+msgstr ""
+
+#: manpagesgui.py:657
+msgid "About"
+msgstr ""
+
+#: manpagesgui.py:657
+msgid "Keybinding"
+msgstr ""
+
+#: manpagesgui.py:657
+msgid "Text search"
+msgstr ""
+
+#: manpagesgui.py:696
+msgid "is not valid argument"
+msgstr ""
+
+#: manpagesgui.py:699
+msgid "directory not found"
+msgstr ""
+
+#: manpagesgui.py:702
+msgid "command not found"
+msgstr ""
+
+#: manpagesgui.py:720
+msgid "number"
+msgstr ""
+
+#: manpagesgui.py:720
+msgid "color"
+msgstr ""
+
+#: manpagesgui.py:720
+msgid "default"
+msgstr ""
+
+#: manpagesgui.py:721
+msgid "GUI manual pager"
+msgstr ""
+
+#: manpagesgui.py:722
+msgid "man command"
+msgstr ""
+
+#: manpagesgui.py:722
+msgid "command"
+msgstr ""
+
+#: manpagesgui.py:723
+msgid "manual pages directory"
+msgstr ""
+
+#: manpagesgui.py:723
+msgid "directory"
+msgstr ""
+
+#: manpagesgui.py:724
+msgid "Do not display pages in local language"
+msgstr ""
+
+#: manpagesgui.py:725
+msgid "Disables other proposals pages"
+msgstr ""
+
+#: manpagesgui.py:726
+msgid "Number of random pages displayed"
+msgstr ""
+
+#: manpagesgui.py:727
+msgid "Disable window resizing"
+msgstr ""
+
+#: manpagesgui.py:728
+msgid "Number of columns displayed"
+msgstr ""
+
+#: manpagesgui.py:729
+msgid "Number of rows displayed"
+msgstr ""
+
+#: manpagesgui.py:730
+msgid "Disables email links"
+msgstr ""
+
+#: manpagesgui.py:731
+msgid "Disables URL links"
+msgstr ""
+
+#: manpagesgui.py:732
+msgid "Use theme's colors"
+msgstr ""
+
+#: manpagesgui.py:733
+msgid "Text color"
+msgstr ""
+
+#: manpagesgui.py:734
+msgid "Background color"
+msgstr ""
+
+#: manpagesgui.py:735
+msgid "Section text color"
+msgstr ""
+
+#: manpagesgui.py:736
+msgid "Section background color"
+msgstr ""
+
+#: manpagesgui.py:737
+msgid "Link text color"
+msgstr ""
+
+#: manpagesgui.py:738
+msgid "Link background color"
+msgstr ""
+
+#: manpagesgui.py:739
+msgid "Bold text color"
+msgstr ""
+
+#: manpagesgui.py:740
+msgid "Bold background color"
+msgstr ""
+
+#: manpagesgui.py:741
+msgid "Italic text color"
+msgstr ""
+
+#: manpagesgui.py:742
+msgid "Italic background color"
+msgstr ""
+
+#: manpagesgui.py:743
+msgid "Environment variable text color"
+msgstr ""
+
+#: manpagesgui.py:744
+msgid "Environment variable background color"
+msgstr ""
+
+#: manpagesgui.py:745
+msgid "Display version number and exit"
+msgstr ""

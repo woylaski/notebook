@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+<!--
+Remaining steps:
+- make level for catapult and game, add targets
+- scale a canvas according to screen / window size
+- detect damage, destroy objects
+- game lifecycle: start, pause, restart, game over, level completed
+- add game id to protocol for all messages
+-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Stuff</title>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/Box2dWeb-2.1.a.3.js"></script>
+    <script src="js/config.js"></script>
+
+    <script type="text/javascript">
+
+    // overriding default config
+    config.worldToScreenFactor = 55;
+    config.offsetX = -1;
+    config.offsetY = -51;
+    config.framesPerSecond = 20;
+    config.velocityIterations = 3;
+    config.positionIterations = 3;
+
+    </script>
+
+    <script src="js/box2dgraphics.js"></script>
+    <script src="js/simulator.js"></script>
+    <script src="js/worldcreator.js"></script>
+    <script src="js/levels/bieberlevel.js"></script>
+    <script src="js/mousehandler.js"></script>
+    <script src="js/gamecommunication.js"></script>
+    <script src="js/controller.js"></script>
+
+    <link rel="stylesheet" href="css/techzone.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+
+</head>
+
+<body>
+
+    <canvas id="catapultCanvas" width="1100" height="600"></canvas>
+
+    <br/><button id="btnStartStop">Start/stop</button>
+</body>
+
+</html>

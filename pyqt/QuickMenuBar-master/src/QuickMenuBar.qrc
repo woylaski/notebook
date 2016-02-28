@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="QmbMenuBar/QmbMenu.qml">QmbMenu.qml</file>
+        <file alias="QmbMenuBar/QmbMenuBar.qml">QmbMenuBar.qml</file>
+        <file alias="QmbMenuBar/QmbMenuLayout.qml">QmbMenuLayout.qml</file>
+        <file alias="QmbMenuBar/QmbMenuItem.qml">QmbMenuItem.qml</file>
+        <file alias="QmbMenuBar/QmbMenuSeparator.qml">QmbMenuSeparator.qml</file>
+        <file alias="QmbMenuBar/QmbMenuStyle.qml">QmbMenuStyle.qml</file>
+        <file alias="QmbMenuBar/arrow-right.svg">arrow-right.svg</file>
+        <file alias="QmbMenuBar/checkbox.svg">checkbox.svg</file>
+		<file alias="QmbMenuBar/qmldir">qmldir</file>
+        <file>envelop.png</file>
+        <file>expand.png</file>
+    </qresource>
+</RCC>

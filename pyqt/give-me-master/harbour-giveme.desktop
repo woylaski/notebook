@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Name=Give'me
+Icon=harbour-giveme
+Exec=harbour-giveme

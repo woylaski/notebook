@@ -1,0 +1,8 @@
+*.user*
+*.old
+*.new
+*.orig
+*.bak
+*.autosave
+*.tmp
+*~

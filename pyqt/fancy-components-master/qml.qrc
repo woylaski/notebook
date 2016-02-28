@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ComponentsListObjectModel.qml</file>
+        <file>ComponentsListModel.qml</file>
+    </qresource>
+    <qresource prefix="/FancyMobileButton">
+        <file>components/FancyMobileButton/example.qml</file>
+        <file>components/FancyMobileButton/FancyMobileButton.qml</file>
+    </qresource>
+    <qresource prefix="/FancyLoginPanel">
+        <file>components/FancyLoginPanel/example.qml</file>
+        <file>components/FancyLoginPanel/FancyLoginPanel.qml</file>
+        <file>components/FancyLoginPanel/FancyMobileButton.qml</file>
+    </qresource>
+    <qresource prefix="/FancyColorPicker">
+        <file>components/FancyColorPicker/FancyColorPicker.qml</file>
+        <file>components/FancyColorPicker/example.qml</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>icons/go-next.svg</file>
+        <file>icons/go-previous.svg</file>
+        <file>icons/contact-new.svg</file>
+        <file>icons/ic_add_black_48dp.png</file>
+        <file>icons/ic_keyboard_arrow_left_black_48dp.png</file>
+        <file>icons/ic_keyboard_arrow_right_black_48dp.png</file>
+    </qresource>
+</RCC>

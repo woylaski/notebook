@@ -1,0 +1,71 @@
+
+version 1:
+    - svn checkout
+    - auto-op
+    - robust calls, with error handling/output
+    - restart
+    - cron-job
+    - asynk / threaded mode
+    - log
+    - let handler select public/private message type for answer
+    - allow comma ',' in addition to colon for destinations
+
+version 2:
+    - resource-support
+    - ensure utf-8 works in questions / answers
+    - multiple regexps per 
+    - teach the pig answers to questions (use regexps and resource support)
+    - service (runs periodically. eg checks matchbox every 5 minutes)
+    - cisco directory info
+    - backup its own data / resource files
+
+features:
+    - "voicemail" for irc. send message when someone logs on (eg spiderpig: to guido: get to work you lazy German!)
+    - buses in both directions
+    - more bus stops
+    - booty call
+    - connect-4 game
+    - daily joke
+
+Bugs:
+    - remove blank end lines when sending
+
+===========================================================
+spiderpig resource support
+===========================================================
+
+- resource/ folder with files containing data for spiderpig
+- let irc clients add/edit/delete
+- simple api for developers to use resources in new modules
+
+syntax:
+- pig: add to trafikaten.csv: oslo s; 32588127
+- pig: add to bootycall.txt:
+<pig> what to add?
+- pig: narrow eyebrows
+
+- pig: remove from bootycall.txt: ass
+- pig: edit trafikanten.txt:
+<pig> what to edit?
+- pig: nostril
+<pig> what to change it to:
+- pig: nostrils
+
+- pig: create file trafikanten.txt
+- pig: show me trafikanten.txt (shows 20 lines)
+- pig: show me resource files
+
+api:
+import pigFood
+pigFood.getRandomLine('bootycall.txt')
+
+pigFood.getCvs('trafikanten.csv')
+stationId = pigFood.getValue('oslo s')
+
+Pig-related terms:
+snout
+hoofs
+guinea pig
+pork, ham, bacon
+truffles
+swine flu

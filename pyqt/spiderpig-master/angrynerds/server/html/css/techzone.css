@@ -1,0 +1,15 @@
+body {
+    background-color: #CCC;
+}
+
+canvas {
+/*    width: 800px;
+    height: 600px;*/
+    background-color: #DDD;
+}
+
+button {
+    font-size: 10px;
+    border: 1px black solid;
+    background-color: #EEE;
+}

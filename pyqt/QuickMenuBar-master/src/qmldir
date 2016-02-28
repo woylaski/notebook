@@ -1,0 +1,10 @@
+module QuickMenuBar
+
+QmbMenu 1.0 QmbMenu.qml
+QmbMenuBar 1.0 QmbMenuBar.qml
+QmbMenuItem 1.0 QmbMenuItem.qml
+QmbMenuLayout 1.0 QmbMenuLayout.qml
+QmbMenuSeparator 1.0 QmbMenuSeparator.qml
+QmbMenuStyle 1.0 QmbMenuStyle.qml
+
+

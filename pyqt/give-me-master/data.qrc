@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ui_generic.qml</file>
+        <file>GiveMe.qml</file>
+        <file>ui_silica.qml</file>
+    </qresource>
+</RCC>

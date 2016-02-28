@@ -1,0 +1,151 @@
+
+/*! \mainpage QuickMenuBar Manual
+
+QuickMenuBar is a Qt5 QML module designed to display animated drop down menu. From a developper point of view, it as an interface very similar to Qt PieMenu and is licensed under GPL.
+
+\tableofcontents
+- \ref quickmenubarinstall
+- \ref quickmenubaruse
+- \ref quickmenubarconfig
+- \ref quickmenubarfaq
+
+\section quickmenubarinstall Installing and using QuickMenuBar
+
+For a QuickMenuBar standalone installation, get a .zip archive or clone the GIT repository on: https://github.com/cneben/QuickMenuBar/tree/master
+
+For using QuickMenuBar in your project, add QuickMenuBar.qrc file from the project src directory (QuickMenuBar\src) into your project resources, then import QuickMenuBar components with the following import statement in your main.qml: 
+\code
+import "qrc:/QuickMenuBar"
+\endcode
+
+TODO: describe importing as a submodule in GitHub.
+
+\section  quickmenubaruse Using QuickMenuBar
+
+QuickMenuMenu is composed of the following QML components:
+- \c QmbMenuBar: root menu bar component showing all root menu elements. QuickMenuBar supports two states:
+	+ \c RELEASED: the menu is hidden, there is just a "right visible" to the user, when hovered the menu is automatically activated (the menu could be activated at startup automatically when the style.expandedAtStartup is sets to true).
+	+ \c ACTIVATED: menu is shown with all root menu elements visible. Menu will go back to the RELEASED state when the mouse leave the menu area or an action is activated. If you do not want the menu to be automatically hidden, set the style.stayVisible property to true (false is the default).
+
+\image html	20150928_quickmenubar-ACTIVATED-RELEASED.png
+	
+- \c QmbMenu: model a group of menu item that can be used in menu element to specify a sub menu in a declarative way.
+	+ Set the QmbMenu \c orientation property to either \c Qt.Vertical (default) or \c Qt.Horizontal to modify menu orientation.
+
+\image html 20150928_quickmenubar-orientation.png
+	
+- \c QmbMenuItem: Models a menu command that can be either activated or released and could be used in three different ways:
+	+ <em> Simple item:</em> item will show an image icon and a label if specified, and emit the onActivated() signal when clicked.
+	+ <em> Checkeable item:</em> item will be checked or unchecked when clicked using actual style option to highlight both states.
+	+ <em> Sub menu item:</em> when a sub menu is defined as a menu item child, hovering the item will show the sub menu (either horizontal or vertical). 
+- \c QmbMenuSeparator: Models a simple graphic separation between menu elements.
+- \c QmbMenuStyle: QtObject component defining global menu settings (see \ref QmbMenuconfig for available options).
+
+Menu could be defined in a declarative way with the following simplified syntax:
+\code
+QmbMenuBar {	// Define a main menu bar
+	QmbMenuItem {	// Define a menu action item in the main menu bar
+		// ...
+	}
+	QmbMenuSeparator { } // Add a separation after first menu action element
+	QmbMenuItem {	// Define a menu action that is showing a sub menu
+		QmbMenu {	// Define a sub menu with two menu action items
+			QmbMenuItem { /* ... */ }
+			QmbMenuItem { /* ... */ }
+		}
+	}
+}
+\endcode
+
+A more complete real-life example with minimal menu configuration could looks like:
+\code
+QmbMenuBar {
+    QmbMenuItem {
+        source: "qrc:/oxygen/application-exit.svg"
+        text: "Menu Elem 1"
+    }
+    QmbMenuSeparator { }
+    QmbMenuItem {
+        source: "qrc:/oxygen/document-open.svg"
+        text: "Menu Elem 2"
+        checkable: true
+
+        onTriggered: { console.debug( "Menu item " + text + " triggered" ) }
+        onChecked: { console.debug( "Menu item " + text + " checked to " + state ) }
+    }
+    QmbMenuItem {
+        source: "qrc:/oxygen/office-chart-ring.svg"
+        text: "Sub Menu 3"
+        QmbMenu {
+            QmbMenuItem {
+                source: "qrc:/oxygen/media-playlist.svg"
+                text: "Menu Elem 31"
+            }
+            QmbMenuSeparator { }
+            QmbMenuItem {
+                source: "qrc:/oxygen/office-chart-ring.svg"
+                text: "Menu Elem 32"
+            }
+        }
+    }
+}
+\endcode
+
+The previous code result in the following menu:
+\image html 20150726_quickmenubar-exemple1.png
+
+\section quickmenubarconfig QuickMenuBar configuration
+
+Menu can be configured with the QmbMenuStyle component available through the \c style property of QuickMenuBar, QmbMenuStyle define the following properties:
+    \li \c bool \c debug (default false): QmbMenu component will output debug information to QML console when set to true, consider using this setting before submitting a bug report.
+    \li \c bool \c expandedAtStartup (default true): menu is expanded at startup.
+    \li \c bool \c stayVisible (default false): menu will be visible at atartup, and will stay visible (ie it will not go into the "released" state) even when the mouse quit the menu area. 
+    \li \c real \c menuOpacity (default 1.0): global menu opacity.
+    \li \c color \c textColor (default "#232323"): color for the text displayed in menu (for example the text property of QmbMenuItem).
+    \li \c bool \c showShadows (default true): add drop shadow effect to QmbMenuItem icon image and text (disable for slow devices).
+    \li \c int \c subMenuMargin (default 5): define the margin between a menu and its sub menu (for vertical menu, a sub menu will be shown with the specified margin across its parent menu).
+
+Menu elements could be configured in the same way with the following style properties:
+    \li \c double \c elementPreferredSize (default 64): QuickMenuBar will try to size the image icons in menu element to the preferred size (element with very long labels string could be sized up to two times this specified width).
+    \li \c color \c elementHilightGradColor (default "#4f4ae1"): color used to hilight the element when it is hovered by mouse.
+    \li \c color \c elementCheckedGradColor (default "#f971ee"): color used to hilight the element when it is checked.
+    \li \c color \c elementHilightCheckedGradColor (default "#ff50f1"): color used to hilight a checked element when it is hovered by mouse.
+	
+Changing the elementPreferredSize in the main menubar \c style property alter the menu in the following ways: 
+\code
+QmbMenuBar {
+	style.subMenuMargin: 6
+	QmbMenuItem { /* ... */ }
+}
+\endcode
+
+\image html 20150726_quickmenubar-subMenuMargin.png
+
+
+Changing the elementPreferredSize in the main menubar \c style property alter the menu in the following ways: 
+\code
+QuickMenuBar {
+	style.elementPreferredSize: 32
+	QmbMenuItem { /* ... */ }
+}
+\endcode
+
+\image html 20150729_quickmenubar-preferredSize.png
+
+\section quickmenubarfaq QuickMenuBar Frequently Asked Questions
+
+\b Q: <em>Is QuickMenuBar ready for use in production software?</em>
+
+\b A: 20150928: QuickMenuBar should be considered in an alpha stage, it could already be used in desktop environments but has not been extensively tested on embedded devices.
+
+
+\b Q: <em>Does QuickMenuBar currently support keyboard shortcuts?</em>
+
+\b A: No, not for the moment.
+
+
+\b Q: <em>I want to use QuickMenuBar in a commercial project, is QuickMenuBar released under another license that GPL ?</em>
+
+\b A: Yes, QuickMenuBar could be used in commercial project, contact benoit@qanava.org for license details.
+	
+*/

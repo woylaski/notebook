@@ -1,0 +1,35 @@
+/*
+ * author qyvlik
+ * email qyvlik@qq.com
+ * time 2015/4/10
+*/
+
+import QmlProject 1.1
+
+Project {
+    //mainFile: "./demo/HistorySearchDemo/HistorySearchDemo.qml"
+
+    mainFile: "main.qml"
+    /* Include .qml, .js, and image files from current directory and subdirectories */
+    QmlFiles {
+        directory: "."
+    }
+    JavaScriptFiles {
+        directory: "."
+    }
+    ImageFiles {
+        directory: "." //images://
+    }
+
+    Files {
+        directory: "."
+        filter: "*.md"
+    }
+    Files {
+        directory: "."
+        filter: "*qmldir*"
+    }
+
+    /* List of plugin directories passed to QML runtime */
+    importPaths: [ "./modules","./demo" ]
+}

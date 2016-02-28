@@ -1,0 +1,62 @@
+Stuff to present
+
+
+Part 1:
+Introduction to xapi
+- what it is
+- how to access it
+- how to get help (completion, schema commands, documentation, developers)
+- status, config and commands. what's the difference
+- lists
+- how to setup a call
+- how to listen to changes (feedback)
+- how to change audio volume
+- how to quit
+
+Benefits of the xapi
+
+Drawbacks
+
+Part 3:
+
+Reasons for usage:
+* work offline
+* situations that take time to setup (eight calls on hold)
+* hardware thats difficult to get hold of (moody)
+* api that is agreed upon but not finished implemented on codec
+* sniffing tool. debug. or just learning
+* stuff that needs complex external setup. cucm (consultative add)
+* stuff that is _not_ preferable to test for real (plugging in / out monitor cable)
+* switching btw many different setups, vcses regularly
+* pms, marketing etc who needs screenshots
+* integrators?
+* remote teams without network access / resources. kepler team
+
+
+Architecture
+* Diagram of connection types: gui to simulator, gui to codec, gui to manual
+gui to codec with manual modification of feedback
+* Show server/proxy nature of connection. explain how ocean pairs (in host mode).
+explain why it is easy to modify to pralines
+
+* Explain the disposable nature. Explain why (api changing often)
+* Run through recording. Pair with codec, make a call,
+
+* Translation. generation of screens. use exisiting scripts??
+
+* If possible, show xray being used with:
+Ocean
+Pralines
+Phoenix
+Web gui
+Or explain how this can be added easily
+
+* Limitations. Explain why
+
+* Future extension:
+Web server allowing actual simulation. xapi converted to json for easy manipulation
+
+* Brainstorming in groups of 5 persons: Do we like tools like this? What more could they be used for? Or other users?
+Other nice features?
+
+* Note about promoting playtime

@@ -1,0 +1,96 @@
+* {font-family: verdana, arial}
+
+/* Placements */
+#groupMatches, #knockoutMatches, #groupMatches table, #knockoutMatches table, #questions, #questions table, #topScorer table {
+    width: 650px;
+}
+#highscore, #highscore table {
+    width: 200px;
+}
+#groupMatches, #highscore, #questions{margin: 15px}
+
+#topScorer {margin: 15px;}
+
+#groupMatches {
+    margin-top: 55px;
+}
+
+#knockoutMatches {
+    margin: 15px;
+}
+
+#highscore {
+    position: fixed;
+    top: 36px;
+    left: 676px;
+}
+
+#infoBox {
+    position: fixed;
+    top: 0;
+    left: 23px;
+    width: 870px;
+}
+
+.points, answerPoints {
+    width: 30px;
+}
+
+#infoBox {
+    padding: 5px;
+}
+
+.box {
+    border: 1px solid #999;
+    background-color: #ddd;
+    border-spacing: 5px;
+    margin: 5px;
+}
+
+.highlight {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+td, th {
+    border: 1px solid #aaa;
+    padding: 3px;
+}
+td {
+    background-color: white;
+    font-size: 12px;
+}
+th {
+    background-color: #eee;
+    font-size: 12px;
+}
+
+a {
+    color: black
+}
+
+.correctScore {
+    background-color: #0d0;
+}
+.correctResult {
+    background-color: orange;
+}
+.incorrect {
+    background-color: #eee;
+}
+
+#scoreDialog {
+    text-align: center;
+}
+
+.inputScore {
+    width: 20px;
+    border: 1px solid #bbb;
+}
+
+.flag {
+    width: 23px;
+    height: 14px;
+    margin-right: 5px;
+    border: 1px solid black;
+}

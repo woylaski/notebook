@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>AbstractElement.qml</file>
+        <file>BlockElement.qml</file>
+        <file>Attribute.qml</file>
+        <file>ContentData.qml</file>
+        <file>InlineElement.qml</file>
+        <file>ScrollableArea.qml</file>
+        <file>ui.qml</file>
+    </qresource>
+</RCC>

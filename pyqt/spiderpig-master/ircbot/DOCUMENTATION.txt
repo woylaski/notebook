@@ -1,0 +1,33 @@
+==================================================
+IRCLIB
+==================================================
+
+
+Here's a quick overview of irclib:
+
+
+irclib.py:
+	class IRC - basic irc client (might  contain more than one server connection). You can attach event handlers to it. Contains ref to 
+
+	class Connection - abstract base class
+
+	class ServerConnection - inherits Connection. Contains all the interesting irc calls such as join, kick, ping, privmsg, sendraw etc
+
+	class SimpleIRCClient - no inheritance. Enables on_xxx event handler functions that can be implemented by subclasses for actual use. 
+	Contains ref to ircobj and connection obj
+
+ircbot.py:
+	class SingleServerIRCBot - inherits SimpleIRCClient. Adds automatic reconnection if disconnected. Keeps track of channels and connected users
+
+
+
+
+May be needed by plugins:
+- Able to send channel / direct message on own choice
+- List of available users
+- IRC basic commands: WHOIS, WHOWAS, ....
+- Attach event handler (on_join etc)
+- Send raw (kick, op, ...)
+- Restart service
+- Start spiderpig with different server/port/channel/nick
+- Metadata: server/port/channel/nick

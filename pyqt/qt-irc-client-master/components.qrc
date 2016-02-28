@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ui.qml</file>
+        <file>components/LabelNormal.qml</file>
+        <file>components/LabelTitle.qml</file>
+        <file>components/VScrollIndicator.qml</file>
+    </qresource>
+</RCC>

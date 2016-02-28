@@ -1,0 +1,58 @@
+<Bookings item="1" status="OK">
+  <ResultInfo item="1">
+    <TotalRows item="1">26</TotalRows>
+  </ResultInfo>
+  <LastUpdated item="1">2011-09-01T21:34:15Z</LastUpdated>
+  <Booking item="1">
+    <Id item="1">12345</Id>
+    <Title item="1">Test meeting</Title>
+    <Agenda item="1">Test meeting agenda</Agenda>
+    <Privacy item="1">Public</Privacy>
+    <Organizer item="1">
+      <FirstName item="1">Arne</FirstName>
+      <LastName item="1">Anka</LastName>
+      <Email item="1">anka@anka.com</Email>
+    </Organizer>
+    <Time item="1">
+      <StartTime item="1">1 minutes</StartTime>
+      <StartTimeBuffer item="1">720</StartTimeBuffer>
+      <EndTime item="1">120 minutes</EndTime>
+      <EndTimeBuffer item="1">0</EndTimeBuffer>
+    </Time>
+    <MaximumMeetingExtension item="1">30</MaximumMeetingExtension>
+    <MeetingExtensionAvailability item="1">Guaranteed</MeetingExtensionAvailability>
+    <BookingStatus item="1">OK</BookingStatus>
+    <BookingStatusMessage item="1"></BookingStatusMessage>
+    <Webex item="1">
+      <Enabled item="1">False</Enabled>
+      <Url item="1"></Url>
+      <MeetingNumber item="1"></MeetingNumber>
+      <Password item="1"></Password>
+      <HostKey item="1"></HostKey>
+      <DialInNumbers item="1"/>
+    </Webex>
+    <InteropBridge item="1">
+      <Number item="1"></Number>
+      <ConferenceId item="1"></ConferenceId>
+    </InteropBridge>
+    <ManualCallIn item="1">
+      <Number item="1">68900</Number>
+      <ConferenceId item="1">1100268783</ConferenceId>
+      <ConferencePassword item="1"></ConferencePassword>
+    </ManualCallIn>
+    <Encryption item="1">BestEffort</Encryption>
+    <Role item="1">Slave</Role>
+    <Recording item="1">Disabled</Recording>
+    <DialInfo item="1">
+      <Calls item="1">
+        <Call item="1">
+          <Number item="1">tbjolset.e20@lys.cisco.com</Number>
+          <Protocol item="1">SIP</Protocol>
+          <CallRate item="1"></CallRate>
+          <CallType item="1">Video</CallType>
+        </Call>
+      </Calls>
+      <ConnectMode item="1">OBTP</ConnectMode>
+    </DialInfo>
+  </Booking>
+</Bookings>

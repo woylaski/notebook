@@ -1,0 +1,246 @@
+qt-components-hildon (0.23.1) unstable; urgency=low
+
+  * Fix key event handling in ListItem.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Sat, 06 Feb 2016 17:31:29 +0100
+
+qt-components-hildon (0.23.0) unstable; urgency=low
+
+  * Add MultiListPickSelector component.
+  * Add 'alignment' property to ToolBar.
+  * Minor implementation tweaks.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Sat, 06 Feb 2016 00:46:47 +0100
+
+qt-components-hildon (0.22.1) unstable; urgency=low
+
+  * Fix dialog parenting.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Wed, 03 Feb 2016 18:43:26 +0100
+
+qt-components-hildon (0.22.0) unstable; urgency=low
+
+  * Add dateTime context property.
+  * Allow dialogs to be parented by non-widget items.
+  * Fix DatePickSelector and TimePickSelector.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Wed, 03 Feb 2016 17:22:18 +0100
+
+qt-components-hildon (0.21.0) unstable; urgency=low
+
+  * Add SortFilterProxyModel component.
+  * Add DBusConnections component.
+  * Improve conversion of DBus arguments in DBusMessage.
+  * Move BusType enum of DBusAdaptor/DBusMessage to DBus class.
+  * Fix typo in Flickable and ListView.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Fri, 04 Dec 2015 22:14:41 +0100
+
+qt-components-hildon (0.20.1) unstable; urgency=low
+
+  * Add ButtonRow, ComboBox, MessageBox, RadioButton and ScrollDecorator components.
+  * Add Osso* style components to provide Osso styling for various components.
+  * Modify ScrollBar to use Osso interactive scroll bar style.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Wed, 21 Oct 2015 22:53:32 +0100
+
+qt-components-hildon (0.19.0) unstable; urgency=low
+
+  * Add FontMetrics, TextMetrics and TabBar components to org.hildon.components module.
+  * Add File component to org.hildon.utils module.
+  * Center the horizontal alignment of icon/text in Button.
+  * Fix possible binding loop in TextArea.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Fri, 09 Oct 2015 20:57:17 +0100
+
+qt-components-hildon (0.18.0) unstable; urgency=low
+
+  * Add Action component.
+  * Add 'action' property to MenuItem and AbstractButton.
+  * Add 'filters' property to MenuBar.
+  * Add addFilter() and addItem() functions to MenuBar.
+  * Add addItem() and addMenu() functions to Menu.
+  * Add addCheckable() and removeCheckable() functions to ExclusiveGroup.
+  * Update documentation and examples.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Sat, 26 Sep 2015 17:02:12 +0100
+
+qt-components-hildon (0.17.1) unstable; urgency=low
+
+  * Add org.hildon.desktop module with HomescreenWidget and Notification components.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Wed, 19 Aug 2015 01:34:41 +0100
+
+qt-components-hildon (0.16.0) unstable; urgency=low
+
+  * Set palette of WebView and WebPage to provide white background.
+  * Add triggerAction() methods to WebView and WebPage.
+  * Add 'contextMenuPolicy' property to WebView.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Mon, 10 Aug 2015 21:24:34 +0100
+
+qt-components-hildon (0.15.0) unstable; urgency=low
+
+  * Add org.hildon.webkit module.
+  * Add 'windowState' property to Window.
+  * Make 'fullScreen' property of Window NOTIFY-able.
+  * Enable horizontal scrolling in TextArea.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Mon, 03 Aug 2015 00:54:26 +0100
+
+qt-components-hildon (0.14.0) unstable; urgency=low
+
+  * Add Tab, TabButton and TabView components.
+  * Fix empty action in Menu.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Wed, 29 Jul 2015 21:04:12 +0100
+
+qt-components-hildon (0.13.0) unstable; urgency=low
+
+  * Use widgets for top-level items (Window, Dialog, Menu) only.
+  * Remove all references to private APIs.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Thu, 09 Jul 2015 15:57:31 +0100
+
+qt-components-hildon (0.12.1) unstable; urgency=low
+
+  * Add RESET function for the 'filterRegExp' of SortFilterProxyModel.
+  * Make the 'filterProperty', 'filterRegExp' and 'sortProperty' properties of SortFilterProxyModel NOTIFY-able.
+  * Make the 'acceptableInput' property of DoubleSpinBox, SpinBox and TextField NOTIFY-able.
+  * Add 'organization' property for multimedia metadata.
+  * Bug fixes in Audio/Video components.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Sun, 16 Nov 2014 23:21:24 +0100
+
+qt-components-hildon (0.12.0) unstable; urgency=low
+
+  * Add org.hildon.multimedia module. Thanks to OMP team for MAFW code.
+  * Fixes and improvements to existing components.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Mon, 27 Oct 2014 10:52:31 +0100
+
+qt-components-hildon (0.11.0) unstable; urgency=low
+
+  * Add documentation at http://marxoft.co.uk/doc/qt-components-hildon
+  * Add TextBrowser component to the org.hildon.components module.
+  * Add 'style' property to visual items and Style components to the org.hildon.components module.
+  * Add 'autoClose' property to the Page component.
+  * Fix volume keys in the Keys attached property.
+  * Remove org.hildon.network module.
+  * Remove org.hildon.filesystemmodel module and move FileSystemModel to org.hildon.components.
+  * Add org.hildon.settings module with GConfItem and move Settings to org.hildon.settings.
+  * Don't ship examples.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Sun, 12 Oct 2014 21:23:14 +0100
+
+qt-components-hildon (0.10.0) unstable; urgency=low
+
+  * Added org.hildon.tracker module.
+  * Added Binding, Component, Connections and SortFilterProxyModel components to the org.hildon.components module.
+  * Added DBusConnections component to the org.hildon.dbus module.
+  * Added Tracker example.
+  * Fixes and improvements to existing components.
+  * Updated examples.
+  * Ship QML files for all examples (see /opt/qt-components-hildon/examples/)
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Sun, 14 Sep 2014 15:31:32 +0100
+
+qt-components-hildon (0.9.0) unstable; urgency=low
+
+  * Added ListModel and ItemAction components to the org.hildon.components module.
+  * Improvements to DBusMessage and DBusAdaptor components.
+  * Updated example applications (see /opt/qt-components-hildon/bin/ for available examples).
+  * Bug fixes.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Mon, 27 Aug 2014 23:17:14 +0100
+
+qt-components-hildon (0.8.0) unstable; urgency=low
+
+  * Added Keys attached property.
+  * Added option to set a custom WebPage component for WebView.
+  * Added 'userAgent' property to WebPage and WebView components.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Mon, 11 Aug 2014 15:18:32 +0100
+
+qt-components-hildon (0.7.0) unstable; urgency=low
+
+  * Added HeaderSection component for defining sections in HeaderView.
+  * Added 'sections' list property to HeaderView.
+  * Added some scrolling properties to TextEdit.
+  * Added hitTestContent() function to WebView and WebPage components.
+  * Added some properties to WebSettings.
+  * Fixed WebHistory saving/loading.
+  * Minor bug fixes.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Fri, 01 Aug 2014 01:25:17 +0100
+
+qt-components-hildon (0.6.0) unstable; urgency=low
+
+  * Added ZoomArea component to the org.hildon.components module.
+  * Added WebPage component to the org.hildon.webkit module.
+  * Added 'clipboard' global context property to the org.hildon.utils module.
+  * Improved scroll handling in Flickable, ListView, TableView and WebView components.
+  * Bug fixes.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Sat, 26 Jul 2014 22:28:24 +0100
+
+qt-components-hildon (0.5.0) unstable; urgency=low
+
+  * Added TabBar and TabButton components to the org.hildon.components module (see example in Gallery).
+  * Added Directory component to the org.hildon.utils module.
+  * Added 'linkDelegationPolicy', 'newWindowComponent', 'newWindowParent' and 'javaScriptWindowObjects' properties to WebView.
+  * Added text margins properties to TextField.
+  * Make 'enabled' property NOTIFY-able.
+  * Fixed focus handling in TextField and ValueButton components.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Mon, 21 Jul 2014 12:40:31 +0100
+
+qt-components-hildon (0.4.0) unstable; urgency=low
+
+  * Added org.hildon.filesystemmodel module with FileSystemModel component.
+  * Added org.hildon.dbus module with DBusAdaptor and DBusMessage components.
+  * Added global 'webSettings' and 'webHistory' properties to the org.hildon.webkit module.
+  * Added 'settings' and 'history' properties to the WebView component.
+  * Added Repeater, TableView and HeaderView components to the org.hildon.components module.
+  * Added QModelIndex global property to the org.hildon.components module, to allow access to functions of QModelIndex (e.g var row = QModelIndex.row(view.currentIndex))
+  * Added support for custom delegates in item views (ListItem* components).
+  * Improvements and bug-fixes for existing components.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Sat, 19 Jul 2014 20:47:23 +0100
+
+qt-components-hildon (0.3.0) unstable; urgency=low
+
+  * Added Page component.
+  * WindowStack is now PageStack (accessible via the 'pageStack' context property).
+  * It is now possible to create multiple top-level Window components, each with its own PageStack instance.
+  * Improvements to existing components.
+  * Don't install desktop files for the example applications.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Thu, 03 Jul 2014 14:34:16 +0100
+
+qt-components-hildon (0.2.0) unstable; urgency=low
+
+  * Added DoubleSpinBox, Image, BorderImage, MultiListSelector, Rectangle and ScreenShot components (ScreenShot requires org.hildon.utils).
+  * Added 'theme' image provider (usage: image://theme/$IMAGE_FILENAME_WITHOUT_SUFFIX).
+  * Added QML ScreenShot example application.
+  * Improvements to Flickable and ListView components.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Sat, 28 Jun 2014 16:23:51 +0100
+
+qt-components-hildon (0.1.1) unstable; urgency=low
+
+  * Fix undefined symbol error in org.hildon.webkit.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Thu, 19 Jun 2014 19:21:34 +0100
+
+qt-components-hildon (0.1.0) unstable; urgency=low
+
+  * Now exposing Qt widgets to QML.
+
+ -- Stuart Howarth <showarth@marxoft.co.uk>  Thu, 19 Jun 2014 15:12:56 +0100
+
+qt-components-hildon (0.0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Stuart Howarth <stuhowarth77@gmail.com>  Sun, 31 Mar 2013 15:01:46 +0000

@@ -1,0 +1,9 @@
+[submodule "libQtQmlTricks/UiElements"]
+	path = libQtQmlTricks/UiElements
+	url = ../../qt-qml-tricks/qt-quick-ui-elements.git
+[submodule "libQtQmlTricks/SuperMacros"]
+	path = libQtQmlTricks/SuperMacros
+	url = ../../qt-qml-tricks/qt-supermacros.git
+[submodule "libQtQmlTricks/NiceModels"]
+	path = libQtQmlTricks/NiceModels
+	url = ../../qt-qml-tricks/qt-qml-models.git

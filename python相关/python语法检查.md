@@ -1,0 +1,3 @@
+pyflake
+pylint
+pychecker

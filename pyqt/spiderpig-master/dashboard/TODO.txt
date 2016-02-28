@@ -1,0 +1,24 @@
+--------------------------------
+TODO
+--------------------------------
+
+
+Find out how to treat list in container (0.5 h)
+Make page flip container (1 h)
+Make carousel (0.5 h)
+Web server: use plugin
+Web server: find plugin for given question, and return data (1h)
+
+Widgets:
+Weather: make data backend (1h)
+Weather: design component (1h)
+Aftenposten: reshape to normal size (0.5 h)
+Aftenposten: improve animation logic (0.5h)
+Aftenposten: support for different feeds (0.5h)
+Matchbox: design component (1h)
+Matchbox: integrate with web server (1h)
+Calendar: design component (1h)
+Calendar: hardcoded backened (1h)
+Notifications: backend (1h)
+Notifications: show full screen (1h)
+Notifications to add: standup, scum regular, friday coke, circle training, water plant

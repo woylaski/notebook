@@ -1,0 +1,158 @@
+* {
+font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+
+}
+
+h1 {font-size:16px; font-weight: normal;}
+h1, span {color: #444}
+
+
+
+/* ----------- My Form ----------- */
+#meetings {
+    margin: 0 auto;
+    width: 900px;
+    padding: 14px;
+
+    border: 2px solid #ddd;
+    background-color: #eee;
+}
+
+input {
+    width: 100px;
+}
+
+
+#timezoneOffset {width: 30px;}
+
+
+input, textarea {
+    border: solid 1px #ddd;
+    padding: 3px;
+}
+
+div {
+    padding: 5px;
+}
+
+.title, .agenda, .dialInNumber {
+    width: 250px;
+}
+
+.hours, .minutes, .startBuffer, .endBuffer {
+    width: 20px;
+}
+
+.agenda {
+    height: 40px;
+}
+.startTime {
+    width: 40px;
+}
+
+hr {
+    height: 1px;
+    border: 0px;
+    color: #ddd;
+    background-color: #ddd;
+}
+
+.plusMinus {
+    width: 20px;
+}
+
+button {
+    background-color: #ddd;
+    border: 1px solid #ccc;
+}
+
+#sendBookings {
+    background-color: #090;
+    border: 1px solid #070;
+    color: white;
+}
+
+#editRaw, #sendBookings, #editGui {
+    padding: 5px;
+}
+
+#editXmlField {
+    width: 600px;
+    height: 400px;
+}
+
+.invalid {
+    background-color: #c00;
+    color: white;
+
+}
+
+.meeting {
+    margin-top: 5px;
+    background-color: #e5e5e5;
+}
+
+.titleLabel {
+    margin-left: 10px;
+}
+.meetingDetails {
+    margin-left: 80px;
+}
+.meetingDetails * {vertical-align: top}
+
+/*
+.date, .time {width: 100px;}
+
+
+#meetings{
+border:solid 2px #b7ddf2;
+background:#ebf4fb;
+}
+#meetings h1 {
+font-size:14px;
+font-weight:bold;
+margin-bottom:8px;
+}
+#meetings p{
+font-size:11px;
+color:#666666;
+margin-bottom:20px;
+border-bottom:solid 1px #b7ddf2;
+padding-bottom:10px;
+}
+#meetings label{
+display:block;
+font-weight:bold;
+text-align:right;
+width:140px;
+float:left;
+}
+#meetings .small{
+color:#666666;
+display:block;
+font-size:11px;
+font-weight:normal;
+text-align:right;
+width:140px;
+}
+#meetings input{
+float:left;
+font-size:12px;
+padding:4px 2px;
+border:solid 1px #aacfe4;
+margin:2px 0 20px 10px;
+}
+#meetings button{
+clear:both;
+margin-left:150px;
+width:125px;
+height:31px;
+background:#666666 url(img/button.png) no-repeat;
+text-align:center;
+line-height:31px;
+color:#FFFFFF;
+font-size:11px;
+font-weight:bold;
+}
+*/

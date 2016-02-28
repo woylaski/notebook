@@ -1,0 +1,41 @@
+TODO for X-Ray simulator
+
+Bugs
+* If no connection, gui input does not appear in log list
+
+Features needed now:
+* Quickly switch between codec and simulator without going through menus, dialogs etc
+* Show status of message (sent from gui, received by codec et)
+* Show which GUI and codec is connected in a intuitive way (boxes and connections)
+* Improve connection handlings. Quit proxy if no comms. Timeout codec pairing
+* Improve handling non-existing file directories
+* Setup guide on wiki
+* Warn if no files in simulator dir.
+
+Future features:
+* Built-in help system (html / Qt Assistant)
+* Recently used codecs
+* Warning if not able to connect to codec. Also, hint about codec password and prompt
+* First-time help
+* Built in text search here and there
+* View contents of xml file and/or xml data. separate view/tool
+
+Code improvements:
+* automate testing for the step above for client->simulator (with sample xml files)
+* the division btw the two projects. change to xray, and xrayproxy or something
+
+Done:
+* Set directory for simulator, and remember last used
+* GUI for starting and stopping recording. Indicate that you are recording. Select output folder
+* Add message counter to list (but should it be the same as ocean's message id?)
+* Switch off results from codec (but still show them in gui and allow to modify and send back answer)
+* Move all stuff from menu bar to toolbar in main window, too hard to find on linux and mac
+* Turn on/off filtering of periodic messages
+* When clicking command, show that in message window
+
+Fixed:
+* Sending data to gui from file with more than one reply only lists the first reply in the reply list
+(but it's still sent correctly, and shown in the message content view)
+* When connected to codec, show that in the connection dialog
+* When moving up/down list with keys, show message in message editor as well
+* When selecting more than one message, clear message window

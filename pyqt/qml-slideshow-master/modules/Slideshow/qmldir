@@ -1,0 +1,16 @@
+module Slideshow
+Banner 1.0 Banner.qml
+Body 1.0 Body.qml
+Box 1.0 Box.qml
+Clock 1.0 Clock.qml
+Countdown 1.0 Countdown.qml
+Date 1.0 Date.qml
+Deck 1.0 Deck.qml
+FontLoaders 1.0 FontLoaders.qml
+singleton Fonts 1.0 Fonts.qml
+Footer 1.0 Footer.qml
+Header 1.0 Header.qml
+singleton Navigator 1.0 Navigator.qml
+Slide 1.0 Slide.qml
+SlideNumber 1.0 SlideNumber.qml
+Time 1.0 Time.qml

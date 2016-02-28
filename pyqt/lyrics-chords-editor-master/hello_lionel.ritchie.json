@@ -1,0 +1,51 @@
+{
+    "groups": [
+        {
+            "group": "Verse 1",
+            "lines": [
+                {
+                    "chords": [
+                    ],
+                    "lyrics": "I've been alone with you inside my mind,"
+                },
+                {
+                    "chords": [
+                    ],
+                    "lyrics": "And in my dreams I've kissed your lips a thousand times,"
+                }
+            ]
+        },
+        {
+            "group": "Chorus",
+            "lines": [
+                {
+                    "chords": [
+                        {
+                            "position": 4,
+                            "type": 0,
+                            "variant": 1
+                        }
+                    ],
+                    "lyrics": "Hello !"
+                },
+                {
+                    "chords": [
+                        {
+                            "position": 9,
+                            "type": 8,
+                            "variant": 0
+                        },
+                        {
+                            "position": 24,
+                            "type": 3,
+                            "extra" : 1,
+                            "variant": 2
+                        }
+                    ],
+                    "lyrics": "Is it me you're looking for ?"
+                }
+            ]
+        }
+    ],
+    "title": "Hello - Lionel Ritchie"
+}

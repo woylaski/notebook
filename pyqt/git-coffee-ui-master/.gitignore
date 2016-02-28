@@ -1,0 +1,11 @@
+*.user*
+*.autosave
+*.save
+*.tmp
+*.old
+*.bak
+*~*
+*.o
+*.moc
+*.rcc
+*.uic

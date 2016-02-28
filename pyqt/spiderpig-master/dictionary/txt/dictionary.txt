@@ -1,0 +1,115 @@
+
+Cisco Dictionary
+
+
+
+Snoopy = E20, bordtelefon
+Pluto = EX60, 22"
+Falcon = EX90, 24"
+Intrepid = MX200, 32"
+Nibbler = Software på nytt androidbasert tochdevice (solution platforms)
+Endeavour (HW), Touchmenu (GUI), Ocean (GUI) = Intouch (touchenhet)
+Idefix = Neste generasjons endeavour, android-basert
+Apollo - program for all the codecs of a certain generation
+Saturn = C20, C40, C60, C90 = codecs = møteromssystemer  (også software på Pluto og Falcon). Part of the Apollo program
+Asterix = Neste generasjon codec
+Phoenix = GUI på Asterix (and Carbon), Qt-based, remote-control on-screen
+Charlie = Snoopy software på Pluto og falcon (neste versjon)
+spider = old codename for gui on snoopy
+Apollo = 
+Milau - project for presenting marketing information about what equipment can be used to meet client's need. use cases, what is
+the benefit of eg carbon compared to other codecs
+
+
+Nimbus - physical endpoint for falcon, remote control (possibly based on drishti)
+Falcon - cloud-based telepresence service. removes the need for companies to have their own infrastructure for the telepresence
+Bender - personal ui, android (vegard)
+Nibbler - multipurpose ui, android (einar hagen, dan peder eriksen)
+Boomerang - ex120, personal endpoint
+Monza - tc endpoint (eq ex120)
+Idefix - android hardware, both multipurpose/personal
+Abarth - exXXX, personal endpoint with touchui (no idefix)
+Miraculix - bigger idefix, stylus
+Il tempo gigante - exXXX, bigger personal, but probably deprecated
+Drishti - New codec for TC, being developed at Lysaker, omap4, integrated camera, speaker, only remote control. plug and play. for small meeting rooms
+"cheaper version" compared to Carbon.
+Synergy - Name of software running on ip videodesk telephone, with touch tablet, Android, (cisco-based, no xapi). kind of e20 from cisco (non-tandberg)
+Cannondale - ??
+Carbon - new codec for TC, tilera hardware
+Jumi - Cisco personal home based videoconferencing system, user could connect it to the TV. Subscription based.
+Da Vinci - multimedia arm processors from Texas Instruments used on the codecs in the TC/TE Apollo series
+Tilera - scalable multi-processor set used in the upcoming Carbon codec
+Alto - control endpoints with your own device, at least android initially
+
+feature parity- when creating a new product replacing others, making sure that the new product can all the things
+as the one that it is replacing
+
+Cisco
+Cisco Performance Connection - planning and measurement system for Cisco employees
+
+GIC = Global Interaction Concept
+Futurama = Neste interaksjons konsept
+JTIC, FIPS, AS-SIP = Amerikanske federale standariseringsting
+sip - session initiation protocol. voice over ip protocol
+SIP, H323 = VOIP protkoller
+as-sip assured services session initiation protocol
+
+TTG, TSBU, TXBU = Forvirrende CISCO navn
+CEC = Cisco Employee Connection
+HRMS = HR Management System (stedet for å registrere feriedager)
+ITVM, TNG = QA testsystemer
+ACDC = Systemtester
+Matchbox = Byggeovervåker
+
+binst = the process, and command, for installing software (binaries) on an endpoint
+rover, sangam = conference room cameras
+Movi = soft client for windows og PC
+tcs - opptaker. telepresence content server
+vcs - provisjonering, mngt, sip proxy, ruter samtalene. videoconferencing system
+
+soft client - software that can be used on off-the-shelf products such as windows, mac etc for
+video conferencing. One cisco example is jabber. As opposed to hard client (eg EX60, Intrepid, etc)
+
+helmet
+marcie - isdn box, codec, can be called with sip
+halley
+oak
+
+
+- Multisite:  flere samtidige samtaler på samme endepunkt (et endepunkt fungerer som hub)
+- Multiway:  flere samtidige samtaler via konferanseserver (lavere båndbreddekrav til enkeltklienter). Krever mcu, multicall unit
+- MCU:  Konferanseserver, multicall unit
+- CUCM: Cisco unified call manager. Includes MCU?
+- Shared lines: Multiple endpoins share the same number. Typical useful for support lines, where someone can call a single number and anyone on the same line can answer. CUCM feature
+- Barge: When someone is in a shared line, another one on that line can join or "barge" the conversation.
+- OBTP: one button to push - start meeting by simply pressing one button (no setup of meeting required for participants)
+- consultative merge, consultative transfer?
+
+
+cts - big endpoints (cisco, not tandberg)
+ctms - multipoint switch (cisco, not tandberg)
+vcs
+mcu - multi-point control unit, device to bridge videoconferencing connections. provides multipoint conferences
+webex - cisco voice conference. not video
+cucm
+TSBU* - telepresence business unit. The whole of Lysaker?
+TIBU
+TTG - telepresence technology group
+MXABU
+ETG
+Polycom - closest competitor for telepresence
+Ad hoc meeting 
+telepresence conductor
+tms - telepresence management system. Provisioning of endpoints, central phonebook server
+jabber
+movi
+multipurpose
+immersive
+futurama
+te
+tc
+charlie
+multi-site
+multi-way
+cuil
+

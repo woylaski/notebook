@@ -1,0 +1,1252 @@
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="1">
+            <OutputRole item="1">
+              <Frame item="7" ghost="True"/>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<DialResult status="OK">
+  <CallId item="1">18</CallId>
+  <ConferenceId item="1">14</ConferenceId>
+</DialResult>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <ActiveSpeaker item="1">
+      <SiteId item="1">1</SiteId>
+    </ActiveSpeaker>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Event>
+  <Conference item="1">
+    <ParticipantList item="1">
+      <ListCleared item="1">
+        <CallId item="1">18</CallId>
+      </ListCleared>
+    </ParticipantList>
+  </Conference>
+</Event>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Experimental item="1">
+    <Conference item="1">
+      <Site item="18">
+        <Capabilities item="1">
+          <ParticipantList item="1">Unavailable</ParticipantList>
+        </Capabilities>
+      </Site>
+    </Conference>
+  </Experimental>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Experimental item="1">
+    <Conference item="1">
+      <Site item="18">
+        <Capabilities item="1">
+          <LocalLayoutChange item="1">Unavailable</LocalLayoutChange>
+          <Lock item="1">Unavailable</Lock>
+          <ParticipantDisconnect item="1">Unavailable</ParticipantDisconnect>
+          <ParticipantMute item="1">Unavailable</ParticipantMute>
+        </Capabilities>
+      </Site>
+    </Conference>
+  </Experimental>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Experimental item="1">
+    <Conference item="1">
+      <Site item="18">
+        <DefaultLayout item="1">
+          <LayoutName item="1"></LayoutName>
+          <MaxPanes item="1">0</MaxPanes>
+        </DefaultLayout>
+        <Layout item="1">
+          <LayoutName item="1"></LayoutName>
+          <MaxPanes item="1">0</MaxPanes>
+        </Layout>
+      </Site>
+    </Conference>
+  </Experimental>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Site item="18">
+      <Capabilities item="1">
+        <IxChannel item="1">
+          <Status item="1">Off</Status>
+        </IxChannel>
+      </Capabilities>
+    </Site>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Site item="18">
+      <Capabilities item="1">
+        <FarendMessage item="1">
+          <Mode item="1">Off</Mode>
+        </FarendMessage>
+      </Capabilities>
+    </Site>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Event>
+  <OutgoingCallIndication item="1">
+    <CallId item="1">18</CallId>
+  </OutgoingCallIndication>
+</Event>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Site item="1">
+        <Output item="1">
+          <Frame item="7">
+            <Filename item="1"></Filename>
+            <FrameContainerId item="1">0</FrameContainerId>
+            <Height item="1">2409</Height>
+            <InputNumber item="1">1</InputNumber>
+            <Layer item="1">7</Layer>
+            <MediaChannelId item="1">101</MediaChannelId>
+            <PositionX item="1">7487</PositionX>
+            <PositionY item="1">4998</PositionY>
+            <VideoSourceContent item="1">selfviewPip</VideoSourceContent>
+            <VideoSourceId item="1">1</VideoSourceId>
+            <VideoSourceType item="1">site</VideoSourceType>
+            <Width item="1">2409</Width>
+          </Frame>
+        </Output>
+      </Site>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Site item="18">
+      <Appearance item="1">0</Appearance>
+      <AttendedTransfer item="1">False</AttendedTransfer>
+      <BlackScreenCause item="1">None</BlackScreenCause>
+      <BookingId item="1"></BookingId>
+      <CalText item="1"></CalText>
+      <Capabilities item="1">
+        <Presentation item="1">False</Presentation>
+      </Capabilities>
+      <ConferenceExtended item="1">Unsupported</ConferenceExtended>
+      <GCI item="1"></GCI>
+      <Hold item="1">False</Hold>
+      <Manufacturer item="1"></Manufacturer>
+      <Preserved item="1">Off</Preserved>
+      <SoftwareID item="1"></SoftwareID>
+      <UnattendedTransfer item="1">False</UnattendedTransfer>
+    </Site>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Call item="18">
+    <AnswerState item="1">Unanswered</AnswerState>
+    <CallPriority item="1">None</CallPriority>
+    <CallType item="1">Video</CallType>
+    <CallbackNumber item="1">sip:tbjolset@cisco.com</CallbackNumber>
+    <DeviceType item="1">Endpoint</DeviceType>
+    <Direction item="1">Outgoing</Direction>
+    <DisplayName item="1"></DisplayName>
+    <Duration item="1" func_get="2" func_item="18">0</Duration>
+    <Encryption item="1">
+      <Type item="1">Aes-128</Type>
+    </Encryption>
+    <FacilityServiceId item="1">0</FacilityServiceId>
+    <ModifyState item="1">Idle</ModifyState>
+    <PlacedOnHold item="1">False</PlacedOnHold>
+    <Protocol item="1">sip</Protocol>
+    <ReceiveCallRate item="1">6000</ReceiveCallRate>
+    <RemoteNumber item="1">tbjolset@cisco.com</RemoteNumber>
+    <Status item="1">Dialling</Status>
+    <TransmitCallRate item="1">6000</TransmitCallRate>
+  </Call>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Experimental item="1">
+    <NumberOfVideoResourcesLeft item="1">2</NumberOfVideoResourcesLeft>
+  </Experimental>
+  <SystemUnit item="1">
+    <State item="1">
+      <NumberOfInProgressCalls item="1">1</NumberOfInProgressCalls>
+      <System item="1">InCall</System>
+    </State>
+  </SystemUnit>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <IncomingAudioChannel item="351">
+        <Transport item="1">
+          <RTCP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16535</Port>
+            </Local>
+          </RTCP>
+          <RTP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16534</Port>
+            </Local>
+          </RTP>
+        </Transport>
+      </IncomingAudioChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <IncomingVideoChannel item="353">
+        <Transport item="1">
+          <RTCP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16537</Port>
+            </Local>
+          </RTCP>
+          <RTP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16536</Port>
+            </Local>
+          </RTP>
+        </Transport>
+      </IncomingVideoChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <IncomingVideoChannel item="355">
+        <Transport item="1">
+          <RTCP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16539</Port>
+            </Local>
+          </RTCP>
+          <RTP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16538</Port>
+            </Local>
+          </RTP>
+        </Transport>
+      </IncomingVideoChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Camera item="1">
+    <Position item="1">
+      <Focus item="1">140</Focus>
+    </Position>
+  </Camera>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <IncomingVideoChannel item="359">
+        <Transport item="1">
+          <RTCP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16543</Port>
+            </Local>
+          </RTCP>
+          <RTP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16542</Port>
+            </Local>
+          </RTP>
+        </Transport>
+      </IncomingVideoChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Call item="18">
+    <Status item="1">Connecting</Status>
+  </Call>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="1">
+            <OutputRole item="1">
+              <Frame item="7">
+                <Filename item="1"></Filename>
+                <Height item="1">2409</Height>
+                <InputNumber item="1">1</InputNumber>
+                <Layer item="1">7</Layer>
+                <MediaChannelId item="1">101</MediaChannelId>
+                <PositionX item="1">7487</PositionX>
+                <PositionY item="1">4998</PositionY>
+                <VideoSourceContent item="1">selfviewPip</VideoSourceContent>
+                <VideoSourceId item="1">1</VideoSourceId>
+                <VideoSourceType item="1">site</VideoSourceType>
+                <Width item="1">2409</Width>
+              </Frame>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="2">
+            <OutputRole item="1">
+              <Frame item="7">
+                <Filename item="1"></Filename>
+                <Height item="1">2409</Height>
+                <InputNumber item="1">1</InputNumber>
+                <Layer item="1">7</Layer>
+                <MediaChannelId item="1">101</MediaChannelId>
+                <PositionX item="1">7487</PositionX>
+                <PositionY item="1">4998</PositionY>
+                <VideoSourceContent item="1">selfviewPip</VideoSourceContent>
+                <VideoSourceId item="1">1</VideoSourceId>
+                <VideoSourceType item="1">site</VideoSourceType>
+                <Width item="1">2409</Width>
+              </Frame>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="4">
+            <OutputRole item="1">
+              <Frame item="7">
+                <Filename item="1"></Filename>
+                <Height item="1">2409</Height>
+                <InputNumber item="1">1</InputNumber>
+                <Layer item="1">7</Layer>
+                <MediaChannelId item="1">101</MediaChannelId>
+                <PositionX item="1">7487</PositionX>
+                <PositionY item="1">4998</PositionY>
+                <VideoSourceContent item="1">selfviewPip</VideoSourceContent>
+                <VideoSourceId item="1">1</VideoSourceId>
+                <VideoSourceType item="1">site</VideoSourceType>
+                <Width item="1">2409</Width>
+              </Frame>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="3">
+            <OutputRole item="1">
+              <Frame item="7">
+                <Filename item="1"></Filename>
+                <Height item="1">2409</Height>
+                <InputNumber item="1">1</InputNumber>
+                <Layer item="1">7</Layer>
+                <MediaChannelId item="1">101</MediaChannelId>
+                <PositionX item="1">7487</PositionX>
+                <PositionY item="1">4998</PositionY>
+                <VideoSourceContent item="1">selfviewPip</VideoSourceContent>
+                <VideoSourceId item="1">1</VideoSourceId>
+                <VideoSourceType item="1">site</VideoSourceType>
+                <Width item="1">2409</Width>
+              </Frame>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Camera item="1">
+    <Position item="1">
+      <Focus item="1">147</Focus>
+    </Position>
+  </Camera>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <IncomingAudioChannel item="351">
+        <Audio item="1">
+          <Channels item="1">2</Channels>
+        </Audio>
+      </IncomingAudioChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Camera item="1">
+    <Position item="1">
+      <Focus item="1">142</Focus>
+    </Position>
+  </Camera>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Site item="18">
+      <AttendedTransfer item="1">True</AttendedTransfer>
+      <Hold item="1">True</Hold>
+      <Manufacturer item="1">Tandberg</Manufacturer>
+      <SoftwareID item="1">unknown (new?)</SoftwareID>
+      <UnattendedTransfer item="1">True</UnattendedTransfer>
+    </Site>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Call item="18">
+    <DisplayName item="1">Tore Bjolseth</DisplayName>
+  </Call>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Site item="18">
+      <SecurityStatus item="1">Unknown</SecurityStatus>
+    </Site>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Call item="18">
+    <Status item="1">Connected</Status>
+  </Call>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <IncomingAudioChannel item="351">
+        <Transport item="1">
+          <RTCP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2437</Port>
+            </Remote>
+          </RTCP>
+          <RTP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2436</Port>
+            </Remote>
+          </RTP>
+        </Transport>
+      </IncomingAudioChannel>
+      <IncomingVideoChannel item="353">
+        <Transport item="1">
+          <RTCP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2327</Port>
+            </Remote>
+          </RTCP>
+          <RTP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2326</Port>
+            </Remote>
+          </RTP>
+        </Transport>
+      </IncomingVideoChannel>
+      <IncomingVideoChannel item="355">
+        <Transport item="1">
+          <RTCP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2329</Port>
+            </Remote>
+          </RTCP>
+          <RTP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2328</Port>
+            </Remote>
+          </RTP>
+        </Transport>
+      </IncomingVideoChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <OutgoingAudioChannel item="352">
+        <Transport item="1">
+          <RTCP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2437</Port>
+            </Remote>
+          </RTCP>
+          <RTP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2436</Port>
+            </Remote>
+          </RTP>
+        </Transport>
+      </OutgoingAudioChannel>
+      <OutgoingVideoChannel item="354">
+        <Transport item="1">
+          <RTCP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2327</Port>
+            </Remote>
+          </RTCP>
+          <RTP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2326</Port>
+            </Remote>
+          </RTP>
+        </Transport>
+      </OutgoingVideoChannel>
+      <OutgoingVideoChannel item="356">
+        <Transport item="1">
+          <RTCP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2329</Port>
+            </Remote>
+          </RTCP>
+          <RTP item="1">
+            <Remote item="1">
+              <IpAddress item="1">10.47.38.254</IpAddress>
+              <Port item="1">2328</Port>
+            </Remote>
+          </RTP>
+        </Transport>
+      </OutgoingVideoChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Site item="18">
+      <Capabilities item="1">
+        <Presentation item="1">True</Presentation>
+      </Capabilities>
+    </Site>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Call item="18">
+    <Encryption item="1">
+      <Type item="1">None</Type>
+    </Encryption>
+  </Call>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <OutgoingAudioChannel item="352">
+        <Audio item="1">
+          <Protocol item="1">AACLD</Protocol>
+        </Audio>
+      </OutgoingAudioChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Experimental item="1">
+    <NumberOfAudioResourcesLeft item="1">2</NumberOfAudioResourcesLeft>
+  </Experimental>
+  <SystemUnit item="1">
+    <State item="1">
+      <NumberOfActiveCalls item="1">1</NumberOfActiveCalls>
+      <NumberOfInProgressCalls item="1">0</NumberOfInProgressCalls>
+    </State>
+  </SystemUnit>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Experimental item="1">
+    <MediaResilience item="1">
+      <Call item="18">
+        <Info item="1">MariController::VersionMismatch</Info>
+      </Call>
+    </MediaResilience>
+  </Experimental>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Site item="18">
+      <Capabilities item="1">
+        <Mari item="1">
+          <Status item="1">Off</Status>
+        </Mari>
+      </Capabilities>
+    </Site>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Call item="18">
+    <AnswerState item="1">Answered</AnswerState>
+  </Call>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <IncomingAudioChannel item="351">
+        <Audio item="1">
+          <Channels item="1">1</Channels>
+          <Protocol item="1">AACLD</Protocol>
+        </Audio>
+      </IncomingAudioChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Site item="18">
+      <MicrophonesMuted item="1">True</MicrophonesMuted>
+    </Site>
+  </Conference>
+  <MediaChannels item="1">
+    <Call item="18">
+      <IncomingAudioChannel item="351">
+        <Audio item="1">
+          <Mute item="1">True</Mute>
+        </Audio>
+      </IncomingAudioChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Site item="18">
+      <Capabilities item="1">
+        <IxChannel item="1">
+          <Status item="1">Active</Status>
+        </IxChannel>
+      </Capabilities>
+    </Site>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <OutgoingAudioChannel item="352">
+        <Transport item="1">
+          <RTCP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16535</Port>
+            </Local>
+          </RTCP>
+          <RTP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16534</Port>
+            </Local>
+          </RTP>
+        </Transport>
+      </OutgoingAudioChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <OutgoingVideoChannel item="354">
+        <Transport item="1">
+          <RTCP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16537</Port>
+            </Local>
+          </RTCP>
+          <RTP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16536</Port>
+            </Local>
+          </RTP>
+        </Transport>
+      </OutgoingVideoChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <OutgoingVideoChannel item="356">
+        <Transport item="1">
+          <RTCP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16539</Port>
+            </Local>
+          </RTCP>
+          <RTP item="1">
+            <Local item="1">
+              <IpAddress item="1">10.54.86.38</IpAddress>
+              <Port item="1">16538</Port>
+            </Local>
+          </RTP>
+        </Transport>
+      </OutgoingVideoChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <OutgoingVideoChannel item="354">
+        <Video item="1">
+          <FrameRate item="1">60</FrameRate>
+          <Protocol item="1">H264</Protocol>
+          <ResolutionX item="1">1280</ResolutionX>
+          <ResolutionY item="1">720</ResolutionY>
+        </Video>
+      </OutgoingVideoChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Site item="18">
+        <Output item="1">
+          <FamilyName item="1">equal</FamilyName>
+          <Frame item="1">
+            <Filename item="1"></Filename>
+            <FrameContainerId item="1">0</FrameContainerId>
+            <Height item="1">10000</Height>
+            <InputNumber item="1">1</InputNumber>
+            <Layer item="1">1</Layer>
+            <MediaChannelId item="1">101</MediaChannelId>
+            <PositionX item="1">0</PositionX>
+            <PositionY item="1">0</PositionY>
+            <VideoSourceContent item="1">speaker</VideoSourceContent>
+            <VideoSourceId item="1">1</VideoSourceId>
+            <VideoSourceType item="1">site</VideoSourceType>
+            <Width item="1">10000</Width>
+          </Frame>
+          <FullFamilyName item="1">equal_local_single</FullFamilyName>
+          <GraphicName item="1">fullscreen</GraphicName>
+        </Output>
+      </Site>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Site item="18">
+        <Output item="3">
+          <FamilyName item="1">equal</FamilyName>
+          <Frame item="1">
+            <Filename item="1"></Filename>
+            <FrameContainerId item="1">0</FrameContainerId>
+            <Height item="1">10000</Height>
+            <InputNumber item="1">1</InputNumber>
+            <Layer item="1">1</Layer>
+            <MediaChannelId item="1">101</MediaChannelId>
+            <PositionX item="1">0</PositionX>
+            <PositionY item="1">0</PositionY>
+            <VideoSourceContent item="1">speaker</VideoSourceContent>
+            <VideoSourceId item="1">1</VideoSourceId>
+            <VideoSourceType item="1">site</VideoSourceType>
+            <Width item="1">10000</Width>
+          </Frame>
+          <FullFamilyName item="1">equal_local_single</FullFamilyName>
+          <GraphicName item="1">fullscreen</GraphicName>
+        </Output>
+      </Site>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Site item="18">
+        <Output item="2">
+          <FamilyName item="1">equal</FamilyName>
+          <FullFamilyName item="1">remote_presentation</FullFamilyName>
+          <GraphicName item="1">fullscreen</GraphicName>
+        </Output>
+      </Site>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <IncomingVideoChannel item="353">
+        <Video item="1">
+          <Protocol item="1">H264</Protocol>
+          <ResolutionX item="1">1920</ResolutionX>
+          <ResolutionY item="1">1080</ResolutionY>
+        </Video>
+      </IncomingVideoChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Presentation item="1">
+      <LocalSendingMode item="1">Off</LocalSendingMode>
+      <LocalSource item="1">0</LocalSource>
+    </Presentation>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Event>
+  <PresentationPreviewStopped item="1">
+    <Cause item="1">unspecified</Cause>
+    <LocalSource item="1">2</LocalSource>
+  </PresentationPreviewStopped>
+</Event>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Site item="1">
+        <Output item="1">
+          <FamilyName item="1">equal</FamilyName>
+          <Frame item="1">
+            <InputNumber item="1">1</InputNumber>
+            <MediaChannelId item="1">353</MediaChannelId>
+            <VideoSourceContent item="1">speaker</VideoSourceContent>
+            <VideoSourceId item="1">18</VideoSourceId>
+          </Frame>
+          <FullFamilyName item="1">equal_local_single</FullFamilyName>
+        </Output>
+      </Site>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Event>
+  <CallSuccessful item="1">
+    <Protocol item="1">Sip</Protocol>
+    <Direction item="1">outgoing</Direction>
+    <RemoteURI item="1">sip:tbjolset@cisco.com</RemoteURI>
+    <EncryptionIn item="1">Off</EncryptionIn>
+    <EncryptionOut item="1">Off</EncryptionOut>
+    <CallRate item="1">6000</CallRate>
+    <CallId item="1">18</CallId>
+  </CallSuccessful>
+</Event>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Experimental item="1">
+    <MediaResilience item="1">
+      <Call item="18">
+        <FeedbackBw item="1">0</FeedbackBw>
+      </Call>
+    </MediaResilience>
+  </Experimental>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="2">
+            <OutputRole item="1">
+              <Frame item="1">
+                <InputNumber item="1">1</InputNumber>
+                <MediaChannelId item="1">353</MediaChannelId>
+                <VideoSourceContent item="1">speaker</VideoSourceContent>
+                <VideoSourceId item="1">18</VideoSourceId>
+              </Frame>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="3">
+            <OutputRole item="1">
+              <Frame item="1">
+                <InputNumber item="1">1</InputNumber>
+                <MediaChannelId item="1">353</MediaChannelId>
+                <VideoSourceContent item="1">speaker</VideoSourceContent>
+                <VideoSourceId item="1">18</VideoSourceId>
+              </Frame>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="4">
+            <OutputRole item="1">
+              <Frame item="1">
+                <InputNumber item="1">1</InputNumber>
+                <MediaChannelId item="1">353</MediaChannelId>
+                <VideoSourceContent item="1">speaker</VideoSourceContent>
+                <VideoSourceId item="1">18</VideoSourceId>
+              </Frame>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="1">
+            <OutputRole item="1">
+              <Frame item="1">
+                <InputNumber item="1">1</InputNumber>
+                <MediaChannelId item="1">353</MediaChannelId>
+                <VideoSourceContent item="1">speaker</VideoSourceContent>
+                <VideoSourceId item="1">18</VideoSourceId>
+              </Frame>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <ActiveFamily item="1">equal</ActiveFamily>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <MediaChannels item="1">
+    <Call item="18">
+      <IncomingVideoChannel item="353">
+        <Video item="1">
+          <FrameRate item="1">30</FrameRate>
+        </Video>
+      </IncomingVideoChannel>
+    </Call>
+  </MediaChannels>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Conference item="1">
+    <Site item="18">
+      <Capabilities item="1">
+        <FECC item="1">
+          <Mode item="1">On</Mode>
+          <NumberOfPresets item="1">15</NumberOfPresets>
+          <NumberOfSources item="1">3</NumberOfSources>
+          <Source item="1">
+            <Name item="1">SelfView</Name>
+            <Options item="1">zf</Options>
+            <SourceId item="1">6</SourceId>
+          </Source>
+          <Source item="2">
+            <Name item="1">HDMI</Name>
+            <Options item="1"></Options>
+            <SourceId item="1">7</SourceId>
+          </Source>
+          <Source item="3">
+            <Name item="1">PC</Name>
+            <Options item="1"></Options>
+            <SourceId item="1">8</SourceId>
+          </Source>
+        </FECC>
+      </Capabilities>
+    </Site>
+  </Conference>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Site item="1">
+        <Output item="1">
+          <Frame item="7" ghost="True"/>
+        </Output>
+      </Site>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="2">
+            <OutputRole item="1">
+              <Frame item="7" ghost="True"/>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="3">
+            <OutputRole item="1">
+              <Frame item="7" ghost="True"/>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+
+<XmlDoc resultId="">
+<Status>
+  <Video item="1">
+    <Layout item="1">
+      <Prediction item="1">
+        <Site item="1">
+          <Family item="4">
+            <OutputRole item="1">
+              <Frame item="7" ghost="True"/>
+            </OutputRole>
+          </Family>
+        </Site>
+      </Prediction>
+    </Layout>
+  </Video>
+</Status>
+</XmlDoc>
+

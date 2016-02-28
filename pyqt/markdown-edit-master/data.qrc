@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file>markdown-core.js</file>
+        <file>style-default.css</file>
+        <file>ui.qml</file>
+        <file>example.md</file>
+        <file>DialogFile.qml</file>
+        <file>icons/add.svg</file>
+        <file>icons/apply.svg</file>
+        <file>icons/clear.svg</file>
+        <file>icons/close.svg</file>
+        <file>icons/copy.svg</file>
+        <file>icons/cut.svg</file>
+        <file>icons/delete.svg</file>
+        <file>icons/disk.svg</file>
+        <file>icons/edit.svg</file>
+        <file>icons/export.svg</file>
+        <file>icons/file.svg</file>
+        <file>icons/folder.svg</file>
+        <file>icons/help.svg</file>
+        <file>icons/home.svg</file>
+        <file>icons/import.svg</file>
+        <file>icons/info.svg</file>
+        <file>icons/mark.svg</file>
+        <file>icons/open.svg</file>
+        <file>icons/paste.svg</file>
+        <file>icons/refresh.svg</file>
+        <file>icons/remove.svg</file>
+        <file>icons/revert.svg</file>
+        <file>icons/save.svg</file>
+        <file>icons/select.svg</file>
+        <file>icons/stop.svg</file>
+        <file>icons/system.svg</file>
+        <file>icons/warn.svg</file>
+    </qresource>
+</RCC>

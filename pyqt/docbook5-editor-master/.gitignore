@@ -1,0 +1,14 @@
+*.user*
+*.tmp
+*.old
+*.back
+*.bak
+*.save
+*.autosave
+*.orig
+*~
+*.o
+*.so
+*.exe
+*.dll
+*.a
