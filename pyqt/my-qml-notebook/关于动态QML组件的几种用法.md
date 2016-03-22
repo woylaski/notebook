@@ -1,1 +1,0 @@
-http://bbs.qter.org/forum.php?mod=viewthread&tid=2737

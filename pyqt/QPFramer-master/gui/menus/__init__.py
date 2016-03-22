@@ -1,2 +1,0 @@
-
-from .settingsmenu import SettingsMenu
