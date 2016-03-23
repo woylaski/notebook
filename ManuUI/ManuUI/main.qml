@@ -2,6 +2,11 @@ import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Window 2.2
 import QtWebKit 3.0
+import QtQml.Models 2.2
+import QtQuick.Dialogs 1.2
+
+import com.manu.fileio 1.0
+import com.manu.treemodel 1.0
 
 import "qrc:/base/base/ObjUtils.js" as ObjUtils
 import "qrc:/base/base/MiscUtils.js" as MiscUtils
@@ -18,142 +23,117 @@ Components.AppWindow {
     height: 480
     title: qsTr("Hello World")
 
-    /*
-    Label {
-        text: qsTr("Hello World")
-        anchors.centerIn: parent
-    }
-    */
+    function readDocument() {
+        print("-----read doc-----")
+        //io.source = Qt.resolvedUrl("file:///./hello.txt")
+        //io.source = Qt.resolvedUrl("file:///E:/hello.txt")
+        //io.source = "qrc:/hello.txt"
+        //print(io.source.toString())
 
-    ListModel {
-        id: colorModel
-        /*
-        ListElement {
-            acolor: "#1abc9c"
-            //acolor: Base.Defines.colorTurquoise
-        }
-        ListElement {
-            acolor: "#16a085"
-            //acolor: Base.Defines.colorTurquoise
-        }
-        */
-        Component.onCompleted: {
-            colorModel.append({"acolor": Base.Defines.colorTurquoise})
-            colorModel.append({"acolor": Base.Defines.colorGreenSea})
-            colorModel.append({"acolor": Base.Defines.colorEmerald})
-            colorModel.append({"acolor": Base.Defines.colorNephritis})
-            colorModel.append({"acolor": Base.Defines.colorPeterRiver})
-            colorModel.append({"acolor": Base.Defines.colorBelizeHole})
-            colorModel.append({"acolor": Base.Defines.colorAmethyst})
-            colorModel.append({"acolor": Base.Defines.colorWisteria})
-            colorModel.append({"acolor": Base.Defines.colorWetAsphalt})
-            colorModel.append({"acolor": Base.Defines.colorMidnightBlue})
-            colorModel.append({"acolor": Base.Defines.colorSunFlower})
-            colorModel.append({"acolor": Base.Defines.colorOrange})
-            colorModel.append({"acolor": Base.Defines.colorCarrot})
-            colorModel.append({"acolor": Base.Defines.colorPumpkin})
-            colorModel.append({"acolor": Base.Defines.colorAlizarin})
-            colorModel.append({"acolor": Base.Defines.colorPomegranate})
-            colorModel.append({"acolor": Base.Defines.colorClouds})
-            colorModel.append({"acolor": Base.Defines.colorSilver})
-            colorModel.append({"acolor": Base.Defines.colorConcrete})
-            colorModel.append({"acolor": Base.Defines.colorAsbestos})
+        io.source = openDialog.fileUrl
+        print(io.source.toString())
+        io.read()
+        print(io.text)
+        fileSystemModel.mdata=io.text
+        view.model.fresh()
+        //view.model = fileSystemModel
+        //fileSystemModel.mdata=io.text
+        //view.model = JSON.parse(io.text)
+    }
+
+    FileDialog {
+        id: openDialog
+        onAccepted: {
+            readDocument()
         }
     }
 
-    Component {
-        id: colorDelegate
-        Rectangle{
-            width: root.width
-            height: root.height/colorModel.count
-            radius: Base.Defines.radius
-            color: acolor
+    FileIO{
+        id: io
+    }
+
+    TreeModel{
+        id: fileSystemModel
+        mdata: "hello world\tnihao\naa\tbb"
+        onMdataChanged: {
+            print("mdata changed")
+            print(fileSystemModel.columnCount())
+            print(fileSystemModel.rowCount())
         }
-    }
-
-    /*
-    ListView{
-        id: colorlist
-        anchors.fill: parent
-        model: colorModel
-        delegate: colorDelegate
-    }
-    */
-
-    function readFile(fname){
-        print("try to read file:"+fname)
-        //var promise = HttpUtils.get(fname)
-        var promise = LocalFile.readFile(fname)
-        promise.then( function(data) {
-            print("----ok----")
-            filecontent.text = data;
-        });
-
-        promise.error( function(data) {
-            print("----error----")
-            filecontent.text = "read file error:" + data;
-        });
-    }
-
-    function writeFile(fname, content){
-        print("try to write file:"+fname)
-        //var promise = HttpUtils.get(fname)
-        var promise = LocalFile.writeFile(fname, content)
-        promise.then( function(data) {
-            print("----ok----")
-            //filecontent.text = data;
-        });
-
-        promise.error( function(data) {
-            print("----error----")
-            //filecontent.text = "read file error:" + data;
-        });
     }
 
     Item{
-        anchors.fill: parent
+        id: viewarea
+        width: parent.width
+        height: parent.height-buttonarea.height
+        anchors.top: parent.top
 
-        Text{
-            id: filecontent
-            anchors.centerIn: parent
-            text: "hello world"
+        ItemSelectionModel {
+            id: sel
+            model: fileSystemModel
+            onSelectionChanged: {
+                console.log("selected", selected)
+                console.log("deselected", deselected)
+            }
+            onCurrentChanged: console.log("current", current)
         }
 
-        Button{
-            anchors.bottom: parent.bottom
-            text: "click"
-            property int count:0
-            onClicked: {
-                if(count%2==0){
-                    //readFile("https://www.baidu.com")
-                    //readFile("qrc:/hello.txt")
-                    //readFile("qrc:///hello.txt")
-                    readFile("file:///E:/hello.txt")
-                }else{
-                    writeFile("file:///E:/hello.txt", count.toString())
-                }
+        TreeView {
+            id: view
+            anchors.fill: parent
+            anchors.margins: 2 * 12
+            //model: fileSystemModel
+            selection: sel
 
-                count++;
-                print(count)
+            onCurrentIndexChanged: console.log("current index", currentIndex)
+
+            itemDelegate: Rectangle {
+                color: ( styleData.row % 2 == 0 ) ? "white" : "lightblue"
+                height: 40
+
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    text: styleData.value // this points to the role we defined in the TableViewColumn below; which one depends on which column this delegate is instantiated for.
+                }
             }
+
+            TableViewColumn {
+                title: "Title"
+                role: "name"
+                resizable: true
+            }
+
+            TableViewColumn {
+                title: "Summary"
+                role: "summary"
+                width: view.width/2
+            }
+            onClicked: console.log("clicked the index is ?", index)
+            onDoubleClicked: isExpanded(index) ? collapse(index) : expand(index)
         }
     }
 
-    Component.onCompleted: {
-        print("list AppWindow all info")
-        //ObjUtils.listProperty(root)
-        print(ObjUtils.haveProperty(root, "menuBarChanged"))
-        print(ObjUtils.haveProperty(root, "aaaa"))
-        print(ObjUtils.fuzzyProperty(root, "size"))
+    Item{
+        id: buttonarea
+        width: parent.width
+        height: 30
+        anchors.bottom: parent.bottom
 
-        //Base.Device.initDeviceSize(Screen.width, Screen.height,Screen.pixelDensity)
-        print(Base.Device.printDeviceInfo())
+        Row{
+            Button{
+                text: "treemodel"
+                onClicked: {
+                    print(io.text)
+                    fileSystemModel.mdata = io.text
+                }
+            }
 
-        print(Base.Defines.colorTurquoise)
-
-        MiscUtils.bfun()
-
-        Promise.testJoinedPromise()
+            Button{
+                text: "dialog"
+                onClicked: openDialog.open()
+            }
+        }
     }
 }
 
