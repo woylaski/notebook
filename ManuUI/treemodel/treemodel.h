@@ -72,9 +72,11 @@ signals:
     void mdataChanged(QString arg);
 
 private:
-    void setupModelData(const QStringList &lines, TreeItem *parent);
+    void setupModelData();
+    void deleteModelData();
     TreeItem *rootItem;
     QString m_text;
+    int m_count;
 };
 
 #endif // TREEMODEL_H

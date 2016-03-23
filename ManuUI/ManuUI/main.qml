@@ -35,8 +35,8 @@ Components.AppWindow {
         io.read()
         print(io.text)
         fileSystemModel.mdata=io.text
-        view.model.fresh()
-        //view.model = fileSystemModel
+        //view.model.fresh()
+        view.model = fileSystemModel
         //fileSystemModel.mdata=io.text
         //view.model = JSON.parse(io.text)
     }
