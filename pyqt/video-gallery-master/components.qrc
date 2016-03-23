@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>ui.qml</file>
-        <file>Helpers.js</file>
-        <file>VideoGallery.qml</file>
-    </qresource>
-</RCC>

@@ -1,4 +1,0 @@
-application-engineering.svg, cuttlefish.svg, pixelart-trace.svg, plank.svg, showfoto.svg, 
-user-desktop.svg and utilities-system-monitor.svg are extracted from Breeze 
-Icon set, from https://github.com/NitruxSA/breeze-icon-theme and are re-distributed under 
-their original LGPL v3 licence.

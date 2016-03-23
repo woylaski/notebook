@@ -1,4 +1,0 @@
-module FontAwesome
-
-singleton FontAwesome		4.5 FontAwesome.qml
-singleton FontAwesomeModel	4.5 FontAwesomeModel.qml

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-echo Stopping dashboard on spiderpig...
-ssh spiderpig@spiderpig "kill \$(pgrep qmlviewer)"
-echo Starting dashboard on spiderpig...
-ssh spiderpig@spiderpig "export DISPLAY=:0.0; ~/dashboard/startdashboard.sh"

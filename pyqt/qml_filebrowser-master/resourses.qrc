@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>qml/main.qml</file>
-        <file>images/folder.png</file>
-        <file>images/up.png</file>
-        <file>qml/FileBrowser.qml</file>
-    </qresource>
-</RCC>

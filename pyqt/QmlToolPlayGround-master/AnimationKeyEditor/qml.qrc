@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>HermiteCurveItem.qml</file>
-        <file>KeyControl.qml</file>
-    </qresource>
-</RCC>

@@ -1,3 +1,0 @@
-/mnt/data2/github/notebook/pyqt/qml-ogdf-master-build/demo/CMakeFiles/ogdf-demo.dir
-/mnt/data2/github/notebook/pyqt/qml-ogdf-master-build/ogdfplugin/CMakeFiles/ogdfplugin.dir
-/mnt/data2/github/notebook/pyqt/qml-ogdf-master-build/demo/CMakeFiles/ogdfplugindir.dir
