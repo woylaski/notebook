@@ -1,0 +1,3 @@
+singleton Device 0.1 Device.qml
+singleton Units 0.1 Units.qml
+singleton Defines 0.1 Defines.qml

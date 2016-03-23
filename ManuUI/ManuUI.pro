@@ -3,4 +3,5 @@ TEMPLATE = subdirs
 SUBDIRS += \
     fileio \
     treemodel \
-    test
+    test \
+    ManuUI
