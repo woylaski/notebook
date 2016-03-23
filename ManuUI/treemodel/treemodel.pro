@@ -9,13 +9,21 @@ uri = com.manu.treemodel
 # Input
 SOURCES += \
     treemodel_plugin.cpp \
-    treemodel.cpp
+    treemodel.cpp \
+    treeitem.cpp
 
 HEADERS += \
     treemodel_plugin.h \
-    treemodel.h
+    treemodel.h \
+    treeitem.h
 
 DISTFILES = qmldir
+
+# install
+target.path = $$[QT_INSTALL_PLUGINS]/
+#target.path = $$[QT_INSTALL_PREFIX]/designer
+
+INSTALLS += target
 
 !equals(_PRO_FILE_PWD_, $$OUT_PWD) {
     copy_qmldir.target = $$OUT_PWD/qmldir
