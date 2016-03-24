@@ -1,3 +1,5 @@
 singleton Device 0.1 Device.qml
 singleton Units 0.1 Units.qml
 singleton Defines 0.1 Defines.qml
+singleton Theme 0.1 Theme.qml
+singleton Palette 0.1 Palette.qml

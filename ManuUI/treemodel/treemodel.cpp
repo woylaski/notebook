@@ -1,6 +1,8 @@
 #include "treeitem.h"
 #include "treemodel.h"
 #include <QStringList>
+#include <QDebug>
+#include <QDate>
 
 //自己定义的这个TreeModel类继承QAbstractItemModel
 //data是一个字符串，需要把字符串按照换行分成一条条的记录
@@ -16,10 +18,9 @@ TreeModel::TreeModel(QObject *parent):
 
     // setFlag(ItemHasContents, true);
     //字段的名字，也就是所谓的role
-    //QList<QVariant> rootData;
-    //rootData << "Title" << "Summary"<<"Size";
-    //rootItem = new TreeItem(rootData);
-    rootItem=NULL;
+    QList<QVariant> rootData;
+    rootData << "Title" << "Summary"<<"Size";
+    rootItem = new TreeItem(rootData);
     m_text="";
     m_count=0;
     //QString data="hello\nworld";
@@ -38,10 +39,14 @@ QString TreeModel::mdata() const
 
 void TreeModel::setMdata(QString text)
 {
-    QList<QVariant> rootData;
+    //QList<QVariant> rootData;
 
     if (m_text == text)
+    {
+        qDebug() << "Date:" << QDate::currentDate();
+        qDebug()<<"set data is same"<<endl;
         return;
+    }
 
     //printf("new data: %s\r\n", text);
     //        qDebug() << line;            // 用qDebug 处理了字符转换问题，处理简单
@@ -49,7 +54,7 @@ void TreeModel::setMdata(QString text)
     // toLatin1 转换非拉丁文(例如汉字)不认识字符返回0，显示为乱码
     // 如果环境不支持toStdString 转换，就用qDebug 吧， toLatin1 不能显示汉字
     //        printf("%s\n",line.toLatin1().data());
-    printf("new data: %s\n",text.toStdString().data());
+    qDebug("new data: %s\n",text.toStdString().data());
 
     ////////重新加载model数据/////////
     //delete rootItem;
@@ -139,18 +144,20 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
 
 void TreeModel::deleteModelData()
 {
-    //int number = 0;
+    int row = 0;
     if(m_count==0) return;
+
+    qDebug("delete %d item\r\n", m_count);
     beginRemoveRows(QModelIndex(), 0, m_count-1);
-    delete rootItem;
-    rootItem=NULL;
+    for(row=0; row<m_count; row++)
+    {
+        qDebug("delete index %d item\r\n", row);
+        rootItem->deleteItem(0);
+    }
+    endRemoveRows();
+
     m_text="";
     m_count=0;
-    //while (number < m_count) {
-    //    parentItem->RemoveChildren(row, count);
-    //
-    //}
-    endRemoveRows();
 }
 
 void TreeModel::setupModelData()
@@ -158,20 +165,20 @@ void TreeModel::setupModelData()
     QList<TreeItem*> parents;
     QList<int> indentations;
 
-    if(rootItem==NULL)
-    {
-        QList<QVariant> rootData;
-        rootData << "Title" << "Summary"<<"Size";
-        rootItem = new TreeItem(rootData);
-    }
-
     parents << rootItem;
     indentations << 0;
 
     int number = 0;
 
     QStringList lines = m_text.split(QString("\n"));
-    m_count=lines.count();
+    //m_count=lines.count();
+    foreach (const QString &str, lines)
+    {
+        if (!str.startsWith(" "))
+            m_count++;
+    }
+
+    qDebug("insert %d items\r\n", m_count);
 
     beginInsertRows(QModelIndex(), 0, m_count-1);
     while (number < lines.count()) {

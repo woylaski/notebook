@@ -4,4 +4,5 @@ SUBDIRS += \
     fileio \
     treemodel \
     test \
-    ManuUI
+    ManuUI \
+    qt5_basic

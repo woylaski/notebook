@@ -2,6 +2,8 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>hello.txt</file>
+        <file>test_treeview.qml</file>
+        <file>test_circle_image.qml</file>
     </qresource>
     <qresource prefix="/base">
         <file>base/qmldir</file>
@@ -14,12 +16,29 @@
         <file>base/Promise.js</file>
         <file>base/HttpUtils.js</file>
         <file>base/LocalFile.js</file>
+        <file>base/Document.qml</file>
+        <file>base/Theme.qml</file>
+        <file>base/ThemePalette.qml</file>
+        <file>base/Palette.qml</file>
+        <file>base/AppTheme.qml</file>
+        <file>base/awesome.js</file>
     </qresource>
-    <qresource prefix="/elements"/>
+    <qresource prefix="/elements">
+        <file>elements/AutoGrid.qml</file>
+        <file>elements/Image.qml</file>
+        <file>elements/CircleMask.qml</file>
+        <file>elements/Action.qml</file>
+        <file>elements/AwesomeIcon.qml</file>
+    </qresource>
     <qresource prefix="/components">
         <file>components/AppWindow.qml</file>
+        <file>components/CircleImage.qml</file>
     </qresource>
     <qresource prefix="/icons"/>
     <qresource prefix="/fonts"/>
-    <qresource prefix="/images"/>
+    <qresource prefix="/images">
+        <file>images/circle.png</file>
+        <file>images/girl.png</file>
+    </qresource>
+    <qresource prefix="/style"/>
 </RCC>

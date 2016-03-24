@@ -21,6 +21,8 @@ TreeItem::TreeItem(const QList<QVariant> &data, TreeItem *parent)
 TreeItem::~TreeItem()
 {
     qDeleteAll(m_childItems);
+    m_childItems.clear();
+    m_itemData.clear();
 }
 
 //! [2]
@@ -29,6 +31,11 @@ void TreeItem::appendChild(TreeItem *item)
     m_childItems.append(item);
 }
 //! [2]
+
+void TreeItem::deleteItem(int row)
+{
+    m_childItems.takeAt(row);
+}
 
 //! [5]
 int TreeItem::columnCount() const
