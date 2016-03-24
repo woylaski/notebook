@@ -2,8 +2,8 @@ TEMPLATE = app
 
 QT += qml quick widgets
 
-SOURCES += main.cpp \
-    basic_type.cpp
+SOURCES += main.cpp
+#    basic_type.cpp
 
 RESOURCES += qml.qrc
 

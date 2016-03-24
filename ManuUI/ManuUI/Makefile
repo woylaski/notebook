@@ -544,17 +544,38 @@ compiler_rcc_make_all: qrc_qml.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_qml.cpp
 qrc_qml.cpp: qml.qrc \
+		test_treeview.qml \
+		test_circle_image.qml \
 		hello.txt \
+		test_checkbox.qml \
 		main.qml \
+		images/circle.png \
+		images/girl.png \
+		style/CheckBoxStyle.qml \
+		components/CircleImage.qml \
 		components/AppWindow.qml \
+		elements/AwesomeIcon.qml \
+		elements/AutoGrid.qml \
+		elements/Image.qml \
+		elements/CircleMask.qml \
+		elements/Action.qml \
+		elements/Icon.qml \
+		elements/Ink.qml \
+		elements/CheckBox.qml \
 		base/Device.qml \
+		base/Palette.qml \
 		base/Object.qml \
 		base/HttpUtils.js \
+		base/Theme.qml \
+		base/AppTheme.qml \
+		base/awesome.js \
 		base/MiscUtils.js \
 		base/Units.qml \
 		base/ObjUtils.js \
+		base/Document.qml \
 		base/qmldir \
 		base/Defines.qml \
+		base/ThemePalette.qml \
 		base/Promise.js \
 		base/LocalFile.js
 	/home/manu/tools/qt5/5.5/gcc_64/bin/rcc -name qml qml.qrc -o qrc_qml.cpp

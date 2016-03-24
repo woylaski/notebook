@@ -1,6 +1,7 @@
 
 #include <QString>
 #include <QList>
+#include <QDebug>
 
 void basic_string()
 {

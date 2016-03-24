@@ -4,6 +4,7 @@
         <file>hello.txt</file>
         <file>test_treeview.qml</file>
         <file>test_circle_image.qml</file>
+        <file>test_checkbox.qml</file>
     </qresource>
     <qresource prefix="/base">
         <file>base/qmldir</file>
@@ -29,6 +30,9 @@
         <file>elements/CircleMask.qml</file>
         <file>elements/Action.qml</file>
         <file>elements/AwesomeIcon.qml</file>
+        <file>elements/Icon.qml</file>
+        <file>elements/Ink.qml</file>
+        <file>elements/CheckBox.qml</file>
     </qresource>
     <qresource prefix="/components">
         <file>components/AppWindow.qml</file>
@@ -40,5 +44,7 @@
         <file>images/circle.png</file>
         <file>images/girl.png</file>
     </qresource>
-    <qresource prefix="/style"/>
+    <qresource prefix="/style">
+        <file>style/CheckBoxStyle.qml</file>
+    </qresource>
 </RCC>
