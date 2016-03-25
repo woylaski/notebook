@@ -113,6 +113,10 @@ Object{
         print("device name: ", device.name)
         print("device os: ", device.os)
     }
+
+    Component.onCompleted: {
+        print("Device complete")
+    }
 }
 
 

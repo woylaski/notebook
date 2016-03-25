@@ -1,5 +1,5 @@
 import QtQuick 2.5
-import "."
+//import "qrc:/base/base" as Base
 
 //palette:调色板
 QtObject {
@@ -22,8 +22,11 @@ QtObject {
        that complements the primary color palette at
        \l {http://www.google.com/design/spec/style/color.html#color-color-palette}.
     */
-    property color accentColor: Theme.accentColor
-    //property color accentColor: theme.accentColor
+    //property color accentColor: Theme.accentColor
+    //theme.qml的id是theme，
+    //在这里可以使用theme是因为theme是themepalette的父对象，在子对象中可以访问父对象id
+    property color accentColor: theme.accentColor
+    //property color accentColor: "#2196F3"
 
     function shade(alpha) {
         if (light) {

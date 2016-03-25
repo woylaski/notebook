@@ -8,7 +8,7 @@ MouseArea {
     clip: true
 
     //属性表明是否处理鼠标悬停事件,默认情况下,只处理鼠标的按键事件
-    hoverEnabled: Device.hoverEnabled
+    hoverEnabled: Base.Device.hoverEnabled
 
     //堆叠顺序,z越大越在上面
     z: 2
@@ -75,7 +75,7 @@ MouseArea {
 
         anchors.fill: parent
 
-        color: Theme.isDarkColor(focusColor) && focusColor.a > 0
+        color: Base.Theme.isDarkColor(focusColor) && focusColor.a > 0
                 ? Qt.rgba(0,0,0,0.2) : Qt.rgba(0,0,0,0.1)
 
         opacity: showFocus && focused ? 1 : 0

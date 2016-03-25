@@ -1,6 +1,7 @@
 import QtQuick 2.5
 import QtQuick.Layouts 1.3
 import "qrc:/base/base" as Base
+import "qrc:/elements/elements" as Elements
 
 //Layout Provides attached properties for items pushed onto a GridLayout, RowLayout or ColumnLayout.
 ColumnLayout {
@@ -12,8 +13,8 @@ ColumnLayout {
         Rectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.minimumHeight: grid.height + Units.dp(80)
-            Layout.minimumWidth: grid.width + Units.dp(80)
+            Layout.minimumHeight: grid.height + Base.Units.dp(80)
+            Layout.minimumWidth: grid.width + Base.Units.dp(80)
             color: index == 0 ? "#EEE" : "#333"
 
             GridLayout {
@@ -27,27 +28,27 @@ ColumnLayout {
                 Label {
                     Layout.alignment : Qt.AlignHCenter
                     text: "Normal"
-                    color: index == 0 ? Theme.light.textColor : Theme.dark.textColor
+                    color: index == 0 ? Base.Theme.light.textColor : Base.Theme.dark.textColor
                 }
 
                 Label {
                     Layout.alignment : Qt.AlignHCenter
                     text: "Disabled"
-                    color: index == 0 ? Theme.light.textColor : Theme.dark.textColor
+                    color: index == 0 ? Base.Theme.light.textColor : Base.Theme.dark.textColor
                 }
 
                 Label {
                     text: "On"
-                    color: index == 0 ? Theme.light.textColor : Theme.dark.textColor
+                    color: index == 0 ? Base.Theme.light.textColor : Base.Theme.dark.textColor
                 }
 
-                CheckBox {
+                Elements.CheckBox {
                     checked: true
                     text: "On"
                     darkBackground: index == 1
                 }
 
-                CheckBox {
+                Elements.CheckBox {
                     checked: true
                     enabled: false
                     text: "Disabled"
@@ -56,15 +57,15 @@ ColumnLayout {
 
                 Label {
                     text: "Off"
-                    color: index == 0 ? Theme.light.textColor : Theme.dark.textColor
+                    color: index == 0 ? Base.Theme.light.textColor : Base.Theme.dark.textColor
                 }
 
-                CheckBox {
+                Elements.CheckBox {
                     text: "Off"
                     darkBackground: index == 1
                 }
 
-                CheckBox {
+                Elements.CheckBox {
                     text: "Disabled"
                     enabled: false
                     darkBackground: index == 1

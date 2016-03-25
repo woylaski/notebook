@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import "."
+//import "qrc:/base/base" as Base
 
 QtObject {
     id: appTheme

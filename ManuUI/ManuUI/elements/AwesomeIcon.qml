@@ -1,7 +1,7 @@
 import QtQuick 2.5
 
 import "qrc:/base/base" as Base
-import 'qrc:/elements/elements/awesome.js' as Awesome
+import 'qrc:/base/base/awesome.js' as Awesome
 
 Item {
     id: widget
@@ -23,7 +23,8 @@ Item {
 
     FontLoader {
         id: fontAwesome;
-        source: Qt.resolvedUrl("fonts/fontawesome/FontAwesome.otf")
+        source: "qrc:/fonts/fonts/fontawesome/FontAwesome.otf"
+        //source: Qt.resolvedUrl("fonts/fontawesome/FontAwesome.otf")
     }
 
     Text {
@@ -38,6 +39,7 @@ Item {
         font.weight: Font.Light
         text: widget.icons.hasOwnProperty(name) ? widget.icons[name] : ""
         color: Base.Theme.light.iconColor
+        //color: "lightgreen"
         style: shadow ? Text.Raised : Text.Normal
         styleColor: Qt.rgba(0,0,0,0.5)
         font.pixelSize: widget.size
