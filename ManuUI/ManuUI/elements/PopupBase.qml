@@ -25,6 +25,7 @@ import "qrc:/base/base/ObjUtils.js" as ObjUtils
 
    \brief A base class for popups such as dialogs or dropdowns.
  */
+//传递键盘焦点变化的元素
 FocusScope {
     id: popup
 
@@ -48,6 +49,10 @@ FocusScope {
     }
 
     function open() {
+        //import QtQuick.Window 2.2
+        //Omitting this import will allow you to have a QML environment without access to window system features
+        //A Window can be declared inside an Item or inside another Window;
+        //in that case the inner Window will automatically become "transient for" the outer Window: that is, most platforms will show it centered upon the outer window by default
         __lastFocusedItem = Window.activeFocusItem
         parent = ObjUtils.findRootChild(popup, overlayLayer)
 

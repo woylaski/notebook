@@ -37,6 +37,8 @@ PopupBase {
     closeOnResize: true
 
     function open(caller, offsetX, offsetY) {
+        //import QtQuick.Window 2.2
+        //Omitting this import will allow you to have a QML environment without access to window system features
         __lastFocusedItem = Window.activeFocusItem
         parent = ObjUtils.findRootChild(dropdown, overlayLayer)
 
