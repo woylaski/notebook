@@ -30,6 +30,7 @@ Item {
         {
             "opacity": 0,
             "offset": Base.Units.dp(0),
+            //涂污，弄脏; （使） 变模糊
             "blur": Base.Units.dp(0)
         },
 
@@ -109,8 +110,8 @@ Item {
         property real verticalShadowOffset: elevationInfo.offset * Math.cos((2 * Math.PI) * (parent.rotation / 360.0))
 
         anchors.centerIn: parent
-        width: parent.width + (fullWidth ? Units.dp(10) : 0)
-        height: parent.height + (fullHeight ? Units.dp(20) : 0)
+        width: parent.width + (fullWidth ? Base.Units.dp(10) : 0)
+        height: parent.height + (fullHeight ? Base.Units.dp(20) : 0)
         anchors.horizontalCenterOffset: horizontalShadowOffset * (elevationInverted ? -1 : 1)
         anchors.verticalCenterOffset: verticalShadowOffset * (elevationInverted ? -1 : 1)
         glowRadius: elevationInfo.blur
@@ -127,8 +128,8 @@ Item {
         property real verticalShadowOffset: elevationInfo.offset * Math.cos((2 * Math.PI) * (parent.rotation / 360.0))
 
         anchors.centerIn: parent
-        width: parent.width + (fullWidth ? Units.dp(10) : 0)
-        height: parent.height + (fullHeight ? Units.dp(20) : 0)
+        width: parent.width + (fullWidth ? Base.Units.dp(10) : 0)
+        height: parent.height + (fullHeight ? Base.Units.dp(20) : 0)
         anchors.horizontalCenterOffset: horizontalShadowOffset * (elevationInverted ? -1 : 1)
         anchors.verticalCenterOffset: verticalShadowOffset * (elevationInverted ? -1 : 1)
         glowRadius: elevationInfo.blur
@@ -145,6 +146,7 @@ Item {
         //tint着色
         color: Qt.tint(backgroundColor, tintColor)
         radius: item.radius
+        //消除混叠现象，消除走样，图形保真
         antialiasing: parent.rotation || radius > 0 ? true : false
         clip: true
 

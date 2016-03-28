@@ -35,93 +35,86 @@ Components.AppWindow {
         primaryDarkColor: "blue"
     }
 
+    Elements.OverlayLayer {
+        id: dialogOverlayLayer
+        objectName: "dialogOverlayLayer"
+    }
+
     Item{
         id: viewarea
         width: parent.width
         height: parent.height-buttonarea.height
         anchors.top: parent.top
-        //Text{
-        //    text: "hello world"
-        //}
 
-        Column{
-            Row{
-                spacing: 20
+        Column {
+            anchors.centerIn: parent
+            spacing: Base.Units.dp(20)
 
-                Rectangle{
-                    width: 50
-                    height: 50
-                    border.color: "black"
-                    border.width: 2
-                    color: Base.Theme.primaryColor
-                }
+            Image {
+                id: image
+                anchors.horizontalCenter: parent.horizontalCenter
 
-                Rectangle{
-                    width: 50
-                    height: 50
-                    border.width: 2
-                    border.color: "black"
-                    color: Base.Theme.accentColor
-                }
+                //source: Qt.resolvedUrl("images/balloon.jpg")
+                source: "qrc:/images/images/balloon.jpg"
+                width: Base.Units.dp(400)
+                height: Base.Units.dp(250)
 
-                Rectangle{
-                    width: 50
-                    height: 50
-                    border.width: 2
-                    border.color: "black"
-                    color: Base.Theme.primaryDarkColor
-                }
-
-                Rectangle{
-                    width: 50
-                    height: 50
-                    border.width: 2
-                    border.color: "black"
-                    color: Base.Theme.backgroundColor
-                }
-
-                Rectangle{
-                    width: 50
-                    height: 50
-                    border.width: 2
-                    border.color: "black"
-                    color: Base.Theme.tabHighlightColor
+                Elements.Ink {
+                    anchors.fill: parent
+                    onClicked: overlayView.open(image)
                 }
             }
 
-            Row{
-                spacing: 20
-                Elements.AwesomeIcon{
-                    name: "android"
-                }
+            Elements.Label {
+                anchors.horizontalCenter: parent.horizontalCenter
 
-                Elements.AwesomeIcon{
-                    name: "amazon"
-                }
-
-                Elements.AwesomeIcon{
-                    name: "apple"
-                }
-
-                Elements.CheckBox {
-                    checked: true
-                    text: "On"
-                    darkBackground: true
-                }
-            }
-
-            Row{
-                spacing: 20
-                Elements.Label{
-                    style: "button"
-                    text: "This is A Label"
-                }
-
-                //Elements.View{
-                //    border: 2
-                //}
+                style: "subheading"
+                color: Base.Theme.light.subTextColor
+                text: "Tap to edit picture"
+                font.italic: true
             }
         }
+
+        Elements.OverlayView {
+            id: overlayView
+
+            width: Base.Units.dp(600)
+            height: Base.Units.dp(300)
+
+            Image {
+                id: contentImage
+                source: "qrc:/images/images/balloon.jpg"
+                //source: Qt.resolvedUrl("images/balloon.jpg")
+                anchors.fill: parent
+            }
+
+            Row {
+                anchors {
+                    top: parent.top
+                    right: parent.right
+                    rightMargin: Base.Units.dp(16)
+                }
+                height: Base.Units.dp(48)
+                opacity: overlayView.transitionOpacity
+
+                spacing: Base.Units.dp(24)
+
+                Repeater {
+                    model: ["content/add", "image/edit", "action/delete"]
+
+                    delegate: Elements.IconButton {
+                        id: iconAction
+
+                        iconName: modelData
+
+                        color: Base.Theme.dark.iconColor
+                        size: iconName == "content/add" ? Base.Units.dp(27) : Base.Units.dp(24)
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+            }
+        }
+
     }
 
     Elements.Divider{
@@ -140,19 +133,24 @@ Components.AppWindow {
         anchors.bottom: parent.bottom
 
         Row{
-            Button{
-                text: "btn1"
+            spacing: Base.Units.dp(80)
+            Elements.Button {
+                //anchors.horizontalCenter: parent.horizontalCenter
+
+                text: "button 1"
+                elevation: 1
                 onClicked: {
-                    print("button 1 clicked")
-                    text="button1"
+                    print("button1 clicked")
                 }
             }
 
-            Button{
-                text: "btn2"
+            Elements.Button {
+                //anchors.horizontalCenter: parent.horizontalCenter
+
+                text: "button 2"
+                elevation: 1
                 onClicked: {
-                    print("button 2 clicked")
-                    text="button2"
+                    print("button2 clicked")
                 }
             }
         }

@@ -36,11 +36,13 @@ Item {
                 //substring() 方法用于提取字符串中介于两个指定下标之间的字符。
                 //stringObject.substring(start,stop)
                 var name = icon.source.substring(7)
+                print(name)
                 var list = name.split("/");
 
                 if (name == "" || list[0] === "awesome")
                     return "";
-                return Qt.resolvedUrl("icons/%1/%2.svg".arg(list[0]).arg(list[1]));
+                return "qrc:/icons/icons/%1/%2.svg".arg(list[0]).arg(list[1]);
+                //return Qt.resolvedUrl("icons/%1/%2.svg".arg(list[0]).arg(list[1]));
             } else {
                 return icon.source
             }
@@ -58,7 +60,7 @@ Item {
 
         anchors.fill: parent
         source: image
-        color: Theme.alpha(icon.color, 1)
+        color: Base.Theme.alpha(icon.color, 1)
         cached: true
         visible: image.source != "" && colorize
         opacity: icon.color.a

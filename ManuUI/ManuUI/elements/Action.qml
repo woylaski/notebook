@@ -9,11 +9,12 @@ Controls.Action {
     //iconName : string, iconName 是Controls.Action的属性可以直接使用
     //Controls.Action 里面本来就有iconSource,但是类型是url
     ////iconSource : url
-    //property string iconSource: "icon://" + iconName
+    property string iconSource: "icon://" + iconName
 
     //Action显示的名字
     //text : string
-    //property string name
+    property string name
+    text: name
 
     //提示，简介
     //tooltip : string
@@ -27,6 +28,11 @@ Controls.Action {
     //checked : bool
     //enabled : bool
     //exclusiveGroup : ExclusiveGroup，互斥分组
+
+    /*!
+       Set to \c true to rotate the icon 90 degrees on mouseover.
+     */
+    property bool hoverAnimation: false
 
     //toggled(checked ),切换时
     /*

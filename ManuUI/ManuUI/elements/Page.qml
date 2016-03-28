@@ -7,16 +7,17 @@ import "qrc:/elements/elements" as Elements
 FocusScope {
     id: page
     property alias actionBar: __actionBar
-    property list<Base.Action> actions
+    property list<Action> actions
+    //property list<var> actions
 
-    property Base.Action backAction: Base.Action {
+    property Action backAction: Action {
         name: "Back"
         iconName: "navigation/arrow_back"
         onTriggered: page.pop()
         visible: canGoBack
     }
 
-    property color backgroundColor: Theme.backgroundColor
+    property color backgroundColor: Base.Theme.backgroundColor
     property bool canGoBack: false
     default property alias data: content.data
     property Item rightSidebar
