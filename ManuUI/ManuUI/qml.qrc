@@ -7,6 +7,7 @@
         <file>test_checkbox.qml</file>
         <file>PageStackDemo.qml</file>
         <file>test-row-column.qml</file>
+        <file>test_overlay.qml</file>
     </qresource>
     <qresource prefix="/base">
         <file>base/qmldir</file>
@@ -26,6 +27,8 @@
         <file>base/AppTheme.qml</file>
         <file>base/awesome.js</file>
         <file>base/ListUtils.js</file>
+        <file>base/PlatformExtensions.qml</file>
+        <file>base/MaterialAnimation.qml</file>
     </qresource>
     <qresource prefix="/elements">
         <file>elements/AutoGrid.qml</file>
@@ -67,6 +70,12 @@
         <file>elements/PageSidebar.qml</file>
         <file>elements/Slider.qml</file>
         <file>elements/Sidebar.qml</file>
+        <file>elements/Dialog.qml</file>
+        <file>elements/Toolbar.qml</file>
+        <file>elements/MenuField.qml</file>
+        <file>elements/NavigationDrawer.qml</file>
+        <file>elements/NavigationDrawerPage.qml</file>
+        <file>elements/ProgressCircle.qml</file>
     </qresource>
     <qresource prefix="/components">
         <file>components/AppWindow.qml</file>

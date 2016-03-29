@@ -22,143 +22,236 @@ import "qrc:/elements/elements" as Elements
 import "qrc:/components/components" as Components
 
 Components.AppWindow {
-//ApplicationWindow {
-    id: root
-    visible: true
-    width: 640
-    height: 480
-    title: qsTr("Hello World")
+    id: demo
 
-    Base.AppTheme{
-        id: apptheme
-        primaryColor: "red"
-        primaryDarkColor: "blue"
+    clientSideDecorations: true
+
+    theme {
+        primaryColor: "blue"
+        accentColor: "red"
+        tabHighlightColor: "white"
     }
 
-    Elements.OverlayLayer {
-        id: dialogOverlayLayer
-        objectName: "dialogOverlayLayer"
-    }
+    /*
+    initialPage: page0
 
-    Item{
-        id: viewarea
-        width: parent.width
-        height: parent.height-buttonarea.height
-        anchors.top: parent.top
+    Elements.Page {
+        id: page0
+        title: "Page Title"
 
-        Column {
+        Elements.Label {
             anchors.centerIn: parent
-            spacing: Base.Units.dp(20)
-
-            Image {
-                id: image
-                anchors.horizontalCenter: parent.horizontalCenter
-
-                //source: Qt.resolvedUrl("images/balloon.jpg")
-                source: "qrc:/images/images/balloon.jpg"
-                width: Base.Units.dp(400)
-                height: Base.Units.dp(250)
-
-                Elements.Ink {
-                    anchors.fill: parent
-                    onClicked: overlayView.open(image)
-                }
-            }
-
-            Elements.Label {
-                anchors.horizontalCenter: parent.horizontalCenter
-
-                style: "subheading"
-                color: Base.Theme.light.subTextColor
-                text: "Tap to edit picture"
-                font.italic: true
-            }
+            text: "Hello World!"
         }
+    }
+    */
+    property var styles: [
+            "Icons", "Custom Icons", "Color Palette", "Typography"
+    ]
 
-        Elements.OverlayView {
-            id: overlayView
+    property var basicComponents: [
+            "Button", "CheckBox", "Progress Bar", "Radio Button",
+            "Slider", "Switch", "TextField"
+    ]
 
-            width: Base.Units.dp(600)
-            height: Base.Units.dp(300)
+    property var compoundComponents: [
+            "Bottom Sheet", "Dialog", "Forms", "List Items", "Page Stack", "Time Picker", "Date Picker"
+    ]
 
-            Image {
-                id: contentImage
-                source: "qrc:/images/images/balloon.jpg"
-                //source: Qt.resolvedUrl("images/balloon.jpg")
+    property var sections: [ basicComponents, styles, compoundComponents ]
+    property var sectionTitles: [ "Basic Components", "Style", "Compound Components" ]
+    property string selectedComponent: sections[0][0]
+
+    initialPage: Elements.TabbedPage {
+        id:page
+        title: "Demo"
+        actionBar.maxActionCount: navDrawer.enabled ? 3 : 4
+
+        backAction: navDrawer.action
+
+        Elements.NavigationDrawer {
+            id: navDrawer
+
+            enabled: page.width < Base.Units.dp(500)
+
+            onEnabledChanged: smallLoader.active = enabled
+
+            Flickable {
                 anchors.fill: parent
-            }
 
-            Row {
-                anchors {
-                    top: parent.top
-                    right: parent.right
-                    rightMargin: Base.Units.dp(16)
-                }
-                height: Base.Units.dp(48)
-                opacity: overlayView.transitionOpacity
+                contentHeight: Math.max(content.implicitHeight, height)
 
-                spacing: Base.Units.dp(24)
+                Column {
+                    id: content
+                    anchors.fill: parent
 
-                Repeater {
-                    model: ["content/add", "image/edit", "action/delete"]
+                    Repeater {
+                        model: sections
 
-                    delegate: Elements.IconButton {
-                        id: iconAction
+                        delegate: Column {
+                            width: parent.width
 
-                        iconName: modelData
+                            Elements.Subheader {
+                                text: sectionTitles[index]
+                            }
 
-                        color: Base.Theme.dark.iconColor
-                        size: iconName == "content/add" ? Base.Units.dp(27) : Base.Units.dp(24)
-                        anchors.verticalCenter: parent.verticalCenter
+                            Repeater {
+                                model: modelData
+                                delegate: Elements.Standard {
+                                    text: modelData
+                                    selected: modelData == demo.selectedComponent
+                                    onClicked: {
+                                        demo.selectedComponent = modelData
+                                        navDrawer.close()
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
 
+        Repeater {
+            model: !navDrawer.enabled ? sections : 0
+
+            delegate: Tab {
+                title: sectionTitles[index]
+
+                property string selectedComponent: modelData[0]
+                property var section: modelData
+
+                sourceComponent: tabDelegate
+            }
+        }
+
+        Loader {
+            id: smallLoader
+            anchors.fill: parent
+            sourceComponent: tabDelegate
+
+            property var section: []
+            visible: active
+            active: false
+        }
     }
 
-    Elements.Divider{
-        //anchors.verticalCenter: parent.verticalCenter
-        anchors.bottom: buttonarea.top
-    }
+    Elements.Dialog {
+        id: colorPicker
+        title: "Pick color"
 
-    //Elements.ThinDivider{
-    //    anchors.bottom: buttonarea.top
-    //}
+        positiveButtonText: "Done"
 
-    Item{
-        id: buttonarea
-        width: parent.width
-        height: 30
-        anchors.bottom: parent.bottom
+        Elements.MenuField {
+            id: selection
+            model: ["Primary color", "Accent color", "Background color"]
+            width: Base.Units.dp(160)
+        }
 
-        Row{
-            spacing: Base.Units.dp(80)
-            Elements.Button {
-                //anchors.horizontalCenter: parent.horizontalCenter
+        Grid {
+            columns: 7
+            spacing: Base.Units.dp(8)
 
-                text: "button 1"
-                elevation: 1
-                onClicked: {
-                    print("button1 clicked")
+            Repeater {
+                model: [
+                    "red", "pink", "purple", "deepPurple", "indigo",
+                    "blue", "lightBlue", "cyan", "teal", "green",
+                    "lightGreen", "lime", "yellow", "amber", "orange",
+                    "deepOrange", "grey", "blueGrey", "brown", "black",
+                    "white"
+                ]
+
+                Rectangle {
+                    width: Base.Units.dp(30)
+                    height: Base.Units.dp(30)
+                    radius: Base.Units.dp(2)
+                    color: Base.Palette.colors[modelData]["500"]
+                    border.width: modelData === "white" ? Base.Units.dp(2) : 0
+                    border.color: Base.Theme.alpha("#000", 0.26)
+
+                    Elements.Ink {
+                        anchors.fill: parent
+
+                        onPressed: {
+                            switch(selection.selectedIndex) {
+                                case 0:
+                                    Base.theme.primaryColor = parent.color
+                                    break;
+                                case 1:
+                                    Base.theme.accentColor = parent.color
+                                    break;
+                                case 2:
+                                    Base.theme.backgroundColor = parent.color
+                                    break;
+                            }
+                        }
+                    }
                 }
             }
+        }
 
-            Elements.Button {
-                //anchors.horizontalCenter: parent.horizontalCenter
+        onRejected: {
+            // TODO set default colors again but we currently don't know what that is
+        }
+    }
 
-                text: "button 2"
-                elevation: 1
-                onClicked: {
-                    print("button2 clicked")
+    Component {
+        id: tabDelegate
+
+        Item {
+            Elements.Sidebar {
+                id: sidebar
+
+                expanded: !navDrawer.enabled
+
+                Column {
+                    width: parent.width
+
+                    Repeater {
+                        model: section
+                        delegate: Elements.Standard {
+                            text: modelData
+                            selected: modelData == selectedComponent
+                            onClicked: selectedComponent = modelData
+                        }
+                    }
                 }
+            }
+            Flickable {
+                id: flickable
+                anchors {
+                    left: sidebar.right
+                    right: parent.right
+                    top: parent.top
+                    bottom: parent.bottom
+                }
+                clip: true
+                contentHeight: Math.max(example.implicitHeight + 40, height)
+                Loader {
+                    id: example
+                    anchors.fill: parent
+                    asynchronous: true
+                    visible: status == Loader.Ready
+                    // selectedComponent will always be valid, as it defaults to the first component
+                    source: {
+                        if (navDrawer.enabled) {
+                            return Qt.resolvedUrl("%1Demo.qml").arg(demo.selectedComponent.replace(" ", ""))
+                        } else {
+                            return Qt.resolvedUrl("%1Demo.qml").arg(selectedComponent.replace(" ", ""))
+                        }
+                    }
+                }
+
+                Elements.ProgressCircle {
+                    anchors.centerIn: parent
+                    visible: example.status == Loader.Loading
+                }
+            }
+            Elements.Scrollbar {
+                flickableItem: flickable
             }
         }
     }
 
-    Component.onCompleted: {
-        console.log("app complete")
-        print(Base.Theme.accentColor)
-    }
 }
 

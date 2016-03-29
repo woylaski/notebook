@@ -1,16 +1,102 @@
 import QtQuick 2.5
-import QtQuick.Controls 1.4
+import QtQuick.Controls 1.4 as Controls
 import QtQuick.Window 2.2
 
 import "qrc:/base/base" as Base
+import "qrc:/elements/elements" as Elements
+import "qrc:/base/base/Promise.js" as Promise
 
-ApplicationWindow {
-    id: __app
-    //flags: Qt.FramelessWindowHint | Qt.WindowSystemMenuHint| Qt.WindowMinimizeButtonHint| Qt.Window
+Controls.ApplicationWindow {
+    id: app
+    visible: true
+    width: Base.Units.dp(800)
+    height: Base.Units.dp(600)
 
-    property bool isPortrait: width<height
+    property bool clientSideDecorations: false
+    property alias initialPage: __pageStack.initialItem
+    property alias pageStack: __pageStack
+    property alias theme: __theme
+
+    Base.AppTheme {
+        id: __theme
+    }
+
+    /*
+    Base.PlatformExtensions {
+        id: platformExtensions
+        //decorationColor: __toolbar.decorationColor
+        window: app
+    }
+    */
+
+    Elements.PageStack {
+        id: __pageStack
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: __toolbar.bottom
+            bottom: parent.bottom
+        }
+
+        onPushed: {
+            print("pagestack push a page")
+            __toolbar.push(page)
+        }
+
+        onPopped: {
+            print("pagestack pop a page")
+            __toolbar.pop(page)
+        }
+
+        onReplaced: {
+            print("pagestack replace a page")
+            __toolbar.replace(page)
+        }
+    }
+
+    Elements.Toolbar {
+        id: __toolbar
+        clientSideDecorations: app.clientSideDecorations
+    }
+
+    Elements.Dialog {
+        id: errorDialog
+
+        property var promise
+
+        positiveButtonText: "Retry"
+
+        onAccepted: {
+            promise.resolve()
+            promise = null
+        }
+
+        onRejected: {
+            promise.reject()
+            promise = null
+        }
+    }
+
+    function showError(title, text, secondaryButtonText, retry) {
+        if (errorDialog.promise) {
+            errorDialog.promise.reject()
+            errorDialog.promise = null
+        }
+
+        errorDialog.negativeButtonText = secondaryButtonText ? secondaryButtonText : "Close"
+        errorDialog.positiveButton.visible = retry || false
+
+        errorDialog.promise = new Promise.Promise()
+        errorDialog.title = title
+        errorDialog.text = text
+        errorDialog.open()
+
+        return errorDialog.promise
+    }
 
     Component.onCompleted: {
+        if (clientSideDecorations)
+            flags |= Qt.FramelessWindowHint
         //flags |= Qt.FramelessWindowHint
 
         Base.Device.initDeviceSize(Screen.width, Screen.height,Screen.pixelDensity)
