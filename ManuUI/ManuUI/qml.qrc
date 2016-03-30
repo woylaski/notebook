@@ -8,6 +8,7 @@
         <file>PageStackDemo.qml</file>
         <file>test-row-column.qml</file>
         <file>test_overlay.qml</file>
+        <file>demo.qml</file>
     </qresource>
     <qresource prefix="/base">
         <file>base/qmldir</file>
@@ -29,6 +30,7 @@
         <file>base/ListUtils.js</file>
         <file>base/PlatformExtensions.qml</file>
         <file>base/MaterialAnimation.qml</file>
+        <file>base/LocalDB.js</file>
     </qresource>
     <qresource prefix="/elements">
         <file>elements/AutoGrid.qml</file>
@@ -76,6 +78,11 @@
         <file>elements/NavigationDrawer.qml</file>
         <file>elements/NavigationDrawerPage.qml</file>
         <file>elements/ProgressCircle.qml</file>
+        <file>elements/TextField.qml</file>
+        <file>elements/Snackbar.qml</file>
+        <file>elements/InputDialog.qml</file>
+        <file>elements/RadioButton.qml</file>
+        <file>elements/ListFile.qml</file>
     </qresource>
     <qresource prefix="/components">
         <file>components/AppWindow.qml</file>
@@ -1032,5 +1039,14 @@
         <file>style/CheckBoxStyle.qml</file>
         <file>style/ButtonStyle.qml</file>
         <file>style/SliderStyle.qml</file>
+        <file>style/TextFieldStyle.qml</file>
+        <file>style/RadioButtonStyle.qml</file>
+    </qresource>
+    <qresource prefix="/draw">
+        <file>draw/Line.qml</file>
+        <file>draw/Rect.qml</file>
+        <file>draw/Text.qml</file>
+        <file>draw/Arc.qml</file>
+        <file>draw/Bezier.qml</file>
     </qresource>
 </RCC>

@@ -2,7 +2,9 @@ TEMPLATE = app
 
 QT += qml quick widgets
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    beziercurve.cpp \
+    painteditem.cpp
 
 RESOURCES += qml.qrc
 
@@ -14,4 +16,8 @@ include(deployment.pri)
 
 DISTFILES += \
     elements/qmldir
+
+HEADERS += \
+    beziercurve.h \
+    painteditem.h
 
