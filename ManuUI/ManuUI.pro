@@ -5,4 +5,5 @@ SUBDIRS += \
     treemodel \
     test \
     ManuUI \
-    qt5_basic
+    qt5_basic \
+    python

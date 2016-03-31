@@ -8,6 +8,8 @@ import QtQuick.Dialogs 1.2
 import com.manu.fileio 1.0
 import com.manu.treemodel 1.0
 import CustomGeometry 1.0
+import CustomPaint 1.0
+import CustomBalloon 1.0
 
 import "qrc:/base/base/ObjUtils.js" as ObjUtils
 import "qrc:/base/base/MiscUtils.js" as MiscUtils
@@ -47,6 +49,32 @@ Components.AppWindow {
             text: "Hello World!"+offlineStoragePath
         }
 
+        PickThumb{
+            id: pick
+            anchors.fill: parent
+        }
+        /*
+        TextBalloon{
+            id: balloon
+            width: 116
+            height: 60
+            anchors.right: parent.right
+            rightAligned: true
+
+            Text{
+                anchors.centerIn: parent
+                text: "balloon test"
+            }
+        }
+        */
+        /*
+        APaintedItem{
+            id: pain
+            anchors.fill: parent
+        }
+        */
+
+        /*
         BezierCurve {
                id: line
                anchors.fill: parent
@@ -61,7 +89,7 @@ Components.AppWindow {
                p2: Qt.point(t, 1 - t)
                p3: Qt.point(1 - t, t)
         }
-
+        */
         //Draw.Line{}
         //Draw.Rect{}
         //Draw.Arc{}

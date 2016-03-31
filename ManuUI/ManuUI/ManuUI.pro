@@ -1,10 +1,12 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick widgets network multimedia
 
 SOURCES += main.cpp \
     beziercurve.cpp \
-    painteditem.cpp
+    painteditem.cpp \
+    textballoon.cpp \
+    opencvface.cpp
 
 RESOURCES += qml.qrc
 
@@ -19,5 +21,7 @@ DISTFILES += \
 
 HEADERS += \
     beziercurve.h \
-    painteditem.h
+    painteditem.h \
+    textballoon.h \
+    eventfilter.h
 

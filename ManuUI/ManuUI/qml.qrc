@@ -9,6 +9,8 @@
         <file>test-row-column.qml</file>
         <file>test_overlay.qml</file>
         <file>demo.qml</file>
+        <file>PickThumb.qml</file>
+        <file>OpenDocument.qml</file>
     </qresource>
     <qresource prefix="/base">
         <file>base/qmldir</file>
@@ -83,6 +85,7 @@
         <file>elements/InputDialog.qml</file>
         <file>elements/RadioButton.qml</file>
         <file>elements/ListFile.qml</file>
+        <file>elements/BusyIndicator.qml</file>
     </qresource>
     <qresource prefix="/components">
         <file>components/AppWindow.qml</file>
@@ -1041,6 +1044,7 @@
         <file>style/SliderStyle.qml</file>
         <file>style/TextFieldStyle.qml</file>
         <file>style/RadioButtonStyle.qml</file>
+        <file>style/FlatButtonStyle.qml</file>
     </qresource>
     <qresource prefix="/draw">
         <file>draw/Line.qml</file>

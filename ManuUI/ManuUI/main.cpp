@@ -5,12 +5,21 @@
 #include <QQmlContext>
 #include "beziercurve.h"
 #include "painteditem.h"
+#include "textballoon.h"
+#include "eventfilter.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    //设置应用图标
+    //app.setWindowIcon(QIcon(":/res/eye.png"));
+    //给QGuiApplication安装事件过滤器，过滤BACK按键,
+    //KeyBackQuit类重写eventFilter()方法来过滤Key_Back按键
+    app.installEventFilter(new KeyBackQuit);
+
     qmlRegisterType<BezierCurve>("CustomGeometry", 1, 0, "BezierCurve");
-    qmlRegisterType<PaintedItem>("an.qml.Controls", 1, 0, "APaintedItem");
+    qmlRegisterType<PaintedItem>("CustomPaint", 1, 0, "APaintedItem");
+    qmlRegisterType<TextBalloon>("CustomBalloon", 1, 0, "TextBalloon");
 
     QQmlApplicationEngine engine;
 

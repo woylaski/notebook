@@ -14,6 +14,7 @@ public:
     {
     }
 
+    //给m_pen赋值
     ElementGroup(const QPen &pen)
         : m_pen(pen)
     {
@@ -40,6 +41,8 @@ public:
     }
 
     QVector<QLineF> m_lines;
+    //The QPen class defines how a QPainter should draw lines and outlines of shapes
+    //QPen(const QColor &color)
     QPen m_pen;
 };
 
