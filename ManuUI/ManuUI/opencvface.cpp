@@ -2,6 +2,7 @@
 //使用了QSGSimpleTextureNode，然后我们将opencv的图像，作为一个QSGTexture，
 //然后返回给渲染的线程进行场景的渲染。
 //这里还要说下，Qt的QImage，不支持单通道的灰度图，我们需要转换成RGB才能正确的显示。
+/*
 QSGNode* OpenCVshowFrame::updatePaintNode(QSGNode *old, UpdatePaintNodeData *)
 {
     QSGSimpleTextureNode *texture = static_cast<QSGSimpleTextureNode*>(old);
@@ -35,4 +36,9 @@ QSGNode* OpenCVshowFrame::updatePaintNode(QSGNode *old, UpdatePaintNodeData *)
         cvReleaseImage(&out);
     }
     return texture;
+}
+*/
+void opencv_test(void)
+{
+
 }
