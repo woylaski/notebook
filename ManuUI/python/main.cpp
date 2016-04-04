@@ -337,6 +337,48 @@ void process_python3()
 
 //http://stackoverflow.com/questions/32831775/start-process-with-qprocess-on-windows-error-timers-can-only-be-used-with-thre
 //http://stackoverflow.com/questions/4180394/how-do-i-create-a-simple-qt-console-application-in-c
+
+//Public Slots
+//void	kill()
+//void	terminate()
+
+//void	start(const QString &program, const QStringList &arguments, OpenMode mode = ReadWrite)
+//void	start(const QString &command, OpenMode mode = ReadWrite)
+//void	start(OpenMode mode = ReadWrite)
+
+/*
+Static Public Members
+
+int	execute(const QString &program, const QStringList &arguments)
+int	execute(const QString &command)
+QString	nullDevice()
+bool	startDetached(const QString &program, const QStringList &arguments, const QString &workingDirectory = QString(), qint64 *pid = Q_NULLPTR)
+bool	startDetached(const QString &command)
+QStringList	systemEnvironment()
+*/
+
+/*
+waitForStarted() blocks until the process has started.
+waitForReadyRead() blocks until new data is available for reading on the current read channel.
+waitForBytesWritten() blocks until one payload of data has been written to the process.
+waitForFinished() blocks until the process has finished.
+ */
+
+//void QIODevice::readyRead()
+
+/*
+Signals
+
+void	errorOccurred(QProcess::ProcessError error)
+void	finished(int exitCode, QProcess::ExitStatus exitStatus)
+void	readyReadStandardError()
+void	readyReadStandardOutput()
+void	started()
+void	stateChanged(QProcess::ProcessState newState)
+4 signals inherited from QIODevice
+2 signals inherited from QObject
+ */
+
 int main(int argc, char *argv[])
 {
     Shell ashell;
@@ -347,8 +389,9 @@ int main(int argc, char *argv[])
     //process_ls();
     //process_real_output();
     //ashell.run("ls", QStringList()<<"\c"<<"E:\\");
-    //ashell.run("python", QStringList()<<"E:\\all-qml\\test.py");
-    ashell.run("python", QStringList()<<"-i"<<"E:\\all-qml\\test2.py");
+    ashell.run("python", QStringList()<<"-i"<<"/home/manu/work/test.py");
+    //ashell.run("python", QStringList()<<"/home/manu/work/test2.py");
+    //ashell.run("python", QStringList()<<"-i"<<"/home/manu/work/test2.py");
     //process_python("print('hello!'\n)");
     return app.exec();
 }

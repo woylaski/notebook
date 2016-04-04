@@ -1,4 +1,4 @@
-#include "PaintedItem.h"
+#include "painteditem.h"
 #include <QPainter>
 #include <QPen>
 #include <QBrush>

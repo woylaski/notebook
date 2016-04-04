@@ -27,7 +27,7 @@ bool Shell::run(QString script, QStringList list)
         return false;
     }
 
-    pro->waitForFinished();
+    //pro->waitForFinished();
     return true;
 }
 

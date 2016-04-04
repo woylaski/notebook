@@ -6,4 +6,5 @@ SUBDIRS += \
     test \
     ManuUI \
     qt5_basic \
-    python
+    python \
+    TOpencv
