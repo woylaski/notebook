@@ -7,4 +7,5 @@ SUBDIRS += \
     ManuUI \
     qt5_basic \
     python \
-    TOpencv
+    TOpencv \
+    aplugin
