@@ -3,7 +3,10 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQml.Models 2.2
 
+import "qrc:/ObjUtils.js" as ObjUtils
+
 ApplicationWindow {
+    id: root
     visible: true
     width: 640
     height: 480
@@ -39,6 +42,27 @@ ApplicationWindow {
                 onClicked: view.selectionMode = index
             }
         }
+    }
+
+    function autoExpand(index ) {
+        print(index)
+        var oneUp = index
+
+        do {
+            print(oneUp)
+            oneUp = index.parent
+            expand(oneUp)
+            print("do")
+            print(oneUp)
+        } while (oneUp)
+
+    }
+
+    function expand(index) {
+        if (index.valid && index.model !== model)
+            console.warn("TreeView.expand: model and index mismatch")
+        else
+            modelAdaptor.expand(index)
     }
 
     ItemSelectionModel {
@@ -121,7 +145,7 @@ ApplicationWindow {
                         anchors.fill: parent;
                         color: "transparent";
                         Image{anchors.fill : parent
-                            source: styleData.isExpanded ? "qrc:/images/checkbox_unchecked.png" : "qrc:/images/checkbox_checked.png"
+                            source: styleData.isExpanded ? "qrc:/images/minus.png" : "qrc:/images/plus.png"
                         }
 
                         Component.onCompleted: {
@@ -133,7 +157,94 @@ ApplicationWindow {
                     }
                 }
             }
+/*
+styleData.selected - if the item is currently selected
+styleData.value - the value or text for this item
+styleData.textColor - the default text color for an item
+styleData.row - the index of the view row
+styleData.column - the index of the view column
+styleData.elideMode - the elide mode of the column
+styleData.textAlignment - the horizontal text alignment of the column
+styleData.pressed - true when the item is pressed
+styleData.hasActiveFocus - true when the row has focus
+styleData.index - the QModelIndex of the current item in the model
+styleData.depth - the depth of the current item in the model
+styleData.isExpanded - true when the item is expanded
+styleData.hasChildren - true if the model index of the current item has or can have children
+styleData.hasSibling - true if the model index of the current item has a sibling
+*/
+            //object createObject(Item parent, object properties)
+            //var component = Qt.createComponent("Button.qml");
+            //if (component.status == Component.Ready)
+            //    component.createObject(parent, {"x": 100, "y": 100});
+            //由于 Component 不是继承自 Item ，所以使用 anchors 锚布局无效，但 Loader 可以使用
+            Component {
+                id: checkBoxDelegate
+                Rectangle {
+                    id: itemrect
+                    //color: ( styleData.row % 2 == 0 ) ? "white" : "lightblue"
+                    height: 40
 
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked:{
+                            var cords = itemrect.mapToItem(null, 0, 0)
+                            //console.log("item x in root is ", cords.x)
+                            //console.log("item y in root is ", cords.y)
+
+                            var indexSelected = styleData.index ;
+                            var indexParent   = indexSelected.parent;
+                            console.log("data index is ",styleData.index)
+                            console.log("data depth is ",styleData.depth)
+                            console.log("data row is ",styleData.row)
+                            console.log("data column is ",styleData.column)
+                            console.log("parent x is ", view.x)
+                            //console.log(parent.parent.children[0].item.value)
+                            //console.log("data index is ",indexSelected.data)
+                            //console.log("parent index is ",indexSelected.value)
+                            //console.log("parent name is ",control.model.index(indexParent))
+                            console.log("parent model data is ",control.model.data(indexParent))
+                            console.log("select model data is ",control.model.data(indexSelected,0))
+                            //console.log("parent name is ",fileSystemModel.getParentName(indexParent));
+                            //console.log("model index property")
+                            //ObjUtils.listProperty(indexSelected)
+                            //ObjUtils.listProperty(indexParent)
+                            fileManagement.printPath(control.model, styleData.index)
+                        }
+                    }
+
+                    Row{
+                        spacing: 10
+                        Rectangle{
+                            //x: {var cords = itemrect.mapToItem(null, 0, 0); return -cords.x;}
+                            //x: {var cords = itemrect.mapToItem(null, 0, 0); return -cords.x;}
+                            //width: -x
+                            x: -styleId.indentation*styleData.depth
+                            width: styleId.indentation*styleData.depth
+                            height: 2
+                            anchors.verticalCenter: parent.verticalCenter
+                            //border.width: 0.5
+                            border.color: "gray"
+                            visible: styleData.hasChildren? false: styleData.column==0?true:false;
+
+                        }
+                        CheckBox{
+                            id: checkBox;
+                            visible: styleData.hasChildren? false: styleData.column==0?true:false;
+                            checkedState: styleData.hasChildren? false: true;
+                        }
+
+                        Text {
+                            //anchors.verticalCenter: parent.verticalCenter
+                            //anchors.left: parent.left
+                            // this points to the role we defined in the TableViewColumn below;
+                            //which one depends on which column this delegate is instantiated for.
+                            text: styleData.value+"_"+styleData.depth
+                        }
+                    }
+                }
+            }
+            /*
             Component {
                 id: checkBoxDelegate
                 Item {
@@ -169,6 +280,8 @@ ApplicationWindow {
 
                             if(drawLine)
                             {
+                                    //先使用 Qt.createComponent(url, mode, parent) 从 QML 文件中创建一个组件，必要时可以根据 Component.status 属性判断创建状态，
+                                    //然后使用 Component.createObject() 在某个父对象下实例化对象，最后使用 destroy() 销毁对象，函数参数可以指定一个时间，单位是毫秒
                                     rectItem = linkComponentId.createObject(container);
                                     rectItem.x = posX; rectItem.height = (i+1) * container.height;
                                     if(control.model.IsFirstElement(styleData.index)){
@@ -202,6 +315,7 @@ ApplicationWindow {
                     }
                 }
             }
+            */
         }
 
         TableViewColumn {
@@ -228,10 +342,15 @@ ApplicationWindow {
         */
 
         onClicked: {
-            console.log("clicked", index)            
+            console.log("clicked", index)
+            //fileSystemModel.data(index, "Title")
             fileManagement.printPath(index.model, index)
         }
         onDoubleClicked: isExpanded(index) ? collapse(index) : expand(index)
+
+        Component.onCompleted: {
+            //ObjUtils.listProperty(model)
+        }
     }
 
     Component.onCompleted: fileManagement.test()

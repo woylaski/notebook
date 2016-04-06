@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>lib/phrases.json</file>
+        <file>lib/script.js</file>
+        <file>lib/words.json</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/Browser.qml</file>
+        <file>shell.qml</file>
+    </qresource>
+    <qresource prefix="/js">
+        <file>qml/js/readability.js</file>
+        <file>qml/js/script.js</file>
+        <file>qml/js/userscript.js</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>qml/icons/favicon.png</file>
+        <file>qml/icons/fontawesome-webfont.ttf</file>
+    </qresource>
+</RCC>

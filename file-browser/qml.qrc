@@ -4,5 +4,8 @@
         <file>TreeStyle.qml</file>
         <file>images/checkbox_checked.png</file>
         <file>images/checkbox_unchecked.png</file>
+        <file>ObjUtils.js</file>
+        <file>images/minus.png</file>
+        <file>images/plus.png</file>
     </qresource>
 </RCC>
