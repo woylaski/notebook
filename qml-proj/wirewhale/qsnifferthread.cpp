@@ -53,18 +53,15 @@ void QSnifferThread::changeInterface(QString interface)
   }
 }
 
-//QPacketSniffer::PacketFilter filterPacketType(QPacketSniffer::Packet::EtherType ether_type)
-QPacketSniffer::PacketFilter filterPacketType(Packet::EtherType ether_type)
+QPacketSniffer::PacketFilter filterPacketType(QPacketSniffer::Packet::EtherType ether_type)
+//QPacketSniffer::PacketFilter filterPacketType(Packet::EtherType ether_type)
 {
-#if 0
+#if 1
   return [ether_type](QPacketSniffer::Packet packet) -> bool {
     return packet.get_ether_type() != ether_type;
   };
 #endif
 
-  return [ether_type](Packet packet) -> bool {
-    return packet.get_ether_type() != ether_type;
-  };
   //return true;
 }
 

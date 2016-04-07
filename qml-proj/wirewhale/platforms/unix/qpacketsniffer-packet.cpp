@@ -367,11 +367,13 @@ QString QPacketSniffer::Packet::get_protocol(void) const
 }
 
 size_t QPacketSniffer::Packet::packet_offset_ip_header()
+//size_t Packet::packet_offset_ip_header()
 {
   return sizeof(ether_header);
 }
 
 size_t QPacketSniffer::Packet::packet_offset_xcp_header()
+//size_t Packet::packet_offset_xcp_header()
 {
   return packet_offset_ip_header() + sizeof(struct iphdr);
 }
