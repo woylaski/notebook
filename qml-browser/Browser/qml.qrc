@@ -2,6 +2,10 @@
     <qresource prefix="/">
         <file>qml/Browser.qml</file>
         <file>shell.qml</file>
+        <file>qml/ContextButton.qml</file>
+        <file>qml/English.qml</file>
+        <file>qml/Button.qml</file>
+        <file>qml/PopOver.qml</file>
     </qresource>
     <qresource prefix="/js">
         <file>qml/js/readability.js</file>
@@ -11,5 +15,12 @@
     <qresource prefix="/icons">
         <file>qml/icons/favicon.png</file>
         <file>qml/icons/fontawesome-webfont.ttf</file>
+    </qresource>
+    <qresource prefix="/layout">
+        <file>qml/layout/capslock.png</file>
+        <file>qml/layout/english.png</file>
+        <file>qml/layout/handwriting.png</file>
+        <file>qml/layout/numeric.png</file>
+        <file>qml/layout/punctuation.png</file>
     </qresource>
 </RCC>

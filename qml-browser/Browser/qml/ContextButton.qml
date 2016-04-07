@@ -1,10 +1,14 @@
 import QtQuick 2.0
 
+//自定义的按钮
 Rectangle { 
     id: button
     property string label: ""
+
+    //信号
     signal clicked()
 
+    //颜色渐变
     gradient: Gradient {
         GradientStop { position: 0.0; color: "#FFFFFF" }
         GradientStop { position: 0.5; color: "#FFFFFF" }

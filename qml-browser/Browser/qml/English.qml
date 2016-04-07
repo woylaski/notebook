@@ -1,5 +1,6 @@
-import QtQuick 2.0
-import Fakekey 1.0 
+import QtQuick 2.5
+//import Fakekey 1.0
+import com.manu.fakekey 1.0
 //download and install from: https://github.com/penk/SlateKit/tree/master/IME/fakekey
 
 Rectangle { 
@@ -10,10 +11,10 @@ Rectangle {
 
     Image {
         anchors { left: parent.left; top: parent.top }
-        source: if (!inNumView && !inPunView && !isShifted) 'layout/english.png' 
-        else if (inPunView) 'layout/punctuation.png'
-        else if (inNumView) 'layout/numeric.png'
-        else 'layout/capslock.png'
+        source: if (!inNumView && !inPunView && !isShifted) 'qrc:/layout/qml/layout/english.png'
+        else if (inPunView) 'qrc:/layout/qml/layout/punctuation.png'
+        else if (inNumView) 'qrc:/layout/qml/layout/numeric.png'
+        else 'qrc:/layout/qml/layout/capslock.png'
     }
 
     Fakekey { id: fakekey } 

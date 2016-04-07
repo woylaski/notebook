@@ -1,7 +1,8 @@
-#include <QGuiApplication>
-#include <QQuickView>
-#include <QQuickItem>
+//#include <QGuiApplication>
+//#include <QQuickView>
+//#include <QQuickItem>
 #include <QDebug>
+//#include <QApplication>
 #include <QQmlApplicationEngine>
 
 /*
@@ -16,6 +17,7 @@ int main(int argc, char *argv[])
 }
 */
 
+/*
 class Launcher: public QGuiApplication {
     Q_OBJECT
 public:
@@ -32,14 +34,17 @@ protected:
         QKeyEvent *keyEvent = (QKeyEvent *)event;
         if (event->type() == QEvent::KeyRelease) {
             QVariant keycode = keyEvent->key();
-            QMetaObject::invokeMethod(view.rootObject(), "handleKey",  Q_ARG(QVariant, keycode));
+            //QMetaObject::invokeMethod(view.rootObject(), "handleKey",  Q_ARG(QVariant, keycode));
         }
         return QObject::eventFilter(obj, event);
     };
 };
+*/
 
 int main(int argc, char* argv[]) {
-    Launcher app(argc,argv);
-    return app.exec();
+    //QApplication app(argc, argv);
+    //Launcher app(argc,argv);
+    //return app.exec();
+    return 0;
 }
 

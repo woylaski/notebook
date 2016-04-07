@@ -2,7 +2,7 @@
 #define ZINNIA_H
 
 #include <QQuickItem>
-#include <zinnia.h>
+//#include <zinnia.h>
 
 class Zinnia : public QQuickItem
 {
@@ -16,9 +16,9 @@ public:
     Q_INVOKABLE void clear();
     Q_INVOKABLE QString query(int s, int x, int y);
 
-    zinnia::Recognizer *recognizer;
-    zinnia::Character *character;
-    zinnia::Result *result;
+    //zinnia::Recognizer *recognizer;
+    //zinnia::Character *character;
+    //zinnia::Result *result;
     QString str;
 };
 
