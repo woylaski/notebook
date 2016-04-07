@@ -28,7 +28,7 @@
  *
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 //import Qt.labs.gestures 1.0
 import "nodelisthelper.js" as NodeListHelper
 
@@ -65,7 +65,6 @@ Item {
      */
     property Item currentItem: null
     property int currentIndex: -1
-    property QtObject currentModel: null
 
     function addView(parentView) {
         console.log("Entering addView...")
@@ -95,7 +94,7 @@ Item {
                 currentItem.expandable &&
                 ! currentNodeListView.model.rowCount() <= 0) {
             addView(currentNodeListView)
-            treeView.updateSubView(currentNodeListView.model, currentIndex)
+            updateSubView(currentNodeListView.model, currentIndex)
         }
     }
 
@@ -123,6 +122,9 @@ Item {
          */
         NodeListHelper.views[currentLevel+1].currentIndex = -1
         NodeListHelper.views[currentLevel+1].model.setParentFromSelection(model, index)
+        if (NodeListHelper.views[currentLevel+1].model.count > 0) {
+            NodeListHelper.views[currentLevel+1].currentIndex = 0
+        }
     }
 
     function toggleDone() {
@@ -131,20 +133,14 @@ Item {
         }
 
         if (currentItem.done) {
-            currentModel.setAttribute(currentIndex, "done", "false")
+            currentNodeListView.model.setAttribute(currentIndex, "done", "false")
         } else {
-            currentModel.setAttribute(currentIndex, "done", "true")
+            currentNodeListView.model.setAttribute(currentIndex, "done", "true")
         }
     }
 
     Component.onCompleted: {
-        NodeListHelper.views.push(rootListView)
-        listViewCount++
-        currentIndex = rootListView.currentIndex
-        currentModel = model
-        if (rootListView.currentIndex >= 0) {
-            currentItem = rootListView.currentItem
-        }
+
     }
 
     onCurrentLevelChanged: {
@@ -162,7 +158,6 @@ Item {
         }
 
         currentNodeListView = NodeListHelper.views[currentLevel]
-        currentModel = currentNodeListView.model
 
         /*
          * Hack to properly update the selection when switching between levels.
@@ -233,9 +228,18 @@ Item {
                 anchors.left: parent.left
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
+                level: 0
 
                 Component.onCompleted: {
                     currentNodeListView = rootListView
+                    NodeListHelper.views.push(currentNodeListView)
+                    listViewCount++
+                    currentIndex = currentNodeListView.currentIndex
+
+                    if (currentNodeListView.currentIndex >= 0) {
+                        currentItem = currentNodeListView.currentItem
+                        expandTree()
+                    }
                 }
             }
         }

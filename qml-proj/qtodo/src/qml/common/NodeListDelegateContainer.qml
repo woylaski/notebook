@@ -18,13 +18,13 @@
  *
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 
 Item {
     width: nodeListDelegate.width
     height: (atTop || atBottom) ? nodeListDelegate.height + indicatorHeight : nodeListDelegate.height
 
-    property bool atBottom: index === nodeListView.count - 1
+    property bool atBottom: index === _nodeListViewLV.count - 1
     property bool atTop: index === 0
     property int indicatorHeight: 4
 

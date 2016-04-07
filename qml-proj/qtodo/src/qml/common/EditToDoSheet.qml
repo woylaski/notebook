@@ -17,24 +17,24 @@
  *  along with Q To-Do.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
-import "../common"
+import QtQuick 2.0
 
-Item {
+Rectangle {
     id: editToDoSheet
     anchors.bottom: parent.bottom
     anchors.top: parent.bottom
+    color: primaryBackgroundColor
     width: parent.width
 
     visible: false
     z: 1
 
+    property alias acceptText: acceptButton.text
+    property alias cancelText: rejectButton.text
+    property string itemColor: "blue"
     property bool edit: false
     property int index: -1
-
     property alias text: textInput.text
-
-    property string color: "blue"
     property string type: "to-do"
 
     signal closed()
@@ -44,13 +44,12 @@ Item {
     signal accepted()
 
     function finished(){
-        console.log("finished")
+        console.log("EditToDoSheet: finished()")
         if(state === "closed"){
             visible = false
             closed()
         }else{
             opened()
-            textInput.focus = true
         }
     }
 
@@ -59,6 +58,14 @@ Item {
 
         closing()
         state = "closed"
+    }
+
+    function save() {
+        if(edit){
+            mainRectangle.treeView.currentNodeListView.model.updateElement(mainRectangle.treeView.currentIndex, type, text, itemColor)
+        }else{
+            mainRectangle.treeView.currentNodeListView.model.addElement(type, text, itemColor)
+        }
     }
 
     function open(){
@@ -72,17 +79,15 @@ Item {
     }
 
     onAccepted: {
-        if(edit){
-            mainRectangle.treeView.currentModel.updateElement(mainRectangle.treeView.currentIndex, type, text, color)
-        }else{
-            mainRectangle.treeView.currentModel.addElement(type, text, color)
-        }
-
-        editToDoSheet.close();
+        save()
+        editToDoSheet.close()
     }
 
     onStateChanged: {
         console.log("Edit entry dialog state changed: " + state)
+        if (state === "open") {
+            textInput.forceActiveFocus()
+        }
     }
 
     states: [
@@ -98,7 +103,7 @@ Item {
 
     transitions: Transition {
         SequentialAnimation {
-            AnchorAnimation { duration: 250; easing.type: Easing.OutCubic }
+            AnchorAnimation { duration: primaryAnimationDuration; easing.type: Easing.OutCubic }
             ScriptAction { script: editToDoSheet.finished() }
         }
     }
@@ -110,125 +115,97 @@ Item {
     }
 
     Rectangle {
-        id: buttonBar
+        id: topBar
         anchors.top: parent.top
-        height: rejectButton.height + 6
+        height: rejectButton.height + secondaryBorderSize * 0.25
         width: parent.width
         z: 4
 
-        color: "lightgray"
+        color: secondaryBackgroundColor
+        opacity: secondaryBackgroundOpacity
 
-        CommonButton{
-            id: rejectButton
-            anchors.left: parent.left
-            anchors.leftMargin: 16
-            anchors.verticalCenter: parent.verticalCenter
-            text: "Cancel"
-            onClicked: editToDoSheet.close();
+        Text {
+            id: entryLabel
+
+            anchors.centerIn: parent
+            color: primaryFontColor
+            font { pointSize: primaryFontSize; capitalization: Font.SmallCaps; bold: true }
+            text: (edit ? "Edit" : "Add") + " Entry"
         }
+    }
 
-        Text {id: entryLabel; text: "Entry"; font.pointSize: primaryFontSize; font.capitalization: Font.SmallCaps; font.bold: true; anchors.centerIn: parent}
+    Row {
+        id: colorButtonRow
+
+        anchors {top: topBar.bottom; left: parent.left; right: parent.right; margins: secondaryBorderSize * 0.25}
+        height: blueButton.height + secondaryBorderSize * 0.25
+        spacing: secondaryBorderSize * 0.25
 
         CommonButton {
-            id: acceptButton
-            anchors.right: parent.right
-            anchors.rightMargin: 16
-            anchors.verticalCenter: parent.verticalCenter
-            width: rejectButton.width
-            text: "OK"
-            onClicked: {
-                editToDoSheet.focus = true
-                if(textInput.text === "") {
-                    noTextGivenDialog.open()
-                } else {
-                    editToDoSheet.accepted()
-                }
-            }
+            id: blueButton
+
+
+            iconSource: "../icons/to-do_blue.png"
+            selected: editToDoSheet.itemColor === "blue"
+            width: (parent.width - parent.spacing * 3) / 4
+
+            onClicked: editToDoSheet.itemColor = "blue"
+        }
+        CommonButton {
+            id: greenButton
+
+            iconSource: "../icons/to-do_green.png"
+            selected: editToDoSheet.itemColor === "green"
+            width: blueButton.width
+
+            onClicked: editToDoSheet.itemColor = "green"
+        }
+        CommonButton {
+            id: yellowButton
+
+            iconSource: "../icons/to-do_yellow.png"
+            selected: editToDoSheet.itemColor === "yellow"
+            width: blueButton.width
+
+            onClicked: editToDoSheet.itemColor = "yellow"
+        }
+        CommonButton {
+            id: redButton
+
+            iconSource: "../icons/to-do_red.png"
+            selected: editToDoSheet.itemColor === "red"
+            width: blueButton.width
+
+            onClicked: editToDoSheet.itemColor = "red"
         }
     }
 
     Rectangle {
         id: inputRectangle
 
-        anchors {top: buttonBar.bottom; left: parent.left; right: parent.right; bottom: parent.bottom}
-        color: "white"
+        anchors {top: colorButtonRow.bottom; left: parent.left; right: parent.right; bottom: parent.bottom}
+        color: primaryBackgroundColor
+        opacity: primaryBackgroundOpacity
 
         Flickable {
             id: inputFlickable
 
-            anchors.fill: parent
-            contentHeight: sheetContent.height
+            anchors {top: parent.top; left: parent.left; right: parent.right}
+            clip: true
+            contentHeight: sheetContent.height + secondaryBorderSize * 0.25
+            height: Math.min(contentHeight, parent.height - bottomBar.height) + bottomBar.anchors.topMargin
 
             Column {
                 id: sheetContent
-                spacing: primaryFontSize * 0.6
+                spacing: secondaryBorderSize
 
-                anchors{top: parent.top; left: parent.left; right: parent.right; margins: primaryFontSize * 0.75}
+                anchors{top: parent.top; left: parent.left; right: parent.right; margins: secondaryBorderSize * 0.25}
 
-                Row {
-                    id: typeButtonRow
-                    width: parent.width
-
-                    CommonButton {
-                        id: toDoButton
-                        width: parent.width / 2
-                        text: "To-Do"
-                        enabled: editToDoSheet.type !== "to-do"
-                        onClicked: {
-                            type = "to-do"
-                            colorButtonRow.enabled = (type === "to-do")
-                        }
-                    }
-                    CommonButton {
-                        id: noteButton
-                        width: parent.width / 2
-                        text: "Note"
-                        enabled: editToDoSheet.type !== "note"
-                        onClicked: {
-                            type = "note"
-                            colorButtonRow.enabled = (type === "to-do")
-                        }
-                    }
-                }
-
-                Row {
-                    id: colorButtonRow
-                    width: parent.width
-
-                    CommonButton {
-                        id: blueButton
-                        width: parent.width / 4
-                        iconSource: "../icons/to-do_blue.png"
-                        enabled: editToDoSheet.color !== "blue"
-                        onClicked: editToDoSheet.color = "blue"
-                    }
-                    CommonButton {
-                        id: greenButton
-                        width: parent.width / 4
-                        iconSource: "../icons/to-do_green.png"
-                        enabled: editToDoSheet.color !== "green"
-                        onClicked: editToDoSheet.color = "green"
-                    }
-                    CommonButton {
-                        id: yellowButton
-                        width: parent.width / 4
-                        iconSource: "../icons/to-do_yellow.png"
-                        enabled: editToDoSheet.color !== "yellow"
-                        onClicked: editToDoSheet.color = "yellow"
-                    }
-                    CommonButton {
-                        id: redButton
-                        width: parent.width / 4
-                        iconSource: "../icons/to-do_red.png"
-                        enabled: editToDoSheet.color !== "red"
-                        onClicked: editToDoSheet.color = "red"
-                    }
-                }
-
-                CommonTextArea{
+                CommonTextArea {
                     id: textInput
-                    width: parent.width
+
                     textFormat: TextEdit.PlainText
+                    width: parent.width
 
                     onKeyPressed: {
                         if (event.modifiers & Qt.AltModifier) {
@@ -252,18 +229,47 @@ Item {
                     Keys.onEscapePressed: editToDoSheet.close()
                     onEnter: accepted()
                 }
+            }
+        }
 
-                MouseArea {
-                    anchors.fill: parent
-                    z: -1
-                    onClicked: focus = true
-                }
+        Rectangle {
+            id: bottomBar
+            anchors.top: inputFlickable.bottom
+            anchors.topMargin: secondaryBorderSize * 0.25
+            height: rejectButton.height + secondaryBorderSize * 0.5
+            width: parent.width
+            z: 4
+
+            color: primaryBackgroundColor
+            opacity: primaryBackgroundOpacity
+
+            CommonButton{
+                id: rejectButton
+
+                anchors.left: parent.left
+                anchors.leftMargin: secondaryBorderSize * 0.25
+                text: "Cancel"
+                width: (parent.width - 3 * secondaryBorderSize * 0.25) / 2
+
+                onClicked: editToDoSheet.close();
             }
 
-            MouseArea {
-                anchors.fill: parent
-                z: -1
-                onClicked: focus = true
+            CommonButton {
+                id: acceptButton
+
+                anchors.right: parent.right
+                anchors.rightMargin: secondaryBorderSize * 0.25
+                text: "OK"
+                width: rejectButton.width
+
+                onClicked: {
+                    editToDoSheet.focus = true
+                    if(textInput.text === "") {
+                        noTextGivenDialog.open()
+                    } else {
+                        editToDoSheet.accepted()
+                    }
+                }
             }
         }
     }

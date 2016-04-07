@@ -17,12 +17,12 @@
  *  along with Q To-Do.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 
 Rectangle {
     id: header
     height: headerText.height * 1.5
-    color: "#00b000" //#0c61a8"
+    color: primaryColorSchemeColor
     anchors{left: parent.left; right: parent.right; top: parent.top}
     z: 48
 
@@ -30,10 +30,10 @@ Rectangle {
 
     Text {
         id: headerText
-        anchors{left: parent.left; leftMargin: primaryFontSize * 0.75; verticalCenter: parent.verticalCenter}
+        anchors{left: parent.left; leftMargin: secondaryBorderSize; verticalCenter: parent.verticalCenter}
         text: "My To-Dos"
-        color: "white"
-        font {pointSize: primaryFontSize * 0.7}
+        color: primaryBackgroundColor
+        font {pointSize: secondaryFontSize}
     }
 
     ListView {
@@ -51,10 +51,10 @@ Rectangle {
         spacing: header.height * 0.25
 
         model: ListModel {
-            ListElement {}
+            ListElement {level: 0}
         }
 
-        delegate: Rectangle {
+        delegate: Item {
             id: levelIndicatorDelegate
 
             property bool animationRunning: false
@@ -65,10 +65,32 @@ Rectangle {
             width: height
             anchors.verticalCenter: parent.verticalCenter
 
-//            radius: height * 0.5
-            border.width: height * 0.2
-            border.color: headerText.color
-            color: ((index + 1) === levelIndicator.count || animationRunning ) ? headerText.color : "transparent"
+            Rectangle {
+                id: levelIndicatorDelegateFilled
+
+                anchors.fill: parent
+                border.width: height * 0.2
+                border.color: headerText.color
+                color: headerText.color
+                opacity: ((level + 1) === levelIndicator.count || animationRunning) ? 1.0 : 0.0
+                visible: parent.visible
+
+                Behavior on opacity {
+                    SequentialAnimation {
+                        PropertyAnimation { duration: primaryAnimationDuration }
+                    }
+                }
+            }
+
+            Rectangle {
+                id: levelIndicatorDelegateBorder
+
+                anchors.fill: parent
+                border.width: height * 0.2
+                border.color: headerText.color
+                color: "transparent"
+                visible: parent.visible
+            }
 
             ListView.onAdd: SequentialAnimation {
                 PropertyAction { target: levelIndicatorDelegate; property: "animationRunning"; value: true }
@@ -76,14 +98,14 @@ Rectangle {
                 // Setting x via PropertyAction causes the item to shortly show up at the target position.
                 NumberAnimation { target: levelIndicatorDelegate; property: "x"; to: header.width + width; duration: 1; easing.type: Easing.InOutQuad }
                 PropertyAction { target: levelIndicatorDelegate; property: "visible"; value: true }
-                NumberAnimation { target: levelIndicatorDelegate; property: "x"; to: x; duration: 250; easing.type: Easing.InOutQuad }
+                NumberAnimation { target: levelIndicatorDelegate; property: "x"; to: x + ((levelIndicator.spacing + width) * level); duration: primaryAnimationDuration; easing.type: Easing.InOutQuad }
                 PropertyAction { target: levelIndicatorDelegate; property: "animationRunning"; value: false }
             }
 
             ListView.onRemove: SequentialAnimation {
                 PropertyAction { target: levelIndicatorDelegate; property: "animationRunning"; value: true }
                 PropertyAction { target: levelIndicatorDelegate; property: "ListView.delayRemove"; value: true }
-                NumberAnimation { target: levelIndicatorDelegate; property: "x"; to: header.width + width; duration: 250; easing.type: Easing.InOutQuad }
+                NumberAnimation { target: levelIndicatorDelegate; property: "x"; to: header.width + width; duration: primaryAnimationDuration; easing.type: Easing.InOutQuad }
                 PropertyAction { target: levelIndicatorDelegate; property: "ListView.delayRemove"; value: false }
                 PropertyAction { target: levelIndicatorDelegate; property: "animationRunning"; value: false }
             }
@@ -92,7 +114,7 @@ Rectangle {
             // We explicitly set the first item to visible as it is never animated
             // and hence would not be set to visible otherwise.
             Component.onCompleted: {
-                if (index === 0) {
+                if (level === 0) {
                     visible = true
                 }
             }
@@ -100,7 +122,7 @@ Rectangle {
 
         Connections {
             target: mainRectangle.treeView
-            onLevelIncrement: levelIndicator.model.append({})
+            onLevelIncrement: levelIndicator.model.append({level: levelIndicator.count})
             onLevelDecrement: levelIndicator.model.remove(levelIndicator.count - 1)
         }
     }

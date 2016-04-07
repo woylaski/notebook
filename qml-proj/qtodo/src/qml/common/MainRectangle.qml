@@ -17,8 +17,10 @@
  *  along with Q To-Do.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 import qtodo 1.0
+import SyncToImap 1.0
+import "../synctoimap"
 
 Item {
     id: mainRectangle
@@ -37,7 +39,7 @@ Item {
     property bool isTodo
 
     function addItem() {
-        editToDoItem.color = "blue"
+        editToDoItem.itemColor = "blue"
         editToDoItem.type = "to-do"
         editToDoItem.text = ""
         editToDoItem.edit = false
@@ -62,7 +64,7 @@ Item {
             editSketchItem.edit = true
             editSketchItem.open()
         } else {
-            editToDoItem.color = currentItem.itemColor
+            editToDoItem.itemColor = currentItem.itemColor
             editToDoItem.type = currentItem.type
             editToDoItem.text = currentItem.text
             editToDoItem.edit = true
@@ -71,12 +73,12 @@ Item {
     }
 
     function moveCurrentItemToTop() {
-        treeView.currentModel.move(treeView.currentIndex, 0)
+        treeView.currentNodeListView.model.move(treeView.currentIndex, 0)
         storage.save()
     }
 
     function moveCurrentItemToBottom() {
-        treeView.currentModel.move(treeView.currentIndex, treeView.currentModel.count)
+        treeView.currentNodeListView.model.move(treeView.currentIndex, treeView.currentNodeListView.model.count)
         storage.save()
     }
 
@@ -99,17 +101,20 @@ Item {
     AboutDialog {
         id: aboutDialog
 
-        onClosed: commonTools.enabled = true
-        onOpened: commonTools.enabled = false
+        parent: main
+
+        onClosed: toolBar.enabled = true
+        onOpened: toolBar.enabled = false
     }
 
     ConfirmationDialog {
         id: confirmDeleteDialog
 
+        parent: main
         titleText: "Delete?"
 
-        onClosed: commonTools.enabled = true
-        onOpened: commonTools.enabled = false
+        onClosed: toolBar.enabled = true
+        onOpened: toolBar.enabled = false
 
         onAccepted: {
             var currentItem = treeView.currentItem
@@ -117,7 +122,7 @@ Item {
 
             if (currentItem.type === "to-do") {
                 console.log("Item is a to-do entry. Searching for nested sketches.")
-                var nestedSketches = treeView.currentModel.getSketchNamesForIndex(treeView.currentIndex)
+                var nestedSketches = treeView.currentNodeListView.model.getSketchNamesForIndex(treeView.currentIndex)
                 console.log("nestedSketches: " + nestedSketches)
 
                 for (var i = 0; i < nestedSketches.length; i++) {
@@ -131,32 +136,34 @@ Item {
                 fileHelper.rm(fullFileName)
             }
 
-            treeView.currentModel.deleteElement(treeView.currentIndex)
+            treeView.currentNodeListView.model.deleteElement(treeView.currentIndex)
         }
     }
 
     ConfirmationDialog {
         id: confirmCleanDoneDialog
 
-        titleText: "Clean Done?"
         message: "Delete all items marked as done?"
+        parent: main
+        titleText: "Clean Done?"
 
-        onClosed: commonTools.enabled = true
-        onOpened: commonTools.enabled = false
+        onClosed: toolBar.enabled = true
+        onOpened: toolBar.enabled = false
 
         onAccepted: {
-            treeView.currentModel.cleanDone()
+            treeView.currentNodeListView.model.cleanDone()
         }
     }
 
     ConfirmationDialog {
         id: confirmSyncToImapDialog
 
-        titleText: "Sync to-do list?"
         message: "This may take some time."
+        parent: main
+        titleText: "Sync to-do list?"
 
-        onOpened: commonTools.enabled = false
-        onRejected: commonTools.enabled = true
+        onOpened: toolBar.enabled = false
+        onRejected: toolBar.enabled = true
 
         onAccepted: {
             syncFileToImap.syncFile(fileHelper.home() + "/to-do-o", "default.xml")
@@ -166,11 +173,12 @@ Item {
     ConfirmationDialog {
         id: confirmSyncSketchesToImapDialog
 
-        titleText: "Sync sketches?"
         message: "This may take some time."
+        parent: main
+        titleText: "Sync sketches?"
 
-        onOpened: commonTools.enabled = false
-        onRejected: commonTools.enabled = true
+        onOpened: toolBar.enabled = false
+        onRejected: toolBar.enabled = true
 
         onAccepted: {
             var mySketches = rootElementModel.getSketchNamesForIndex(-1)
@@ -207,16 +215,33 @@ Item {
         }
     }
 
+    MessageDialog {
+        id: messageDialog
+//        onClosed: syncToImapBase.messageDialogClosed()
+    }
+
     NodeListModel {
         id: rootElementModel
     }
 
+    ProgressDialog {
+        id: progressDialog
+
+        title: "Syncing..."
+        message: "Sync is in progess."
+
+        maxValue: 6
+        currentValue: 0
+    }
 
     SyncDirToImap {
         id: syncDirToImap
 
         imapFolderName: "qtodo"
         merger: todoMerger
+        messageDialog: messageDialog
+        progressDialog: progressDialog
+        useDialogs: true
 
         onSuccess: {
             console.log("Sync succeeded. Cleaning remaining sketch files.")
@@ -242,8 +267,8 @@ Item {
             }
         }
 
-        onFinished: commonTools.enabled = true
-        onStarted: commonTools.enabled = false
+        onFinished: toolBar.enabled = true
+        onStarted: toolBar.enabled = false
     }
 
     SyncFileToImap {
@@ -251,9 +276,12 @@ Item {
 
         imapFolderName: "qtodo"
         merger: todoMerger
+        messageDialog: messageDialog
+        progressDialog: progressDialog
+        useDialogs: true
 
-        onFinished: commonTools.enabled = true
-        onStarted: commonTools.enabled = false
+        onFinished: toolBar.enabled = true
+        onStarted: toolBar.enabled = false
     }
 
     ToDoStorage {

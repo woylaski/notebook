@@ -17,18 +17,10 @@
  *  along with Q To-Do.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 
 Rectangle {
     id: dialog
-    anchors.fill: parent
-
-    visible: true
-
-    color: "black"
-    opacity: 0
-
-    z: 32
 
     property Item content: Item{}
 
@@ -45,7 +37,7 @@ Rectangle {
 
     function open(){
         opening()
-        focus = true
+        enabled = true
         opacity = 0.9
     }
 
@@ -54,9 +46,18 @@ Rectangle {
         rejected();
     }
 
+    anchors.fill: parent
+    enabled: false
+    focus: enabled
+    color: "black"
+    opacity: 0
+    visible: enabled
+    z: 32
+
     onContentChanged: content.parent = dialog
 
     onClosed: {
+        enabled = false
         parent.focus = true
     }
 
@@ -81,8 +82,9 @@ Rectangle {
 
     MouseArea{
         id: area
+
         anchors.fill: parent
-        visible: dialog.visible
+        enabled: dialog.enabled
 
         onClicked: {
             reject()

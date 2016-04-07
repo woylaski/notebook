@@ -33,19 +33,19 @@ var views = new Array();
 function createNextView(parentView) {
     console.log("Creating sub view.");
 
-    var viewString = "import QtQuick 1.1; import qtodo 1.0; "
-        + "NodeListView{ "
+    var viewString = "import QtQuick 2.0; import qtodo 1.0; "
+        + "NodeListView { "
         + "id: nodeListView" + treeView.listViewCount + "; "
         + "level: " + treeView.listViewCount + "; "
         + "width: treeView.width; "
         + "anchors.left: parent.right; "
         + "anchors.top: parent.top; "
         + "anchors.bottom: parent.bottom; "
-        + "model: NodeListModel{ id: elementListModel"+ treeView.listViewCount + " } "
+        + "model: NodeListModel { id: elementListModel"+ treeView.listViewCount + " } "
         + "}"
 
-    console.log(viewString);
-    console.log(parentView);
+    console.log("Creating new view from string: " + viewString);
+    console.log("Parent view: " + parentView);
 
     var view = Qt.createQmlObject(viewString, parentView);
 
@@ -54,6 +54,6 @@ function createNextView(parentView) {
         return;
     }
 
-    console.log("View successfully created.");
+    console.log("View successfully created: " + view);
     return view;
 }

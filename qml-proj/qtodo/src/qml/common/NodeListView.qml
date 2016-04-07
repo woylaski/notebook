@@ -28,14 +28,14 @@
  *
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 
 Item {
-    id: nodeListItem
+    id: nodeListViewItem
 
-    property alias model: nodeListView.model
-    property alias currentIndex: nodeListView.currentIndex
-    property alias currentItem: nodeListView.currentItem
+    property alias model: _nodeListViewLV.model
+    property alias currentIndex: _nodeListViewLV.currentIndex
+    property alias currentItem: _nodeListViewLV.currentItem
     property int level;
     property bool movingItem: false
     property int tempContentY
@@ -58,27 +58,24 @@ Item {
         return "#00ff00"
     }
 
-    Connections {
-        target: model
-
-        onChanged: {
-            if (! movingItem) {
-                storage.save()
-                currentIndex = -1
-                currentIndex = tempIndex
-                nodeListView.contentY = tempContentY
-            }
-        }
-
-        onModelAboutToBeReset: {
-            tempContentY = nodeListView.contentY
-            tempIndex = currentIndex
+    function moveItem(targetIndex) {
+        if(targetIndex >= 0 && targetIndex < _nodeListViewLV.count){
+            _nodeListViewLV.model.move(_nodeListViewLV.currentIndex, targetIndex)
+            _nodeListViewLV.currentIndex = targetIndex
         }
     }
 
     function updateLabels() {
-        var listEmpty = (nodeListView.model.rowCount() <= 0)
+        var listEmpty = (_nodeListViewLV.model.rowCount() <= 0)
         emptyListItem.visible = listEmpty
+    }
+
+    Connections {
+        target: model
+
+        onChanged: {
+            storage.save()
+        }
     }
 
     onExpandTree: {
@@ -120,52 +117,14 @@ Item {
         }
     }
 
-    PinchArea {
-        id: dndArea
+    ListView {
+        id: _nodeListViewLV
+
         anchors.fill: parent
-
-        property real lastPosition: 0
-        property real moveDelta: 40
-
-        onPinchStarted: {
-            movingItem = true
-            lastPosition = pinch.startPoint2.y
-        }
-
-        onPinchUpdated: {
-            var currentPosition = pinch.point2.y
-
-            if(currentPosition === pinch.point1.y)
-                return
-
-            if(lastPosition - currentPosition > moveDelta){
-                lastPosition = currentPosition
-                moveItem(nodeListView.currentIndex - 1)
-            }else if (lastPosition - currentPosition < -moveDelta){
-                lastPosition = currentPosition
-                moveItem(nodeListView.currentIndex + 1)
-            }
-        }
-
-        onPinchFinished: {
-            movingItem = false
-            storage.save()
-        }
-
-        function moveItem(targetIndex) {
-            if(targetIndex >= 0 && targetIndex < nodeListView.count){
-                nodeListView.model.move(nodeListView.currentIndex, targetIndex)
-                nodeListView.currentIndex = targetIndex
-            }
-        }
-    }
-
-    FlowListView {
-        id: nodeListView
-        anchors.fill: parent
+        clip: true
 
         onCountChanged: {
-            nodeListItem.countChanged(count)
+            nodeListViewItem.countChanged(count)
             updateLabels()
         }
 
@@ -190,10 +149,10 @@ Item {
                 return
             }
 
-            if (currentItem.currentY > (nodeListView.contentHeight * nodeListView.visibleArea.heightRatio) + nodeListView.contentY) {
-                nodeListView.contentY += currentItem.currentHeight
-            } else if (currentItem.currentY < nodeListView.contentY) {
-                nodeListView.contentY -= currentItem.currentHeight
+            if (currentItem.currentY > (_nodeListViewLV.contentHeight * _nodeListViewLV.visibleArea.heightRatio) + _nodeListViewLV.contentY - currentItem.currentHeight) {
+                _nodeListViewLV.contentY = currentItem.currentY + currentItem.currentHeight - (_nodeListViewLV.contentHeight * _nodeListViewLV.visibleArea.heightRatio)
+            } else if (currentItem.currentY < _nodeListViewLV.contentY) {
+                _nodeListViewLV.contentY = currentItem.currentY
             }
         }
 
@@ -238,8 +197,8 @@ Item {
 //                    return progress
 
                 var idx = treeView.currentLevel === 0 ? index : index + 1
-                var nTodos = treeView.currentModel.countSubTodos(idx, false, true)
-                var notDone = treeView.currentModel.countSubTodos(idx, true, true)
+                var nTodos = treeView.currentNodeListView.model.countSubTodos(idx, false, true)
+                var notDone = treeView.currentNodeListView.model.countSubTodos(idx, true, true)
 
                 if (nTodos <= 0)
                     return 0
@@ -249,6 +208,41 @@ Item {
 
             NodeListDelegateContainer {
                 id: nodeListDelegateContainer
+            }
+        }
+    }
+
+    MouseArea {
+        anchors {top: parent.top; bottom: parent.bottom; left: parent.left}
+        preventStealing: true
+        width: parent.width * 0.125
+
+        property real lastPosition: 0
+        property real moveDelta: primaryFontSize
+        property bool moving: false
+
+        onMouseYChanged: {
+            if(lastPosition - mouseY > moveDelta){
+                console.log("Moving item down.")
+                moving = true
+                lastPosition = mouseY
+                moveItem(currentIndex - 1)
+            }else if (lastPosition - mouseY < -moveDelta){
+                console.log("Moving item up.")
+                moving = true
+                lastPosition = mouseY
+                moveItem(currentIndex + 1)
+            }
+        }
+
+        onPressed: {
+            lastPosition = mouseY
+        }
+
+        onReleased: {
+            if (moving) {
+                storage.save()
+                moving = false
             }
         }
     }

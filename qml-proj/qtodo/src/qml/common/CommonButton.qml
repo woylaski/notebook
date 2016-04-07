@@ -17,57 +17,58 @@
  *  along with Q To-Do.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 
 Rectangle {
     id: commonButton
 
-    property alias text: textItem.text
     property alias font: textItem.font
-
     property alias iconSource: iconImage.source;
+    property bool selected: false
+    property alias text: textItem.text
 
     signal clicked
 
-    width: text === "" ? height : textItem.width + (primaryFontSize * 2)
-    height: textItem.height + (primaryFontSize / 2)
-//    border.width: 1
-//    radius: height/3
+    color: mouseArea.pressed ? primaryColorSchemeColor : (selected ? tertiaryColorSchemeColor : secondaryColorSchemeColor)
+    enabled: iconImage.status === Image.Ready || text !== ""
+    height: textItem.height + (textItem.font.pointSize / 2)
     smooth: true
-
-    color: "#00d000" //"#9acfff"
+    width: text === "" ? height : textItem.width + primaryBorderSize
 
     Text {
         id: textItem
-        x: parent.width/2 - width/2; y: parent.height/2 - height/2
-        font.pointSize: primaryFontSize * 0.75
+
         color: "black"
+        font.pointSize: secondaryFontSize
+        x: parent.width/2 - width/2; y: parent.height/2 - height/2
     }
 
     Image {
         id: iconImage
-        height: parent.height * 0.8
-        width: height
-        fillMode: Image.PreserveAspectFit
-        smooth: true
+
         anchors.centerIn: parent
+        fillMode: Image.PreserveAspectFit
+        height: parent.height * 0.8
+        smooth: true
+        width: height
     }
 
     MouseArea {
         id: mouseArea
+
         anchors.fill: parent
+
         onClicked: commonButton.clicked()
     }
 
     states: [
         State {
             name: "pressed"; when: mouseArea.pressed && mouseArea.containsMouse
-            PropertyChanges { target: commonButton; color: "#50e050" } //"#569ffd"
             PropertyChanges { target: textItem; x: textItem.x + 1; y: textItem.y + 1; explicit: true }
         },
         State {
             name: "disabled"; when: !commonButton.enabled
-            PropertyChanges { target: commonButton; opacity: 0.5 }
+            PropertyChanges { target: commonButton; opacity: disabledStateOpacity }
         }
     ]
 }

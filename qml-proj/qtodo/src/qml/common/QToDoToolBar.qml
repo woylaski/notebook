@@ -17,53 +17,63 @@
  *  along with Q To-Do.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 
-CommonToolBar {
-    id: toolBar
+Row {
+    id: qtodoToolBar
 
-    property int minWidth: iconAdd.width + iconSketch.width + iconMarkDone.width + iconDelete.width + iconBack.width + iconMenu.width
+    property string iconNameSuffix: ""
 
-    spacing: (width - minWidth) / 5
+    anchors {
+        left: parent.left; leftMargin: secondaryBorderSize * 0.25
+        right: parent.right; rightMargin: anchors.leftMargin
+        verticalCenter: parent.verticalCenter
+    }
+    height: iconAdd.height
+    spacing: anchors.leftMargin
 
     CommonToolIcon {
         id: iconAdd
-        iconSource: "../icons/add.png"
+        iconSource: "../icons/add" + iconNameSuffix + ".png"
         opacity: enabled ? 1 : 0.5
         onClicked: mainRectangle.addItem()
+        width: (qtodoToolBar.width - qtodoToolBar.spacing * 4) / 5
     }
-    CommonToolIcon {
-        id: iconSketch
-        iconSource: "../icons/sketch.png"
-        opacity: enabled ? 1 : 0.5
-        onClicked: mainRectangle.addSketch()
-    }
+//    CommonToolIcon {
+//        id: iconSketch
+//        iconSource: "../icons/sketch" + iconNameSuffix + ".png"
+//        opacity: enabled ? 1 : 0.5
+//        onClicked: mainRectangle.addSketch()
+//    }
     CommonToolIcon {
         id: iconMarkDone
-        iconSource: "../icons/to-do_done.png"
+        iconSource: "../icons/to-do_done" + iconNameSuffix + ".png"
         enabled: mainRectangle.treeView.currentItem != null && mainRectangle.treeView.currentItem.type === "to-do"
         opacity: enabled ? 1 : 0.5
         onClicked: mainRectangle.treeView.toggleDone()
+        width: iconAdd.width
     }
     CommonToolIcon {
         id: iconDelete
-        iconSource: "../icons/delete.png"
+        iconSource: "../icons/delete" + iconNameSuffix + ".png"
         enabled: mainRectangle.treeView.currentIndex >= 0
         opacity: enabled ? 1 : 0.5
         onClicked: mainRectangle.deleteCurrentItem()
+        width: iconAdd.width
     }
     CommonToolIcon {
         id: iconBack
-        iconSource: "../icons/back.png"
+        iconSource: "../icons/back" + iconNameSuffix + ".png"
         enabled: mainRectangle.treeView.currentLevel > 0
         opacity: enabled ? 1 : 0.5
         onClicked: mainRectangle.treeView.currentLevel--
+        width: iconAdd.width
     }
     CommonToolIcon {
         id: iconMenu
-        iconSource: "../icons/menu.png"
-        anchors.right: parent === undefined ? undefined : parent.right
+        iconSource: "../icons/menu" + iconNameSuffix + ".png"
         onClicked: ! mainMenu.isOpen ? mainMenu.open() : mainMenu.close()
         opacity: enabled ? 1 : 0.5
+        width: iconAdd.width
     }
 }

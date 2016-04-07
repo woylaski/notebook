@@ -17,45 +17,37 @@
  *  along with Q To-Do.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 
 Rectangle {
     id: textField
-
-    width: parent.width
-    height: textInput.height * 1.8
-
-    border.width: primaryBorderSize / 8
-    border.color: textInput.focus ? "#00d000" : "#50e050"
-//    radius: height/4
-    smooth: true
 
     property int echoMode: TextInput.Normal
     property alias pointSize: textInput.font.pointSize
     property alias text: textInput.text
 
-    signal textChanged(string text)
-
+    border.width: primaryBorderSize / 8
+    border.color: textInput.focus ? primaryColorSchemeColor : tertiaryColorSchemeColor
+    color: enabled ? primaryBackgroundColor : secondaryBackgroundColor
+    height: textInput.height * 1.5
+    smooth: true
 
     TextInput {
         id: textInput
 
-        width: parent.width - primaryBorderSize
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
-
-        font.pointSize: primaryFontSize * 0.75
-
-        color: "black"
         echoMode: textField.echoMode
-
-        onTextChanged: textField.textChanged(text)
+        color: "black"
+        focus: textField.focus
+        font.pointSize: primaryFontSize * 0.75
+        width: parent.width - primaryBorderSize
 
         onFocusChanged: {
             if (focus) {
-                textInput.openSoftwareInputPanel()
+                Qt.inputMethod.show()
             } else {
-                textInput.closeSoftwareInputPanel()
+                Qt.inputMethod.hide()
             }
         }
     }

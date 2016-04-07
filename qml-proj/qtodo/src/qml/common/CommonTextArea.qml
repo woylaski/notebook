@@ -17,71 +17,42 @@
  *  along with Q To-Do.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 
 Rectangle {
     id: textArea
 
-    height: textEdit.height + textEdit.font.pointSize
-
-    border.width: primaryBorderSize / 8
-    border.color: textEdit.focus ? "#00d000" : "#50e050"
-//    radius: textEdit.font.pointSize * 0.75
-    smooth: true
-
+    property alias pointSize: textEdit.font.pointSize
     property alias text: textEdit.text
     property int textFormat: TextEdit.PlainText
 
     signal enter()
     signal keyPressed(variant event)
-    signal textChanged(string text)
 
-    function forceActiveFocus() {
-        textEdit.forceActiveFocus()
-    }
+    function forceActiveFocus() {textEdit.forceActiveFocus()}
+
+    border.width: primaryBorderSize / 8
+    border.color: textEdit.focus ? primaryColorSchemeColor : tertiaryColorSchemeColor
+    color: enabled ? primaryBackgroundColor : secondaryBackgroundColor
+    height: textEdit.height + textEdit.font.pointSize
+    smooth: true
 
     TextEdit {
         id: textEdit
 
         anchors.centerIn: parent
-        width: parent.width - primaryBorderSize
-        focus: parent.focus
-
-        font.pointSize: primaryFontSize * 0.75
         color: "black"
+        font.pointSize: primaryFontSize * 0.75
         textFormat: textArea.textFormat
+        width: parent.width - primaryBorderSize
         wrapMode: TextEdit.WordWrap
 
-        Keys.onPressed: {
-            if (event.modifiers & Qt.AltModifier) {
-                event.accepted = true
-                keyPressed(event)
-            }
-        }
-
-        Keys.onEnterPressed: {
-            if (event.modifiers & Qt.ShiftModifier) {
-                event.accepted = false
-            } else {
-                enter()
-            }
-        }
-        Keys.onReturnPressed: {
-            if (event.modifiers & Qt.ShiftModifier) {
-                event.accepted = false
-            } else {
-                enter()
-            }
-        }
-
-        onTextChanged: textArea.textChanged(text)
-
         onFocusChanged: {
-            if (focus) {
-                textEdit.openSoftwareInputPanel()
+            if(focus){
                 textEdit.cursorPosition = textEdit.text.length
+                Qt.inputMethod.show()
             } else {
-                textEdit.closeSoftwareInputPanel()
+                Qt.inputMethod.hide()
             }
         }
     }

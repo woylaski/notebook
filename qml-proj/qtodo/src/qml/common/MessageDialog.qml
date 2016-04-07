@@ -1,5 +1,5 @@
 /*
- *  Copyright 2013 Ruediger Gad
+ *  Copyright 2011 Ruediger Gad
  *
  *  This file is part of Q To-Do.
  *
@@ -17,7 +17,7 @@
  *  along with Q To-Do.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 
 CommonDialog {
     id: messageDialog
@@ -25,15 +25,15 @@ CommonDialog {
     property alias title: titleText.text
     property alias message: message.text
 
-    content: Item {
+    Item {
       anchors.fill: parent
         Text {
             id: titleText
-            anchors.bottom: message.top
+            anchors.top: parent.top
             anchors.margins: primaryFontSize
             width: parent.width
             color: "white"
-            font.pointSize: primaryFontSize * 1.5
+            font.pointSize: primaryFontSize
             font.bold: true
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.Wrap
@@ -42,11 +42,12 @@ CommonDialog {
         Text {
             id: message
 
-            anchors.centerIn: parent
+            anchors.top: titleText.bottom
+            anchors.topMargin: primaryBorderSize
 
             width: parent.width
             color: "white"
-            font.pointSize: primaryFontSize
+            font.pointSize: primaryFontSize * 0.75
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.Wrap
         }

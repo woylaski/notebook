@@ -28,18 +28,21 @@
  *
  */
 
-import QtQuick 1.1
+import QtQuick 2.0
 
 Item {
     id: nodeListDelegate
-    width: tagName === "sketch" ? sketchContentDelegate.width : nodeListView.width
-    height: tagName === "sketch" ? sketchContentDelegate.height : textContentDelegate.height
+
+    property alias nextButtonBackgroundColor: nextButtonRectangle.color
+    property alias nextButtonIcon: nextIcon.source
+    property alias textColor: textDelegate.color
 
     signal clicked
     signal doubleClicked
     signal pressAndHold
 
-    property alias textColor: textDelegate.color
+    width: tagName === "sketch" ? sketchContentDelegate.width : _nodeListViewLV.width
+    height: tagName === "sketch" ? sketchContentDelegate.height : textContentDelegate.height
 
     /*
      * Begin of custom code to display the data. Here the Q To-Do to-do or
@@ -50,7 +53,7 @@ Item {
         anchors.left: parent.left
         visible: tagName === "sketch"
         height: imgExists ? sketchImage.height : width
-        width: nodeListView.width * 0.5
+        width: _nodeListViewLV.width * 0.5
 
         property string imgSource: tagName === "sketch" ? mainRectangle._sketchPath + "/" + elementText : ""
         property bool imgExists: fileHelper.exists(imgSource)
@@ -125,6 +128,8 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
+                preventStealing: true
+
                 onClicked: {
                     selectItem()
                     treeView.toggleDone()
@@ -169,7 +174,7 @@ Item {
                 text: elementText
                 font.pointSize: primaryFontSize * 0.75
                 horizontalAlignment: Text.AlignHLeft
-                wrapMode: Text.WrapAnywhere
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 color: "black"
             }
 
@@ -184,7 +189,6 @@ Item {
                     }
                 }
                 onDoubleClicked: {
-                    console.log("blub")
                     mouse.accepted = true
                     selectItem()
                     nodeListDelegate.doubleClicked()
@@ -206,19 +210,21 @@ Item {
     Item {
         id: nextButton
         anchors.right: parent.right
-        width: (! isExpandable) ? 0 : button.width * 1.2
+        width: (! isExpandable) ? 0 : nextButtonRectangle.width * 1.2
         height: parent.height
 
         Rectangle{
-            id: button
+            id: nextButtonRectangle
+
             anchors.centerIn: parent
+            color: "gray"
             height: textDelegate.font.pixelSize
+            opacity: nextMouseArea.pressed ? 1 : 0.6
             width: height
 
             visible: isExpandable
 
 //            radius: width / 3
-            color: nextMouseArea.pressed ? "gray" : "lightgray"
 
             Image {
                 id: nextIcon
@@ -253,6 +259,6 @@ Item {
         id: highlight
         anchors.fill: parent
         color: "gray"
-        opacity: nodeListView.currentIndex === index ? 0.5 : 0
+        opacity: _nodeListViewLV.currentIndex === index ? 0.5 : 0
     }
 }
