@@ -1,0 +1,18 @@
+// Version: $Id$
+//
+//
+
+// Commentary:
+//
+//
+
+// Change Log:
+//
+//
+
+// Code:
+
+#define qtrQuickImportPath QString("@CMAKE_CURRENT_SOURCE_DIR@")
+
+//
+// qtrQuickConfig.h.in ends here

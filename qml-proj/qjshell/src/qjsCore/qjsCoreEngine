@@ -1,0 +1,15 @@
+/* qjsCoreEngine ---
+ *
+ * Author: Julien Wintz
+ * Created: lun. mars 24 19:48:18 2014 (+0100)
+ * Version:
+ * Last-Updated:
+ *           By:
+ *     Update #: 1
+ */
+
+/* Change Log:
+ *
+ */
+
+#include "qjsCoreEngine.h"
