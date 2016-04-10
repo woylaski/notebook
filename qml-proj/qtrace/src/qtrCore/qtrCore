@@ -1,3 +1,0 @@
-#include "qtrRenderer.h"
-#include "qtrTile.h"
-#include "qtrTiler.h"

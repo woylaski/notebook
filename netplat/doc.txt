@@ -1,1 +1,0 @@
-http://dpdk.readthedocs.org/en/v2.2.0/prog_guide/writing_efficient_code.html

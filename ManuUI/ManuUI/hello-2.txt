@@ -1,5 +1,0 @@
-hello	nihao c
-hello	nihao d
-hello	nihao e
-hello	nihao f
-hello	nihao g

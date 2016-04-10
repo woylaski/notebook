@@ -1,1 +1,0 @@
-# genny-shell-qml-concept
