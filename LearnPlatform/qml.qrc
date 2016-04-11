@@ -2,5 +2,24 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>qml/FileIOTest.qml</file>
+        <file>qml/SlideMenuColumn.qml</file>
+        <file>qml/js/Promise.js</file>
+        <file>qml/js/LocalFile.js</file>
+        <file>qml/ColorVar.qml</file>
+        <file>qml/Unit.qml</file>
+        <file>qml/Device.qml</file>
+        <file>qml/qmldir</file>
+        <file>qml/ManuIconNavBar.qml</file>
+        <file>qml/FontIconVar.qml</file>
+        <file>qml/fonts/lato/lato-black.ttf</file>
+        <file>qml/fonts/lato/lato-bold.ttf</file>
+        <file>qml/fonts/lato/lato-bolditalic.ttf</file>
+        <file>qml/fonts/lato/lato-italic.ttf</file>
+        <file>qml/fonts/lato/lato-light.ttf</file>
+        <file>qml/fonts/lato/lato-regular.ttf</file>
+        <file>qml/ManuFontIconButton.qml</file>
+        <file>qml/ManuButton.qml</file>
+        <file>qml/fonts/glyphicons/flat-ui-icons-regular.ttf</file>
+        <file>qml/fonts/fontawesome/fontawesome-webfont.ttf</file>
     </qresource>
 </RCC>

@@ -22,3 +22,5 @@ HEADERS += \
     src/component/component.h \
     src/filefs/filefs.h
 
+DISTFILES +=
+
