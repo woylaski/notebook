@@ -1,0 +1,9 @@
+http://doc.qt.io/qt-5/qtquick-modelviewsdata-modelview.html
+http://stackoverflow.com/questions/24840036/qml-how-to-dynamicaly-change-item-of-repeater-from-c
+http://stackoverflow.com/questions/29969766/partial-update-repeater-qml
+
+http://www.qtcentre.org/threads/38555-Modify-c-model-data-from-QML-Repeater
+
+http://www.boyunjian.com/do/article/snapshot.do?uid=6155616747634593887
+
+http://www.qtcn.org/bbs/read-htm-tid-57495.html

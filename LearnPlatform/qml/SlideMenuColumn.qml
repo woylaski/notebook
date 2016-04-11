@@ -10,9 +10,9 @@ Item {
     id: menu
     anchors.fill: parent
 
-    property var jsondata: {}
+    property var menuData: ["netdev","novel","social"]
     //property string source
-    property string source: "menu.json"
+    property url source: "menu.json"
 
     function loadMenuFile(fname){
         if(!fname){print("config file not specified");return ;}
@@ -21,7 +21,8 @@ Item {
         //var promise = HttpUtils.get(fname)
         var promise = LocalFile.readFile(fname)
         promise.then( function(data) {
-            print("----ok----")
+            print("----load file ok----")
+            //print(data)
             setMenuData(data)
             //filecontent.text = data;
         });
@@ -34,6 +35,30 @@ Item {
 
     function setMenuData(data){
         print("menu data: ", data)
+        if(!data) return;
+
+        var ary = new Array (0)
+        var jsondata=JSON.parse(data)
+        print("jsondata len:", jsondata.length)
+        for (var i in jsondata) {
+            print("key: ",i, ", value:", jsondata[i])
+        }
+
+        //reload menuData
+        //menuData.clear()
+        //menuData=[]
+        menuData.length=0
+        menuView.model=[]
+
+        for(i=0;i<jsondata["topmenu"].length;i++){
+            print(jsondata["topmenu"][i])
+            print(jsondata["topmenu"][i]["menu"])
+            //menuData.append(jsondata["topmenu"][i])
+            menuData.push(jsondata["topmenu"][i]["menu"])
+        }
+        //menuData = jsondata["topmenu"]
+        menuView.model=menu.menuData
+        print("new menuData ",menu.menuData)
     }
 
     function menuFileSelect(){
@@ -53,8 +78,16 @@ Item {
         id: fileDialog
         title: "Please choose a file"
         folder: shortcuts.home
+        //nameFilters: [ "Image files (*.jpg *.png)", "All files (*)" ]
+        nameFilters: [ "Json files (*.json)", "All files (*)" ]
+        //selectedNameFilter: "All files (*)"
         onAccepted: {
             console.log("You chose: " + fileDialog.fileUrls)
+
+            //for (var i = 0; i < fileUrls.length; ++i)
+            //    Qt.openUrlExternally(fileUrls[i])
+
+            menu.source=fileDialog.fileUrls[0]
             //Qt.quit()
         }
         onRejected: {
@@ -151,7 +184,7 @@ Item {
 
                 Repeater {
                     id: menuView
-                    model: jsondata
+                    model: menu.menuData
                     Rectangle {
                         width: menu.width
                         height: 20
@@ -159,7 +192,7 @@ Item {
                         color: "lightBlue"
                         Text {
                             anchors.centerIn: parent
-                            //text: index
+                            text: modelData
                         }
                     }
                 }

@@ -21,5 +21,6 @@
         <file>qml/ManuButton.qml</file>
         <file>qml/fonts/glyphicons/flat-ui-icons-regular.ttf</file>
         <file>qml/fonts/fontawesome/fontawesome-webfont.ttf</file>
+        <file>qml/ManuFileDialog.qml</file>
     </qresource>
 </RCC>

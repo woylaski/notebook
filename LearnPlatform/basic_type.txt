@@ -1,0 +1,5 @@
+var params = [{"name": "value1"}, {"name": "value2"}];
+params.push({"name": "value3"});
+
+var myObj = { "v1": 1, "v2": 2, "v3": 3 }
+myObj.v4 = 4;
