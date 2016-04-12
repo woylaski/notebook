@@ -10,55 +10,45 @@ Item {
     id: menu
     anchors.fill: parent
 
-    property var menuData: ["netdev","novel","social"]
-    //property string source
-    property url source: "menu.json"
+    property var menuData: []
+    property url source
 
     function loadMenuFile(fname){
         if(!fname){print("config file not specified");return ;}
         print("try to read file:"+fname)
 
-        //var promise = HttpUtils.get(fname)
         var promise = LocalFile.readFile(fname)
         promise.then( function(data) {
             print("----load file ok----")
-            //print(data)
             setMenuData(data)
-            //filecontent.text = data;
         });
 
         promise.error( function(data) {
             print("----error----")
-            //filecontent.text = "read file error:" + data;
         });
     }
 
     function setMenuData(data){
-        print("menu data: ", data)
         if(!data) return;
 
-        var ary = new Array (0)
+        print("menu data: ", data)
         var jsondata=JSON.parse(data)
-        print("jsondata len:", jsondata.length)
+        //print("jsondata len:", jsondata.length)
         for (var i in jsondata) {
             print("key: ",i, ", value:", jsondata[i])
         }
 
-        //reload menuData
-        //menuData.clear()
-        //menuData=[]
+        //var menuData = new Array (0)
         menuData.length=0
-        menuView.model=[]
 
         for(i=0;i<jsondata["topmenu"].length;i++){
-            print(jsondata["topmenu"][i])
+            //print(jsondata["topmenu"][i])
             print(jsondata["topmenu"][i]["menu"])
-            //menuData.append(jsondata["topmenu"][i])
-            menuData.push(jsondata["topmenu"][i]["menu"])
+            menuData.push(jsondata["topmenu"][i])
+            //menuData.push(jsondata["topmenu"][i]["menu"])
         }
-        //menuData = jsondata["topmenu"]
-        menuView.model=menu.menuData
-        print("new menuData ",menu.menuData)
+
+        menuList.dataModel=menuData
     }
 
     function menuFileSelect(){
@@ -77,7 +67,8 @@ Item {
     FileDialog {
         id: fileDialog
         title: "Please choose a file"
-        folder: shortcuts.home
+        folder: Global.workDir
+        //folder: shortcuts.home
         //nameFilters: [ "Image files (*.jpg *.png)", "All files (*)" ]
         nameFilters: [ "Json files (*.json)", "All files (*)" ]
         //selectedNameFilter: "All files (*)"
@@ -100,26 +91,16 @@ Item {
     //在column的内部元素中指定anchors top bottom等垂直方向设置是没有意义的
     //因为column是从垂直方向上按照height自动排的
     Column{
-        //anchors.fill: parent
-        anchors {
-            top: parent.top;
-            left: parent.left;
-            right: parent.right;
-            bottom: parent.bottom;
-            margins: 2;
-        }
-        width: parent.width
-        height: parent.height
+        anchors.fill: parent
+        spacing: 2
 
-        Rectangle{
+        Item{
             id: toolBar
             width: parent.width
             height: 40
-            color: "darkgray"
 
             anchors{
                 left: parent.left
-                //top: parent.top
             }
 
             ManuIconNavBar{
@@ -139,7 +120,6 @@ Item {
 
                         onClicked: {
                             menuFileSelect()
-                            //print("menu folder clicked");
                         }
                     }
 
@@ -151,7 +131,6 @@ Item {
 
                         onClicked: {
                             menuItemPlus()
-                            //print("menu plus clicked");
                         }
                     }
 
@@ -163,48 +142,34 @@ Item {
 
                         onClicked: {
                             menuItemMinus()
-                            //print("menu minus clicked");
                         }
                     }
                 }
             }
         }
 
+        //ScrollView 设置width、height是没有意义的
         ScrollView {
             width: parent.width
             height: parent.height-toolBar.height
-            anchors{
-                left: parent.left
-                //top: toolBar.bottom
-            }
+            anchors{left: parent.left}
 
-            Column {
+            ManuColumnRepeater{
                 id: menuList
-                spacing: 2
-
-                Repeater {
-                    id: menuView
-                    model: menu.menuData
-                    Rectangle {
-                        width: menu.width
-                        height: 20
-                        radius: 3
-                        color: "lightBlue"
-                        Text {
-                            anchors.centerIn: parent
-                            text: modelData
-                        }
-                    }
-                }
+                width: toolBar.width
+                key: "desc"
+                subMenuKey: "submenu"
+                anchors{margins: 10}
             }
         }
     }
+
     onSourceChanged: {
         loadMenuFile(source)
     }
 
     Component.onCompleted: {
-        if(source){
+        if(source!=undefined && source!=""){
             print("menu source file is ", source)
             loadMenuFile(source)
         }else{

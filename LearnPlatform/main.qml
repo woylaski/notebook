@@ -11,6 +11,24 @@ ApplicationWindow {
     height: 600
     title: qsTr("Learn-Work-Create-") + Qt.application.version
 
+    /*toolBar: ManuTopNavBar{
+        anchors.left: parent.left
+        anchors.right: parent.right
+        searchBarVisible: true
+    }*/
+
+    toolBar: ManuToolBar{
+        anchors.left: parent.left
+        anchors.right: parent.right
+
+        iconList: [
+            {"name":"fa_align_justify", "action":"ColorList.qml"},
+            {"name":"fa_book", "action":"IconList.qml"},
+            {"name":"fa_bookmark", "action":"Editor.qml"},
+            {"name":"fa_building", "action":"WebBrowser.qml"}
+        ]
+    }
+
     //主窗口
     SplitView {
         id: mainWindow
@@ -27,7 +45,7 @@ ApplicationWindow {
                 //菜单区域
                 Rectangle{
                     id: leftMenu
-                    Layout.minimumWidth: 100
+                    Layout.minimumWidth: 150
                     Layout.maximumWidth: 300
                     border.color: "black"
 
@@ -39,8 +57,8 @@ ApplicationWindow {
                     id: documentArea
                     Layout.minimumWidth: 50
                     Layout.fillWidth: true
-                    color: ColorVar.primary
-                    border.color: "black"
+                    color: "darkgray"
+                    border.color: ColorVar.primary
                 }
             }
         }
@@ -67,6 +85,11 @@ ApplicationWindow {
             anchors.margins: 4;
             font.pointSize: 12;
         }
+    }
+
+    Component.onCompleted: {
+        print("os ", Global.os)
+        print("workDir ", Global.workDir)
     }
 }
 

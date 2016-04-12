@@ -22,5 +22,13 @@
         <file>qml/fonts/glyphicons/flat-ui-icons-regular.ttf</file>
         <file>qml/fonts/fontawesome/fontawesome-webfont.ttf</file>
         <file>qml/ManuFileDialog.qml</file>
+        <file>qml/ManuColumnRepeater.qml</file>
+        <file>qml/Global.qml</file>
+        <file>qml/ManuToolBar.qml</file>
+        <file>qml/ManuTopNavBar.qml</file>
+        <file>qml/ManuSearchInput.qml</file>
+        <file>qml/ManuNavButton.qml</file>
+        <file>qml/ColorList.qml</file>
+        <file>qml/js/componentCreation.js</file>
     </qresource>
 </RCC>
