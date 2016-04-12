@@ -37,7 +37,8 @@ Item{
 
             property var subDataModel: {
                 if(subMenuKey=="") return [];
-                else return modelData[subMenuKey]
+                else if(modelData.hasOwnProperty(subMenuKey)) return modelData[subMenuKey]
+                else return [];
             }
 
             Rectangle{

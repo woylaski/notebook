@@ -30,5 +30,10 @@
         <file>qml/ManuNavButton.qml</file>
         <file>qml/ColorList.qml</file>
         <file>qml/js/componentCreation.js</file>
+        <file>qml/ManuGrid.qml</file>
+        <file>qml/Size.qml</file>
+        <file>qml/theme.qml</file>
+        <file>qml/js/ObjUtils.js</file>
+        <file>qml/IconList.qml</file>
     </qresource>
 </RCC>

@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_QUICK_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I../../tools/qt5/5.5/gcc_64/include -I../../tools/qt5/5.5/gcc_64/include/QtQuick -I../../tools/qt5/5.5/gcc_64/include/QtWidgets -I../../tools/qt5/5.5/gcc_64/include/QtGui -I../../tools/qt5/5.5/gcc_64/include/QtQml -I../../tools/qt5/5.5/gcc_64/include/QtNetwork -I../../tools/qt5/5.5/gcc_64/include/QtCore -I. -I../../tools/qt5/5.5/gcc_64/mkspecs/linux-g++
+INCPATH       = -I. -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore -I. -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/manu/tools/qt5/5.5/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = LearnPlatform1.0.0
-DISTDIR = /home/manu/work/LearnPlatform/.tmp/LearnPlatform1.0.0
+DISTDIR = /mnt/data2/github/notebook/LearnPlatform/.tmp/LearnPlatform1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/manu/tools/qt5/5.5/gcc_64 -Wl,-rpath,/home/manu/tools/qt5/5.5/gcc_64/lib
 LIBS          = $(SUBLIBS) -L/home/manu/tools/qt5/5.5/gcc_64/lib -lQt5Quick -L/usr/lib64 -lQt5Widgets -lQt5Gui -lQt5Qml -lQt5Network -lQt5Core -lGL -lpthread 
@@ -49,149 +49,163 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = main.cpp \
-		src/fileio/fileio.cpp qrc_qml.cpp \
-		moc_fileio.cpp
+		src/fileio/fileio.cpp \
+		src/livereload/livereload.cpp \
+		src/component/component.cpp \
+		src/filefs/filefs.cpp qrc_qml.cpp \
+		moc_fileio.cpp \
+		moc_livereload.cpp
 OBJECTS       = main.o \
 		fileio.o \
+		livereload.o \
+		component.o \
+		filefs.o \
 		qrc_qml.o \
-		moc_fileio.o
-DIST          = ../../tools/qt5/5.5/gcc_64/mkspecs/features/spec_pre.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/unix.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/linux.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/sanitize.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base-unix.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/g++-base.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/g++-unix.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/qconfig.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_clucene_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_platformsupport_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webview_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/qt_functions.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/qt_config.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qmake.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/spec_post.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/exclusive_builds.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/default_pre.prf \
+		moc_fileio.o \
+		moc_livereload.o
+DIST          = /home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/spec_pre.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/unix.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/linux.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/sanitize.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base-unix.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/g++-base.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/g++-unix.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/qconfig.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_clucene_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_platformsupport_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webview_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/qt_functions.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/qt_config.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qmake.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/spec_post.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/exclusive_builds.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/default_pre.prf \
 		deployment.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/resolve_config.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/default_post.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/warn_on.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/qt.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/resources.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/moc.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/unix/opengl.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/uic.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/unix/thread.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/testcase_targets.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/exceptions.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/yacc.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/lex.prf \
-		LearnPlatform.pro src/fileio/fileio.h main.cpp \
-		src/fileio/fileio.cpp
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/resolve_config.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/default_post.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/warn_on.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/qt.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/resources.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/moc.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/unix/opengl.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/uic.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/unix/thread.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/testcase_targets.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/exceptions.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/yacc.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/lex.prf \
+		LearnPlatform.pro src/fileio/fileio.h \
+		src/livereload/livereload.h \
+		src/component/component.h \
+		src/filefs/filefs.h main.cpp \
+		src/fileio/fileio.cpp \
+		src/livereload/livereload.cpp \
+		src/component/component.cpp \
+		src/filefs/filefs.cpp
 QMAKE_TARGET  = LearnPlatform
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = LearnPlatform
@@ -222,141 +236,141 @@ first: all
 $(TARGET):  $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
-Makefile: LearnPlatform.pro ../../tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qmake.conf ../../tools/qt5/5.5/gcc_64/mkspecs/features/spec_pre.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/unix.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/linux.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/sanitize.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base-unix.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/g++-base.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/common/g++-unix.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/qconfig.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_clucene_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_platformsupport_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webview_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/qt_functions.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/qt_config.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qmake.conf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/spec_post.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/exclusive_builds.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/default_pre.prf \
+Makefile: LearnPlatform.pro /home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qmake.conf /home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/spec_pre.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/unix.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/linux.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/sanitize.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base-unix.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/g++-base.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/g++-unix.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/qconfig.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_clucene_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_platformsupport_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webview_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/qt_functions.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/qt_config.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qmake.conf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/spec_post.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/exclusive_builds.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/default_pre.prf \
 		deployment.pri \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/resolve_config.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/default_post.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/warn_on.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/qt.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/resources.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/moc.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/unix/opengl.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/uic.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/unix/thread.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/testcase_targets.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/exceptions.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/yacc.prf \
-		../../tools/qt5/5.5/gcc_64/mkspecs/features/lex.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/resolve_config.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/default_post.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/warn_on.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/qt.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/resources.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/moc.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/unix/opengl.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/uic.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/unix/thread.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/testcase_targets.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/exceptions.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/yacc.prf \
+		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/lex.prf \
 		LearnPlatform.pro \
 		qml.qrc \
 		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Quick.prl \
@@ -366,141 +380,141 @@ Makefile: LearnPlatform.pro ../../tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qmake.c
 		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Network.prl \
 		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile LearnPlatform.pro
-../../tools/qt5/5.5/gcc_64/mkspecs/features/spec_pre.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/common/unix.conf:
-../../tools/qt5/5.5/gcc_64/mkspecs/common/linux.conf:
-../../tools/qt5/5.5/gcc_64/mkspecs/common/sanitize.conf:
-../../tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base.conf:
-../../tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base-unix.conf:
-../../tools/qt5/5.5/gcc_64/mkspecs/common/g++-base.conf:
-../../tools/qt5/5.5/gcc_64/mkspecs/common/g++-unix.conf:
-../../tools/qt5/5.5/gcc_64/mkspecs/qconfig.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_clucene_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_platformsupport_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webview_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/qt_functions.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/qt_config.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qmake.conf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/spec_post.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/exclusive_builds.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/default_pre.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/spec_pre.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/unix.conf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/linux.conf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/sanitize.conf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base.conf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/gcc-base-unix.conf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/g++-base.conf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/g++-unix.conf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/qconfig.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcollision_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3dquickrenderer_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_3drenderer_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_clucene_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_core_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_declarative_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designer_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_enginio_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_gui_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_help_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_location_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_network_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_platformsupport_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qml_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quick_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_script_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_scripttools_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_sql_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_svg_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webengine_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginecore_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webenginewidgets_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkit_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webkitwidgets_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_webview_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xml_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/qt_functions.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/qt_config.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qmake.conf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/spec_post.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/exclusive_builds.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/default_pre.prf:
 deployment.pri:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/resolve_config.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/default_post.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/warn_on.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/qt.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/resources.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/moc.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/unix/opengl.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/uic.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/unix/thread.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/testcase_targets.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/exceptions.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/yacc.prf:
-../../tools/qt5/5.5/gcc_64/mkspecs/features/lex.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/resolve_config.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/default_post.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/warn_on.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/qt.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/resources.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/moc.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/unix/opengl.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/uic.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/unix/thread.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/testcase_targets.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/exceptions.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/yacc.prf:
+/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/lex.prf:
 LearnPlatform.pro:
 qml.qrc:
 /home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Quick.prl:
@@ -524,8 +538,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents qml.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents src/fileio/fileio.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp src/fileio/fileio.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/fileio/fileio.h src/livereload/livereload.h src/component/component.h src/filefs/filefs.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp src/fileio/fileio.cpp src/livereload/livereload.cpp src/component/component.cpp src/filefs/filefs.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -551,117 +565,313 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_qml.cpp
 qrc_qml.cpp: qml.qrc \
 		main.qml \
-		qml/FileIOTest.qml
+		qml/ManuFontIconButton.qml \
+		qml/ManuToolBar.qml \
+		qml/ManuFileDialog.qml \
+		qml/SlideMenuColumn.qml \
+		qml/Device.qml \
+		qml/ColorList.qml \
+		qml/Global.qml \
+		qml/Unit.qml \
+		qml/ColorVar.qml \
+		qml/FontIconVar.qml \
+		qml/IconList.qml \
+		qml/Size.qml \
+		qml/ManuIconNavBar.qml \
+		qml/ManuGrid.qml \
+		qml/qmldir \
+		qml/ManuButton.qml \
+		qml/ManuColumnRepeater.qml \
+		qml/FileIOTest.qml \
+		qml/ManuSearchInput.qml \
+		qml/ManuTopNavBar.qml \
+		qml/theme.qml \
+		qml/ManuNavButton.qml \
+		qml/js/componentCreation.js \
+		qml/js/ObjUtils.js \
+		qml/js/Promise.js \
+		qml/js/LocalFile.js \
+		qml/fonts/lato/lato-black.ttf \
+		qml/fonts/lato/lato-italic.ttf \
+		qml/fonts/lato/lato-bolditalic.ttf \
+		qml/fonts/lato/lato-light.ttf \
+		qml/fonts/lato/lato-regular.ttf \
+		qml/fonts/lato/lato-bold.ttf \
+		qml/fonts/fontawesome/fontawesome-webfont.ttf \
+		qml/fonts/glyphicons/flat-ui-icons-regular.ttf
 	/home/manu/tools/qt5/5.5/gcc_64/bin/rcc -name qml qml.qrc -o qrc_qml.cpp
 
-compiler_moc_header_make_all: moc_fileio.cpp
+compiler_moc_header_make_all: moc_fileio.cpp moc_livereload.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_fileio.cpp
-moc_fileio.cpp: ../../tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
-		../../tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/QObject \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/QList \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+	-$(DEL_FILE) moc_fileio.cpp moc_livereload.cpp
+moc_fileio.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
 		src/fileio/fileio.h
-	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/home/manu/work/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/fileio/fileio.h -o moc_fileio.cpp
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/fileio/fileio.h -o moc_fileio.cpp
+
+moc_livereload.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qabstractanimation.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdir.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfileinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatetime.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QGuiApplication \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qguiapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qinputmethod.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmldebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcontext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickview.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickwindow.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopengl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qt_windows.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopengles2ext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopenglext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindow.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QEvent \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMargins \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QRect \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsurface.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsurfaceformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qicon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcursor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/QApplication \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qwidget.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpalette.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/QFileDialog \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qfiledialog.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qdialog.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTranslator \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtranslator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QLibraryInfo \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlibraryinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QThread \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qthread.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QFileSystemWatcher \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfilesystemwatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlApplicationEngine \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlapplicationengine.h \
+		src/livereload/livereload.h
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/livereload/livereload.h -o moc_livereload.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -677,259 +887,693 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean
 
 ####### Compile
 
-main.o: main.cpp ../../tools/qt5/5.5/gcc_64/include/QtWidgets/QApplication \
-		../../tools/qt5/5.5/gcc_64/include/QtWidgets/qapplication.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qcursor.h \
-		../../tools/qt5/5.5/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../tools/qt5/5.5/gcc_64/include/QtWidgets/qwidget.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qpalette.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qbrush.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qfontmetrics.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qfontinfo.h \
-		../../tools/qt5/5.5/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qguiapplication.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qinputmethod.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/QQmlApplicationEngine \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlapplicationengine.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlengine.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qjsengine.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmldebug.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/QQmlExtensionPlugin \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlextensionplugin.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qplugin.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qpointer.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qjsonobject.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qjsonvalue.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/QUrl \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlextensioninterface.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+main.o: main.cpp /home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/QApplication \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcursor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qwidget.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpalette.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qguiapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qinputmethod.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlApplicationEngine \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlapplicationengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmldebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlExtensionPlugin \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlextensionplugin.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qplugin.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qjsonobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qjsonvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QUrl \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlextensioninterface.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
 		src/fileio/fileio.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
-		../../tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/QObject \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/QList \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 fileio.o: src/fileio/fileio.cpp src/fileio/fileio.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
-		../../tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
-		../../tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/QObject \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/QList \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
-		../../tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/QFile \
-		../../tools/qt5/5.5/gcc_64/include/QtCore/QTextStream
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QFile \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fileio.o src/fileio/fileio.cpp
+
+livereload.o: src/livereload/livereload.cpp src/livereload/livereload.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qabstractanimation.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdir.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfileinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatetime.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QGuiApplication \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qguiapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qinputmethod.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmldebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcontext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickview.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickwindow.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopengl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qt_windows.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopengles2ext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopenglext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindow.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QEvent \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMargins \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QRect \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsurface.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsurfaceformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qicon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcursor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/QApplication \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qwidget.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpalette.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/QFileDialog \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qfiledialog.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qdialog.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTranslator \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtranslator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QLibraryInfo \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlibraryinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QThread \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qthread.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QFileSystemWatcher \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfilesystemwatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlApplicationEngine \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlapplicationengine.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o livereload.o src/livereload/livereload.cpp
+
+component.o: src/component/component.cpp src/component/component.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlEngine \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmldebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickView \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickview.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickwindow.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopengl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qt_windows.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopengles2ext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopenglext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindow.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QEvent \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMargins \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QRect \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsurface.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsurfaceformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qicon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcursor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlComponent \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QPointer \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpointer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o component.o src/component/component.cpp
+
+filefs.o: src/filefs/filefs.cpp src/filefs/filefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qabstractanimation.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdir.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfileinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatetime.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QUrl \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/QApplication \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcursor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qwidget.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpalette.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qguiapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qinputmethod.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/QFileDialog \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qfiledialog.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/qdialog.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlEngine \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmldebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlComponent \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlContext \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcontext.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filefs.o src/filefs/filefs.cpp
 
 qrc_qml.o: qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qml.o qrc_qml.cpp
 
 moc_fileio.o: moc_fileio.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_fileio.o moc_fileio.cpp
+
+moc_livereload.o: moc_livereload.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_livereload.o moc_livereload.cpp
 
 ####### Install
 

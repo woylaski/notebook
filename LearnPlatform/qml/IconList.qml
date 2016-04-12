@@ -9,7 +9,7 @@ Window {
     width: 800
     height: 600
     visible: true
-    color: "white"
+    color: ColorVar.colorVars["greenSea"]
 
     Rectangle{
         id: desc
@@ -25,7 +25,7 @@ Window {
         Text{
             anchors.centerIn: parent
             wrapMode: Text.WrapAnywhere
-            text: "color pickle, total "+ObjUtils.listLength(ColorVar.colorVars)+" colors"
+            text: "Font Icon pickle, total "+ObjUtils.listLength(FontIconVar.faIcons)+" colors"
         }
     }
 
@@ -37,33 +37,43 @@ Window {
             horizontalCenter: parent.horizontalCenter
         }
 
-        spacing: 30
-        rows: 5; columns: 5
+        spacing: 10
+        columns: 6; rows: ObjUtils.listLength(FontIconVar.faIcons)/columns + 1
 
         Repeater{
-            model: ObjUtils.listKeys(ColorVar.colorVars)
+            model: ObjUtils.listKeys(FontIconVar.faIcons)
             delegate: Rectangle{
-                width: 60
-                height: 60
+                //width: 60
+                //height: 60
+                width: view.width
+                height: view.height
+                //border.color: "black"
+                color: ColorVar.colorVars["greenSea"]
 
                 Column{
-                    anchors.fill: parent
+                    id: view
+                    //anchors.fill: parent
 
                     Text{
                         text: modelData
                     }
 
-                    Rectangle{
+                    Text{
                         width: 30
                         height: 30
+
+                        //border.color: "black"
+                        color: ColorVar.colorVars["wetAsphalt"]
                         //color: Qt.rgba(Math.random()%255,Math.random()%255, Math.random()%255, 0.5)
-                        color: ColorVar.colorVars[modelData]
+
+                        font.family: FontIconVar.fontAwesome.name
+                        text: FontIconVar.faIcons[modelData]
 
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
                                 print("color ",modelData, "clicked")
-                                desc.color=ColorVar.colorVars[modelData]
+                                //desc.color=ColorVar.colorVars[modelData]
                             }
                         }
                     }
