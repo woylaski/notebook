@@ -148,7 +148,7 @@ Item {
             }
         }
 
-        //ScrollView 设置width、height是没有意义的
+        //ScrollView
         ScrollView {
             width: parent.width
             height: parent.height-toolBar.height

@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     //engine.addImportPath();
     //engine.addPluginPath();
+    //engine->addImportPath ("qrc:/import");
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();

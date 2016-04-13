@@ -10,6 +10,12 @@ Item {
     SystemPalette { id: palette }
     clip: true
 
+    property alias dialog: fileDialog
+    //property alias filters: fileDialog.nameFilters
+    //property url selectFile
+
+    signal click(url selectFile)
+
     FileDialog {
         id: fileDialog
         visible: fileDialogVisible.checked
@@ -19,14 +25,18 @@ Item {
         selectExisting: fileDialogSelectExisting.checked
         selectMultiple: fileDialogSelectMultiple.checked
         selectFolder: fileDialogSelectFolder.checked
-        nameFilters: [ "Image files (*.png *.jpg)", "All files (*)" ]
+        nameFilters: [ "All files (*)" ]
+        //nameFilters: [ "Image files (*.png *.jpg)", "All files (*)" ]
         selectedNameFilter: "All files (*)"
         sidebarVisible: fileDialogSidebarVisible.checked
         onAccepted: {
             console.log("Accepted: " + fileUrls)
-            if (fileDialogOpenFiles.checked)
-                for (var i = 0; i < fileUrls.length; ++i)
-                    Qt.openUrlExternally(fileUrls[i])
+            click(fileUrls[0])
+            //selectFile=fileUrls[0]
+            //click(selectFile)
+            //if (fileDialogOpenFiles.checked)
+            //    for (var i = 0; i < fileUrls.length; ++i)
+            //        Qt.openUrlExternally(fileUrls[i])
         }
         onRejected: { console.log("Rejected") }
     }
@@ -129,17 +139,16 @@ Item {
                 text: "Pictures"
                 tooltip: "go to my Pictures directory"
                 anchors.verticalCenter: parent.verticalCenter
-                enabled: fileDialog.shortcuts.hasOwnProperty("pictures")
+                //enabled: fileDialog.shortcuts.hasOwnProperty("pictures")
                 onClicked: fileDialog.folder = fileDialog.shortcuts.pictures
             }
             Button {
                 text: "Home"
                 tooltip: "go to my home directory"
                 anchors.verticalCenter: parent.verticalCenter
-                enabled: fileDialog.shortcuts.hasOwnProperty("home")
+                //enabled: fileDialog.shortcuts.hasOwnProperty("home")
                 onClicked: fileDialog.folder = fileDialog.shortcuts.home
             }
         }
     }
 }
-

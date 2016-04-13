@@ -29,51 +29,64 @@ Window {
         }
     }
 
-    ManuGrid{
-        id: viewArea
+    //ScrollView
+    ScrollView {
+        width: parent.width
+        height: parent.height - desc.height
+
         anchors{
             top: desc.bottom
-            topMargin: 50
+            //topMargin: 50
             horizontalCenter: parent.horizontalCenter
         }
 
-        spacing: 10
-        columns: 6; rows: ObjUtils.listLength(FontIconVar.faIcons)/columns + 1
+        ManuGrid{
+            id: viewArea
+            /*
+            anchors{
+                top: desc.bottom
+                topMargin: 50
+                horizontalCenter: parent.horizontalCenter
+            }
+            */
+            spacing: 10
+            columns: 6; rows: ObjUtils.listLength(FontIconVar.faIcons)/columns + 1
 
-        Repeater{
-            model: ObjUtils.listKeys(FontIconVar.faIcons)
-            delegate: Rectangle{
-                //width: 60
-                //height: 60
-                width: view.width
-                height: view.height
-                //border.color: "black"
-                color: ColorVar.colorVars["greenSea"]
+            Repeater{
+                model: ObjUtils.listKeys(FontIconVar.faIcons)
+                delegate: Rectangle{
+                    //width: 60
+                    //height: 60
+                    width: view.width
+                    height: view.height
+                    //border.color: "black"
+                    color: ColorVar.colorVars["greenSea"]
 
-                Column{
-                    id: view
-                    //anchors.fill: parent
+                    Column{
+                        id: view
+                        //anchors.fill: parent
 
-                    Text{
-                        text: modelData
-                    }
+                        Text{
+                            text: modelData
+                        }
 
-                    Text{
-                        width: 30
-                        height: 30
+                        Text{
+                            width: 30
+                            height: 30
 
-                        //border.color: "black"
-                        color: ColorVar.colorVars["wetAsphalt"]
-                        //color: Qt.rgba(Math.random()%255,Math.random()%255, Math.random()%255, 0.5)
+                            //border.color: "black"
+                            color: ColorVar.colorVars["wetAsphalt"]
+                            //color: Qt.rgba(Math.random()%255,Math.random()%255, Math.random()%255, 0.5)
 
-                        font.family: FontIconVar.fontAwesome.name
-                        text: FontIconVar.faIcons[modelData]
+                            font.family: FontIconVar.fontAwesome.name
+                            text: FontIconVar.faIcons[modelData]
 
-                        MouseArea{
-                            anchors.fill: parent
-                            onClicked: {
-                                print("color ",modelData, "clicked")
-                                //desc.color=ColorVar.colorVars[modelData]
+                            MouseArea{
+                                anchors.fill: parent
+                                onClicked: {
+                                    print("color ",modelData, "clicked")
+                                    //desc.color=ColorVar.colorVars[modelData]
+                                }
                             }
                         }
                     }

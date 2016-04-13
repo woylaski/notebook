@@ -32,8 +32,57 @@
         <file>qml/js/componentCreation.js</file>
         <file>qml/ManuGrid.qml</file>
         <file>qml/Size.qml</file>
-        <file>qml/theme.qml</file>
+        <file>qml/Theme.qml</file>
         <file>qml/js/ObjUtils.js</file>
         <file>qml/IconList.qml</file>
+        <file>qml/ManuColumnContainer.qml</file>
+        <file>qml/ManuRowContainer.qml</file>
+        <file>qml/ManuTextFiled.qml</file>
+        <file>qml/Editor.qml</file>
+        <file>qml/Configure.qml</file>
+        <file>qml/ManuStackView.qml</file>
+        <file>qml/ManuTabView.qml</file>
+        <file>qml/ManuPageIndicatorDot.qml</file>
+        <file>qml/ManuScreenPicker.qml</file>
+        <file>qml/img/screenPicker.png</file>
+        <file>qml/img/screenPickerHover.png</file>
+        <file>qml/ManuColorDialog.qml</file>
+        <file>qml/ColorPicker.qml</file>
+        <file>qml/ManuBlinkCursor.qml</file>
+        <file>qml/ManuFocusHandler.qml</file>
+        <file>qml/ManuTopFocusHandler.qml</file>
+        <file>qml/ManuListMenu.qml</file>
+        <file>qml/js/Utils.js</file>
+        <file>qml/ManuOverlay.qml</file>
+        <file>qml/ManuLineRec.qml</file>
+        <file>qml/ManuGridView.qml</file>
+        <file>qml/ManuListView.qml</file>
+        <file>qml/ManuScrollBar.qml</file>
+        <file>qml/ManuScrollView.qml</file>
+        <file>qml/ManuSearchBar.qml</file>
+        <file>qml/ManuMarqueeText.qml</file>
+        <file>qml/ManuNativeTooltip.qml</file>
+        <file>qml/ManuToolTipArea.qml</file>
+        <file>qml/ManuToolTip.qml</file>
+        <file>qml/ManuInfoBar.qml</file>
+        <file>qml/ManuSectionButton.qml</file>
+        <file>qml/ManuDropdownmenu.qml</file>
+        <file>qml/ManuProgressCircleCanvas.qml</file>
+        <file>qml/ManuSliderProgress.qml</file>
+        <file>qml/ManuPrez.qml</file>
+        <file>qml/ManuPrezPage.qml</file>
+        <file>qml/ManuPrezPageView.qml</file>
+        <file>qml/ManuPrezPageTransition.qml</file>
+        <file>qml/ManuPrezPageFromSide.qml</file>
+        <file>qml/img/back.jpg</file>
+        <file>qml/SimplePrez.qml</file>
+        <file>qml/ManuPrezPageZoom.qml</file>
+        <file>qml/ManuBottomBar.qml</file>
+        <file>qml/ManuLabel.qml</file>
+        <file>qml/ManuLineEdit.qml</file>
+        <file>qml/ManuTextEdit.qml</file>
+        <file>qml/ManuFontAwesomeIconButton.qml</file>
+        <file>qml/js/Style.js</file>
+        <file>qml/js/QtCoreApi.js</file>
     </qresource>
 </RCC>

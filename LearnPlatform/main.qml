@@ -24,8 +24,10 @@ ApplicationWindow {
         iconList: [
             {"name":"fa_align_justify", "action":"ColorList.qml"},
             {"name":"fa_book", "action":"IconList.qml"},
-            {"name":"fa_bookmark", "action":"Editor.qml"},
-            {"name":"fa_building", "action":"WebBrowser.qml"}
+            {"name":"fa_bookmark", "action":"Configure.qml"},
+            {"name":"fa_building", "action":"WebBrowser.qml"},
+            {"name":"fa_building", "action":"ManuScreenPicker.qml"},
+            {"name":"fa_building", "action":"SimplePrez.qml"}
         ]
     }
 
@@ -73,18 +75,8 @@ ApplicationWindow {
     }
 
     //状态区域
-    statusBar: Rectangle{
+    statusBar: ManuBottomBar{
         id: stateArea
-        color: "lightgray"
-        height: 20
-        width: parent.width
-        property alias text: status.text;
-        Text {
-            id: status;
-            anchors.fill: parent;
-            anchors.margins: 4;
-            font.pointSize: 12;
-        }
     }
 
     Component.onCompleted: {

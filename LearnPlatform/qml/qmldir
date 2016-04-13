@@ -1,3 +1,5 @@
 singleton ColorVar 0.1 ColorVar.qml
 singleton FontIconVar 0.1 FontIconVar.qml
 singleton Global 0.1 Global.qml
+singleton Theme 0.1 Theme.qml
+singleton Size 0.1 Size.qml
