@@ -16,6 +16,10 @@ Text {
     smooth: true
     color: "#222"
     opacity: enabled ? 1 : 0.5
+
+    elide: Text.ElideRight
+    verticalAlignment: Text.AlignVCenter
+
     //font.family: Fo.font
     textFormat: Text.PlainText
     linkColor: Qt.darker ("#ccc", 1.2)

@@ -47,7 +47,6 @@
         <file>qml/img/screenPicker.png</file>
         <file>qml/img/screenPickerHover.png</file>
         <file>qml/ManuColorDialog.qml</file>
-        <file>qml/ColorPicker.qml</file>
         <file>qml/ManuBlinkCursor.qml</file>
         <file>qml/ManuFocusHandler.qml</file>
         <file>qml/ManuTopFocusHandler.qml</file>
@@ -84,5 +83,30 @@
         <file>qml/ManuFontAwesomeIconButton.qml</file>
         <file>qml/js/Style.js</file>
         <file>qml/js/QtCoreApi.js</file>
+        <file>qml/ManuComboList.qml</file>
+        <file>qml/ManuTextLabel.qml</file>
+        <file>qml/ManuTextBox.qml</file>
+        <file>qml/ManuTextButton.qml</file>
+        <file>qml/ManuWrapLeftRightContainer.qml</file>
+        <file>qml/ManuGridContainer.qml</file>
+        <file>qml/ManuIconTextButton.qml</file>
+        <file>qml/ManuScrollContainer.qml</file>
+        <file>qml/ManuSingleLineEditBox.qml</file>
+        <file>qml/ManuRowContainer2.qml</file>
+        <file>qml/ManuSettings.qml</file>
+        <file>qml/ManuPaletteLoader.qml</file>
+        <file>qml/ManuBasePalette.qml</file>
+        <file>qml/ManuCutePalette.qml</file>
+        <file>qml/ManuDarkPalette.qml</file>
+        <file>qml/ManuLightPalette.qml</file>
+        <file>qml/ManuFonts.qml</file>
+        <file>qml/ManuApplication.qml</file>
+        <file>qml/ManuDialogLoader.qml</file>
+        <file>qml/ManuMainMenuScreen.qml</file>
+        <file>qml/ManuBlankScreen.qml</file>
+        <file>qml/ManuVerticalSeparator.qml</file>
+        <file>qml/ManuHorizontalSeparator.qml</file>
+        <file>qml/ManuFlickable.qml</file>
+        <file>qml/ManuTextBar.qml</file>
     </qresource>
 </RCC>

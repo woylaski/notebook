@@ -9,10 +9,6 @@ Rectangle {
 
     Column{
         id: ccontainer
-        /*anchors{
-            left: parent.left
-            right: parent.right
-        }*/
         anchors.fill: parent
     }
 }

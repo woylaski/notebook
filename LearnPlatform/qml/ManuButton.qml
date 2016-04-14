@@ -54,6 +54,10 @@ Rectangle {
         id: buttonText
         text: root.text
 
+        verticalAlignment: Text.AlignVCenter
+        //省略号
+        //elide: Text.ElideRight
+
         anchors.centerIn: root.textHAlignment == Qt.AlignHCenter ? parent : undefined
         anchors.left: root.textHAlignment == Qt.AlignLeft ? parent.left : undefined
         anchors.right: root.textHAlignment == Qt.AlignRight ? parent.right : undefined

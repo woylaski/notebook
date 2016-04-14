@@ -7,7 +7,7 @@ QPointer<QQmlComponent> create_component(QQmlEngine *engine, QUrl *file)
 {
     QPointer<QQmlComponent> component = new QQmlComponent(engine);
     component->loadUrl(*file);
-    QQuickView* qxView = new QQuickView(engine, NULL);
+    //QQuickView* qxView = new QQuickView(engine, NULL);
     return component;
 }
 

@@ -9,11 +9,9 @@ Item {
 
     Row{
         id: rcontainer
-        /*anchors{
-            top: parent.top
-            bottom: parent.bottom
-        }*/
         anchors.fill: parent
     }
 }
+
+
 

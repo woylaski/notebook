@@ -9,6 +9,7 @@ Rectangle {
     height: 40
     radius: 6
     color: ColorVar.colorVars["wetAsphalt"]
+    //color: "lightgray"
 
     property alias iconList: iconLayout.model
 
@@ -29,7 +30,7 @@ Rectangle {
             anchors.bottom: parent.bottom
             fontFamily: FontIconVar.fontAwesome.name
             text: FontIconVar.faIcons[modelData.name]
-            color: root.color
+            color: ColorVar.colorVars["wetAsphalt"]
 
             onClicked: {
                 print("nav ",modelData.name," clicked")
