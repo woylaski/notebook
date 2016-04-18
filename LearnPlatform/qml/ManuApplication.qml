@@ -13,7 +13,7 @@ ApplicationWindow {
     height: 600
     title: qsTr("Learn-Work-Create-") + Qt.application.version
 
-    visibility: settings.debugMode ? "FullScreen" : "Maximized"
+    //visibility: settings.debugMode ? "FullScreen" : "Maximized"
 
     style: ApplicationWindowStyle {
         background: Rectangle {

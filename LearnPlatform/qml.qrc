@@ -108,5 +108,10 @@
         <file>qml/ManuHorizontalSeparator.qml</file>
         <file>qml/ManuFlickable.qml</file>
         <file>qml/ManuTextBar.qml</file>
+        <file>qml/ManuSplitView.qml</file>
+        <file>qml/ManuTab.qml</file>
+        <file>qml/ManuTabViewHeader.qml</file>
+        <file>qml/ManuNaviBar.qml</file>
+        <file>qml/ManuGlossy.qml</file>
     </qresource>
 </RCC>

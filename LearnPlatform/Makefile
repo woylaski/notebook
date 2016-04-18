@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_QUICK_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_LOCATION_LIB -DQT_QUICK_LIB -DQT_MULTIMEDIA_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DQT_3DINPUT_LIB -DQT_3DRENDERER_LIB -DQT_3DQUICK_LIB -DQT_3DCORE_LIB -DQT_OPENGLEXTENSIONS_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_WEBSOCKETS_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_XML_LIB -DQT_SENSORS_LIB -DQT_BLUETOOTH_LIB -DQT_NFC_LIB -DQT_POSITIONING_LIB -DQT_CONCURRENT_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore -I. -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++
+INCPATH       = -I. -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore -I. -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/manu/tools/qt5/5.5/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = LearnPlatform1.0.0
 DISTDIR = /mnt/data2/github/notebook/LearnPlatform/.tmp/LearnPlatform1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/manu/tools/qt5/5.5/gcc_64 -Wl,-rpath,/home/manu/tools/qt5/5.5/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/manu/tools/qt5/5.5/gcc_64/lib -lQt5Quick -L/usr/lib64 -lQt5Widgets -lQt5Gui -lQt5Qml -lQt5Network -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -L/home/manu/tools/qt5/5.5/gcc_64/lib -lQt5Location -L/usr/lib64 -lQt5Quick -lQt5Multimedia -lQt5Svg -lQt5Widgets -lQt53DInput -lQt53DRenderer -lQt53DQuick -lQt53DCore -lQt5OpenGLExtensions -lQt5Gui -lQt5Qml -lQt5WebSockets -lQt5Network -lQt5Sql -lQt5Xml -lQt5Sensors -lQt5Bluetooth -lQt5Nfc -lQt5DBus -lQt5Positioning -lQt5Concurrent -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,17 +52,55 @@ SOURCES       = main.cpp \
 		src/fileio/fileio.cpp \
 		src/livereload/livereload.cpp \
 		src/component/component.cpp \
-		src/filefs/filefs.cpp qrc_qml.cpp \
+		src/filefs/filefs.cpp \
+		src/tricks/qqmlgadgetlistmodel.cpp \
+		src/tricks/qqmlhelpers.cpp \
+		src/tricks/qqmlobjectlistmodel.cpp \
+		src/tricks/qqmlsvgiconhelper.cpp \
+		src/tricks/qqmlvariantlistmodel.cpp \
+		src/tricks/qquickpolygon.cpp \
+		src/creator/MessageHandler.cpp \
+		src/creator/ProjectManager.cpp \
+		src/creator/QMLHighlighter.cpp \
+		src/creator/SyntaxHighlighter.cpp qrc_qml.cpp \
 		moc_fileio.cpp \
-		moc_livereload.cpp
+		moc_livereload.cpp \
+		moc_qqmlobjectlistmodel.cpp \
+		moc_qqmlsvgiconhelper.cpp \
+		moc_qqmlvariantlistmodel.cpp \
+		moc_qqmlvariantlistmodel_p.cpp \
+		moc_qquickpolygon.cpp \
+		moc_MessageHandler.cpp \
+		moc_ProjectManager.cpp \
+		moc_QMLHighlighter.cpp \
+		moc_SyntaxHighlighter.cpp
 OBJECTS       = main.o \
 		fileio.o \
 		livereload.o \
 		component.o \
 		filefs.o \
+		qqmlgadgetlistmodel.o \
+		qqmlhelpers.o \
+		qqmlobjectlistmodel.o \
+		qqmlsvgiconhelper.o \
+		qqmlvariantlistmodel.o \
+		qquickpolygon.o \
+		MessageHandler.o \
+		ProjectManager.o \
+		QMLHighlighter.o \
+		SyntaxHighlighter.o \
 		qrc_qml.o \
 		moc_fileio.o \
-		moc_livereload.o
+		moc_livereload.o \
+		moc_qqmlobjectlistmodel.o \
+		moc_qqmlsvgiconhelper.o \
+		moc_qqmlvariantlistmodel.o \
+		moc_qqmlvariantlistmodel_p.o \
+		moc_qquickpolygon.o \
+		moc_MessageHandler.o \
+		moc_ProjectManager.o \
+		moc_QMLHighlighter.o \
+		moc_SyntaxHighlighter.o
 DIST          = /home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/unix.conf \
 		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/common/linux.conf \
@@ -201,11 +239,33 @@ DIST          = /home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		LearnPlatform.pro src/fileio/fileio.h \
 		src/livereload/livereload.h \
 		src/component/component.h \
-		src/filefs/filefs.h main.cpp \
+		src/filefs/filefs.h \
+		src/tricks/qqmlobjectlistmodel.h \
+		src/tricks/qqmlsvgiconhelper.h \
+		src/tricks/qqmlvariantlistmodel.h \
+		src/tricks/qqmlvariantlistmodel_p.h \
+		src/tricks/qquickpolygon.h \
+		src/tricks/qtbitstream.h \
+		src/tricks/qtcobs.h \
+		src/tricks/qtjsonpath.h \
+		src/creator/MessageHandler.h \
+		src/creator/ProjectManager.h \
+		src/creator/QMLHighlighter.h \
+		src/creator/SyntaxHighlighter.h main.cpp \
 		src/fileio/fileio.cpp \
 		src/livereload/livereload.cpp \
 		src/component/component.cpp \
-		src/filefs/filefs.cpp
+		src/filefs/filefs.cpp \
+		src/tricks/qqmlgadgetlistmodel.cpp \
+		src/tricks/qqmlhelpers.cpp \
+		src/tricks/qqmlobjectlistmodel.cpp \
+		src/tricks/qqmlsvgiconhelper.cpp \
+		src/tricks/qqmlvariantlistmodel.cpp \
+		src/tricks/qquickpolygon.cpp \
+		src/creator/MessageHandler.cpp \
+		src/creator/ProjectManager.cpp \
+		src/creator/QMLHighlighter.cpp \
+		src/creator/SyntaxHighlighter.cpp
 QMAKE_TARGET  = LearnPlatform
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = LearnPlatform
@@ -233,7 +293,7 @@ first: all
 
 ####### Build rules
 
-$(TARGET):  $(OBJECTS)  
+$(TARGET): /home/manu/tools/qt5/5.5/gcc_64/lib/libQt5OpenGLExtensions.a $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: LearnPlatform.pro /home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qmake.conf /home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/spec_pre.prf \
@@ -373,11 +433,27 @@ Makefile: LearnPlatform.pro /home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++/qm
 		/home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/lex.prf \
 		LearnPlatform.pro \
 		qml.qrc \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Location.prl \
 		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Quick.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Multimedia.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Svg.prl \
 		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Widgets.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt53DInput.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt53DRenderer.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt53DQuick.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt53DCore.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5OpenGLExtensions.prl \
 		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Gui.prl \
 		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Qml.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5WebSockets.prl \
 		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Network.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Sql.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Xml.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Sensors.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Bluetooth.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Nfc.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Positioning.prl \
+		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Concurrent.prl \
 		/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile LearnPlatform.pro
 /home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/spec_pre.prf:
@@ -517,11 +593,27 @@ deployment.pri:
 /home/manu/tools/qt5/5.5/gcc_64/mkspecs/features/lex.prf:
 LearnPlatform.pro:
 qml.qrc:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Location.prl:
 /home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Quick.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Multimedia.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Svg.prl:
 /home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Widgets.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt53DInput.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt53DRenderer.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt53DQuick.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt53DCore.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5OpenGLExtensions.prl:
 /home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Gui.prl:
 /home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Qml.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5WebSockets.prl:
 /home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Network.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Sql.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Xml.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Sensors.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Bluetooth.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Nfc.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Positioning.prl:
+/home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Concurrent.prl:
 /home/manu/tools/qt5/5.5/gcc_64/lib/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile LearnPlatform.pro
@@ -538,8 +630,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents qml.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents src/fileio/fileio.h src/livereload/livereload.h src/component/component.h src/filefs/filefs.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp src/fileio/fileio.cpp src/livereload/livereload.cpp src/component/component.cpp src/filefs/filefs.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/fileio/fileio.h src/livereload/livereload.h src/component/component.h src/filefs/filefs.h src/tricks/qqmlobjectlistmodel.h src/tricks/qqmlsvgiconhelper.h src/tricks/qqmlvariantlistmodel.h src/tricks/qqmlvariantlistmodel_p.h src/tricks/qquickpolygon.h src/tricks/qtbitstream.h src/tricks/qtcobs.h src/tricks/qtjsonpath.h src/creator/MessageHandler.h src/creator/ProjectManager.h src/creator/QMLHighlighter.h src/creator/SyntaxHighlighter.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp src/fileio/fileio.cpp src/livereload/livereload.cpp src/component/component.cpp src/filefs/filefs.cpp src/tricks/qqmlgadgetlistmodel.cpp src/tricks/qqmlhelpers.cpp src/tricks/qqmlobjectlistmodel.cpp src/tricks/qqmlsvgiconhelper.cpp src/tricks/qqmlvariantlistmodel.cpp src/tricks/qquickpolygon.cpp src/creator/MessageHandler.cpp src/creator/ProjectManager.cpp src/creator/QMLHighlighter.cpp src/creator/SyntaxHighlighter.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents resources/translations/qmlcreator_ru.ts $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -565,32 +658,104 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_qml.cpp
 qrc_qml.cpp: qml.qrc \
 		main.qml \
-		qml/ManuFontIconButton.qml \
-		qml/ManuToolBar.qml \
-		qml/ManuFileDialog.qml \
-		qml/SlideMenuColumn.qml \
-		qml/Device.qml \
-		qml/ColorList.qml \
-		qml/Global.qml \
-		qml/Unit.qml \
-		qml/ColorVar.qml \
-		qml/FontIconVar.qml \
-		qml/IconList.qml \
-		qml/Size.qml \
-		qml/ManuIconNavBar.qml \
-		qml/ManuGrid.qml \
-		qml/qmldir \
-		qml/ManuButton.qml \
+		qml/ManuBlinkCursor.qml \
+		qml/ManuScrollBar.qml \
+		qml/ManuProgressCircleCanvas.qml \
+		qml/ManuRowContainer2.qml \
 		qml/ManuColumnRepeater.qml \
-		qml/FileIOTest.qml \
-		qml/ManuSearchInput.qml \
+		qml/ManuOverlay.qml \
+		qml/ManuTopFocusHandler.qml \
+		qml/ManuScreenPicker.qml \
+		qml/ManuDarkPalette.qml \
+		qml/ColorVar.qml \
+		qml/ManuLabel.qml \
+		qml/ManuFocusHandler.qml \
+		qml/ManuHorizontalSeparator.qml \
+		qml/ManuTextBar.qml \
 		qml/ManuTopNavBar.qml \
-		qml/theme.qml \
+		qml/ManuFontIconButton.qml \
+		qml/ManuToolTip.qml \
+		qml/ManuSliderProgress.qml \
+		qml/Global.qml \
+		qml/ManuPrez.qml \
+		qml/Configure.qml \
+		qml/Size.qml \
+		qml/qmldir \
+		qml/SlideMenuColumn.qml \
+		qml/IconList.qml \
+		qml/ManuMainMenuScreen.qml \
+		qml/ManuFlickable.qml \
+		qml/ManuScrollView.qml \
+		qml/FileIOTest.qml \
+		qml/ManuColorDialog.qml \
+		qml/ManuVerticalSeparator.qml \
+		qml/Unit.qml \
+		qml/ManuButton.qml \
+		qml/ManuPrezPageFromSide.qml \
+		qml/ManuStackView.qml \
+		qml/ManuBlankScreen.qml \
+		qml/ManuFonts.qml \
+		qml/ManuSearchBar.qml \
+		qml/FontIconVar.qml \
+		qml/ManuRowContainer.qml \
+		qml/ManuTextFiled.qml \
+		qml/ManuPrezPage.qml \
+		qml/ManuScrollContainer.qml \
+		qml/ManuListView.qml \
+		qml/ManuPrezPageTransition.qml \
 		qml/ManuNavButton.qml \
+		qml/ManuToolBar.qml \
+		qml/ManuListMenu.qml \
+		qml/ManuToolTipArea.qml \
+		qml/Editor.qml \
+		qml/ManuTextEdit.qml \
+		qml/ManuPrezPageView.qml \
+		qml/ManuIconTextButton.qml \
+		qml/ManuBasePalette.qml \
+		qml/ManuColumnContainer.qml \
+		qml/ManuDialogLoader.qml \
+		qml/ManuSectionButton.qml \
+		qml/ManuFileDialog.qml \
+		qml/ManuGridContainer.qml \
+		qml/ManuSingleLineEditBox.qml \
+		qml/ManuLineRec.qml \
+		qml/ManuTextBox.qml \
+		qml/ManuPaletteLoader.qml \
+		qml/ManuTextButton.qml \
+		qml/ManuSettings.qml \
+		qml/ManuSearchInput.qml \
+		qml/ManuPrezPageZoom.qml \
+		qml/ManuMarqueeText.qml \
+		qml/ManuLineEdit.qml \
+		qml/ColorList.qml \
+		qml/ManuIconNavBar.qml \
+		qml/ManuTextLabel.qml \
+		qml/Device.qml \
+		qml/ManuNativeTooltip.qml \
+		qml/ManuDropdownmenu.qml \
+		qml/SimplePrez.qml \
+		qml/ManuGridView.qml \
+		qml/ManuPageIndicatorDot.qml \
+		qml/ManuWrapLeftRightContainer.qml \
+		qml/ManuComboList.qml \
+		qml/ManuCutePalette.qml \
+		qml/ManuFontAwesomeIconButton.qml \
+		qml/ManuTabView.qml \
+		qml/ManuLightPalette.qml \
+		qml/ManuInfoBar.qml \
+		qml/ManuApplication.qml \
+		qml/ManuGrid.qml \
+		qml/ManuBottomBar.qml \
 		qml/js/componentCreation.js \
+		qml/js/Utils.js \
 		qml/js/ObjUtils.js \
 		qml/js/Promise.js \
 		qml/js/LocalFile.js \
+		qml/js/Style.js \
+		qml/js/QtCoreApi.js \
+		qml/img/screenPickerHover.png \
+		qml/img/back.jpg \
+		qml/img/screenPicker.png \
 		qml/fonts/lato/lato-black.ttf \
 		qml/fonts/lato/lato-italic.ttf \
 		qml/fonts/lato/lato-bolditalic.ttf \
@@ -601,9 +766,9 @@ qrc_qml.cpp: qml.qrc \
 		qml/fonts/glyphicons/flat-ui-icons-regular.ttf
 	/home/manu/tools/qt5/5.5/gcc_64/bin/rcc -name qml qml.qrc -o qrc_qml.cpp
 
-compiler_moc_header_make_all: moc_fileio.cpp moc_livereload.cpp
+compiler_moc_header_make_all: moc_fileio.cpp moc_livereload.cpp moc_qqmlobjectlistmodel.cpp moc_qqmlsvgiconhelper.cpp moc_qqmlvariantlistmodel.cpp moc_qqmlvariantlistmodel_p.cpp moc_qquickpolygon.cpp moc_MessageHandler.cpp moc_ProjectManager.cpp moc_QMLHighlighter.cpp moc_SyntaxHighlighter.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_fileio.cpp moc_livereload.cpp
+	-$(DEL_FILE) moc_fileio.cpp moc_livereload.cpp moc_qqmlobjectlistmodel.cpp moc_qqmlsvgiconhelper.cpp moc_qqmlvariantlistmodel.cpp moc_qqmlvariantlistmodel_p.cpp moc_qquickpolygon.cpp moc_MessageHandler.cpp moc_ProjectManager.cpp moc_QMLHighlighter.cpp moc_SyntaxHighlighter.cpp
 moc_fileio.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
@@ -708,7 +873,7 @@ moc_fileio.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
 		src/fileio/fileio.h
-	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/fileio/fileio.h -o moc_fileio.cpp
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/fileio/fileio.h -o moc_fileio.cpp
 
 moc_livereload.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qabstractanimation.h \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
@@ -871,7 +1036,885 @@ moc_livereload.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qabstractanim
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlApplicationEngine \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlapplicationengine.h \
 		src/livereload/livereload.h
-	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/livereload/livereload.h -o moc_livereload.cpp
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/livereload/livereload.h -o moc_livereload.cpp
+
+moc_qqmlobjectlistmodel.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QAbstractListModel \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QByteArray \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QChar \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QDebug \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QHash \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMetaMethod \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMetaObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMetaProperty \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QString \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QStringBuilder \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVariant \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVector \
+		src/tricks/qqmlobjectlistmodel.h
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/tricks/qqmlobjectlistmodel.h -o moc_qqmlobjectlistmodel.cpp
+
+moc_qqmlsvgiconhelper.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QString \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QColor \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg/QSvgRenderer \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg/qsvgrenderer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qxmlstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg/qtsvgglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlProperty \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlproperty.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlParserStatus \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlPropertyValueSource \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		src/tricks/qqmlsvgiconhelper.h
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/tricks/qqmlsvgiconhelper.h -o moc_qqmlsvgiconhelper.cpp
+
+moc_qqmlvariantlistmodel.cpp: src/tricks/qqmlmodels.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QAbstractListModel \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		src/tricks/qqmlvariantlistmodel.h
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/tricks/qqmlvariantlistmodel.h -o moc_qqmlvariantlistmodel.cpp
+
+moc_qqmlvariantlistmodel_p.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QByteArray \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QChar \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QDebug \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QHash \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QString \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVariant \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVector \
+		src/tricks/qqmlvariantlistmodel_p.h
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/tricks/qqmlvariantlistmodel_p.h -o moc_qqmlvariantlistmodel_p.cpp
+
+moc_qquickpolygon.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVariant \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QColor \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QPointF \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QPolygonF \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QSGNode \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qsgnode.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qsggeometry.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopengl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qt_windows.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopengles2ext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopenglext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QRectF \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QMatrix4x4 \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix4x4.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector3d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector4d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qquaternion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qgenericmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QSGGeometry \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QSGGeometryNode \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QSGFlatColorMaterial \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qsgflatcolormaterial.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qsgmaterial.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopenglshaderprogram.h \
+		src/tricks/qquickpolygon.h
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/tricks/qquickpolygon.h -o moc_qquickpolygon.cpp
+
+moc_MessageHandler.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlApplicationEngine \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlapplicationengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmldebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlContext \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcontext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTextStream \
+		src/creator/MessageHandler.h
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/creator/MessageHandler.h -o moc_MessageHandler.cpp
+
+moc_ProjectManager.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QFile \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QFileInfo \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfileinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QDir \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdir.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QIODevice \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QStandardPaths \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstandardpaths.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTextStream \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlApplicationEngine \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlapplicationengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmldebug.h \
+		src/creator/ProjectManager.h
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/creator/ProjectManager.h -o moc_ProjectManager.cpp
+
+moc_QMLHighlighter.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QSyntaxHighlighter \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsyntaxhighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpen.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextoption.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextlayout.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qglyphrun.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrawfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontdatabase.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextcursor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTextStream \
+		src/creator/QMLHighlighter.h
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/creator/QMLHighlighter.h -o moc_QMLHighlighter.cpp
+
+moc_SyntaxHighlighter.cpp: /home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickTextDocument \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquicktextdocument.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QTextDocument \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextdocument.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		src/creator/QMLHighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QSyntaxHighlighter \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsyntaxhighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpen.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextoption.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextlayout.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qglyphrun.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrawfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontdatabase.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextcursor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTextStream \
+		src/creator/SyntaxHighlighter.h
+	/home/manu/tools/qt5/5.5/gcc_64/bin/moc $(DEFINES) -I/home/manu/tools/qt5/5.5/gcc_64/mkspecs/linux-g++ -I/mnt/data2/github/notebook/LearnPlatform -I/home/manu/tools/qt5/5.5/gcc_64/include -I/home/manu/tools/qt5/5.5/gcc_64/include/QtLocation -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/QtMultimedia -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DInput -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DRenderer -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DQuick -I/home/manu/tools/qt5/5.5/gcc_64/include/Qt3DCore -I/home/manu/tools/qt5/5.5/gcc_64/include/QtOpenGLExtensions -I/home/manu/tools/qt5/5.5/gcc_64/include/QtGui -I/home/manu/tools/qt5/5.5/gcc_64/include/QtQml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtWebSockets -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNetwork -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSql -I/home/manu/tools/qt5/5.5/gcc_64/include/QtXml -I/home/manu/tools/qt5/5.5/gcc_64/include/QtSensors -I/home/manu/tools/qt5/5.5/gcc_64/include/QtBluetooth -I/home/manu/tools/qt5/5.5/gcc_64/include/QtNfc -I/home/manu/tools/qt5/5.5/gcc_64/include/QtPositioning -I/home/manu/tools/qt5/5.5/gcc_64/include/QtConcurrent -I/home/manu/tools/qt5/5.5/gcc_64/include/QtCore src/creator/SyntaxHighlighter.h -o moc_SyntaxHighlighter.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -1017,14 +2060,57 @@ main.o: main.cpp /home/manu/tools/qt5/5.5/gcc_64/include/QtWidgets/QApplication 
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
-		src/fileio/fileio.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTranslator \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtranslator.h \
+		src/creator/MessageHandler.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlContext \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcontext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTextStream \
+		src/creator/ProjectManager.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QFile \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QFileInfo \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfileinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QDir \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdir.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QIODevice \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QStandardPaths \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstandardpaths.h \
+		src/creator/SyntaxHighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickTextDocument \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquicktextdocument.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QTextDocument \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextdocument.h \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
-		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
-		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
+		src/creator/QMLHighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QSyntaxHighlighter \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsyntaxhighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpen.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextoption.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextlayout.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qglyphrun.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrawfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontdatabase.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextcursor.h \
+		src/fileio/fileio.h \
+		src/tricks/qqmlsvgiconhelper.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QString \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QColor \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg/QSvgRenderer \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg/qsvgrenderer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qxmlstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg/qtsvgglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlProperty \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlproperty.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlParserStatus \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlPropertyValueSource
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 fileio.o: src/fileio/fileio.cpp src/fileio/fileio.h \
@@ -1566,6 +2652,990 @@ filefs.o: src/filefs/filefs.cpp src/filefs/filefs.h \
 		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcontext.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filefs.o src/filefs/filefs.cpp
 
+qqmlgadgetlistmodel.o: src/tricks/qqmlgadgetlistmodel.cpp src/tricks/qqmlobjectlistmodel.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QAbstractListModel \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QByteArray \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QChar \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QDebug \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QHash \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMetaMethod \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMetaObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMetaProperty \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QString \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QStringBuilder \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVariant \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVector
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qqmlgadgetlistmodel.o src/tricks/qqmlgadgetlistmodel.cpp
+
+qqmlhelpers.o: src/tricks/qqmlhelpers.cpp src/tricks/qqmlhelpers.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qqmlhelpers.o src/tricks/qqmlhelpers.cpp
+
+qqmlobjectlistmodel.o: src/tricks/qqmlobjectlistmodel.cpp src/tricks/qqmlobjectlistmodel.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QAbstractListModel \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QByteArray \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QChar \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QDebug \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QHash \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMetaMethod \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMetaObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QMetaProperty \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QString \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QStringBuilder \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVariant \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVector
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qqmlobjectlistmodel.o src/tricks/qqmlobjectlistmodel.cpp
+
+qqmlsvgiconhelper.o: src/tricks/qqmlsvgiconhelper.cpp src/tricks/qqmlsvgiconhelper.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QString \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QColor \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg/QSvgRenderer \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg/qsvgrenderer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qxmlstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtSvg/qtsvgglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlProperty \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlproperty.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlParserStatus \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlPropertyValueSource \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QUrl \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QDir \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdir.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfileinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QFile \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QImage \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QDebug \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QPainter \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextoption.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpen.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QStringBuilder \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QCoreApplication \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QCryptographicHash \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcryptographichash.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qqmlsvgiconhelper.o src/tricks/qqmlsvgiconhelper.cpp
+
+qqmlvariantlistmodel.o: src/tricks/qqmlvariantlistmodel.cpp src/tricks/qqmlvariantlistmodel.h \
+		src/tricks/qqmlmodels.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QAbstractListModel \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		src/tricks/qqmlvariantlistmodel_p.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QByteArray \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QChar \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QDebug \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QHash \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QString \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVariant \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVector
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qqmlvariantlistmodel.o src/tricks/qqmlvariantlistmodel.cpp
+
+qquickpolygon.o: src/tricks/qquickpolygon.cpp src/tricks/qquickpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QVariant \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QColor \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QPointF \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QPolygonF \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QSGNode \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qsgnode.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qsggeometry.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopengl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qt_windows.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopengles2ext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopenglext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QRectF \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QMatrix4x4 \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix4x4.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector3d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector4d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qquaternion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qgenericmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QSGGeometry \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QSGGeometryNode \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QSGFlatColorMaterial \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qsgflatcolormaterial.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qsgmaterial.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qopenglshaderprogram.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmath.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qquickpolygon.o src/tricks/qquickpolygon.cpp
+
+MessageHandler.o: src/creator/MessageHandler.cpp src/creator/MessageHandler.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlApplicationEngine \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlapplicationengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmldebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlContext \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcontext.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTextStream
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MessageHandler.o src/creator/MessageHandler.cpp
+
+ProjectManager.o: src/creator/ProjectManager.cpp src/creator/ProjectManager.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QFile \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QFileInfo \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfileinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QDir \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdir.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QIODevice \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QStandardPaths \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstandardpaths.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTextStream \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/QQmlApplicationEngine \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlapplicationengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsengine.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmldebug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ProjectManager.o src/creator/ProjectManager.cpp
+
+QMLHighlighter.o: src/creator/QMLHighlighter.cpp src/creator/QMLHighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QSyntaxHighlighter \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsyntaxhighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpen.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextoption.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextlayout.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qglyphrun.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrawfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontdatabase.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextcursor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTextStream
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QMLHighlighter.o src/creator/QMLHighlighter.cpp
+
+SyntaxHighlighter.o: src/creator/SyntaxHighlighter.cpp src/creator/SyntaxHighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QObject \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnamespace.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qconfig.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfeatures.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtypetraits.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsysinfo.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlogging.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qflags.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_gcc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv7.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv6.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_armv5.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_ia64.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_mips.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_x86.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qatomic_unix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmutex.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qnumeric.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstring.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qchar.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrefcount.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qarraydata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qalgorithms.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiterator.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringlist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qregexp.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetatype.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qisenum.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qobject_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickTextDocument \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquicktextdocument.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QTextDocument \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextdocument.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsize.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qrect.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmargins.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpoint.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvariant.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qpair.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdebug.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qhash.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qtextstream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qiodevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qlocale.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qshareddata.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qvector.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qset.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurl.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qurlquery.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/QQuickItem \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qquickitem.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQuick/qtquickglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqml.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlprivate.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qtqmlglobal.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlparserstatus.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmllist.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qmetaobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlcomponent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qqmlerror.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtQml/qjsvalue.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QList \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qevent.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qregion.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qdatastream.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qkeysequence.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfile.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qfiledevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qvector2d.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qaccessible.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qeventloop.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qcolor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrgb.h \
+		src/creator/QMLHighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/QSyntaxHighlighter \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qsyntaxhighlighter.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextobject.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpen.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qbrush.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qmatrix.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpolygon.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/qline.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtransform.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpainterpath.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qimage.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixelformat.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qpixmap.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextoption.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextlayout.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qglyphrun.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qrawfont.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qfontdatabase.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtGui/qtextcursor.h \
+		/home/manu/tools/qt5/5.5/gcc_64/include/QtCore/QTextStream
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SyntaxHighlighter.o src/creator/SyntaxHighlighter.cpp
+
 qrc_qml.o: qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qml.o qrc_qml.cpp
 
@@ -1574,6 +3644,33 @@ moc_fileio.o: moc_fileio.cpp
 
 moc_livereload.o: moc_livereload.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_livereload.o moc_livereload.cpp
+
+moc_qqmlobjectlistmodel.o: moc_qqmlobjectlistmodel.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_qqmlobjectlistmodel.o moc_qqmlobjectlistmodel.cpp
+
+moc_qqmlsvgiconhelper.o: moc_qqmlsvgiconhelper.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_qqmlsvgiconhelper.o moc_qqmlsvgiconhelper.cpp
+
+moc_qqmlvariantlistmodel.o: moc_qqmlvariantlistmodel.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_qqmlvariantlistmodel.o moc_qqmlvariantlistmodel.cpp
+
+moc_qqmlvariantlistmodel_p.o: moc_qqmlvariantlistmodel_p.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_qqmlvariantlistmodel_p.o moc_qqmlvariantlistmodel_p.cpp
+
+moc_qquickpolygon.o: moc_qquickpolygon.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_qquickpolygon.o moc_qquickpolygon.cpp
+
+moc_MessageHandler.o: moc_MessageHandler.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MessageHandler.o moc_MessageHandler.cpp
+
+moc_ProjectManager.o: moc_ProjectManager.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ProjectManager.o moc_ProjectManager.cpp
+
+moc_QMLHighlighter.o: moc_QMLHighlighter.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_QMLHighlighter.o moc_QMLHighlighter.cpp
+
+moc_SyntaxHighlighter.o: moc_SyntaxHighlighter.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_SyntaxHighlighter.o moc_SyntaxHighlighter.cpp
 
 ####### Install
 
