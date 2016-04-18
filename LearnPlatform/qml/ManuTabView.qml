@@ -37,4 +37,7 @@ TabView{
     function remove(index){
         removeTab(index)
     }
+
+    /*Tab{
+    }*/
 }

@@ -113,5 +113,26 @@
         <file>qml/ManuTabViewHeader.qml</file>
         <file>qml/ManuNaviBar.qml</file>
         <file>qml/ManuGlossy.qml</file>
+        <file>qml/ManuFavIcon.qml</file>
+        <file>qml/js/FavIcon.js</file>
+        <file>qml/img/addTabButtonHovered.png</file>
+        <file>qml/img/addTabButtonNormal.png</file>
+        <file>qml/img/addTabButtonPressed.png</file>
+        <file>qml/img/closeTabIcon.png</file>
+        <file>qml/img/currentTabLeftBorder.png</file>
+        <file>qml/img/currentTabRightBorder.png</file>
+        <file>qml/img/tabLeftBorder.png</file>
+        <file>qml/img/tabRightBorder.png</file>
+        <file>qml/ManuDropDown.qml</file>
+        <file>qml/img/dropdownIndicatorIcon.png</file>
+        <file>qml/img/pantheonLogo.png</file>
+        <file>qml/img/toolsDarkTriangle.png</file>
+        <file>qml/img/toolsTriangle.png</file>
+        <file>qml/ManuToolButton.qml</file>
+        <file>qml/img/locationBackground.png</file>
+        <file>qml/ManuWebView.qml</file>
+        <file>qml/ManuToolBar2.qml</file>
+        <file>qml/ManuLocationBar.qml</file>
+        <file>qml/img/searchIcon.png</file>
     </qresource>
 </RCC>

@@ -37,6 +37,12 @@ int main(int argc, char *argv[])
     //engine.addImportPath();
     //engine.addPluginPath();
     //engine->addImportPath ("qrc:/import");
+
+    //QString	offlineStoragePath() const
+    //void	setOfflineStoragePath(const QString &dir)
+    QUrl offlineStoragePath = QUrl::fromLocalFile(engine.offlineStoragePath());
+    engine.setOfflineStoragePath("./");
+
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();

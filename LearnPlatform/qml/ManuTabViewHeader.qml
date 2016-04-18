@@ -1,8 +1,11 @@
-import QtQuick 2.3
+import QtQuick 2.5
 
 Item {
     id: headerView
     height: 25
+    anchors{
+        top: parent.top
+    }
 
     signal tabAdded(int identifier, string url)
     signal tabRemoved(int identifier, int prevIdentifier)
@@ -127,7 +130,7 @@ Item {
                     GradientStop { position: 1.0; color: identifier === headerView.currentIdentifier ? "#E5E5E5" : "#BEBEBE" }
                 }
 
-                FavIcon {
+                ManuFavIcon {
                     id: favIcon
                     width: 16; height: 16
                     anchors.verticalCenter: parent.verticalCenter
@@ -258,6 +261,7 @@ Item {
 
     Image {
         anchors.verticalCenter: parent.verticalCenter
+        //y: headerView.y
         x: headerView.itemWidth * repeater.count - 16 * repeater.count + 15
         opacity: headerView.tabMoving || tabsModel.count >= headerView.maxTabsCount + 1 ? 0 : 1
 

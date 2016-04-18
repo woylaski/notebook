@@ -30,7 +30,7 @@ SplitView {
     handleDelegate : Rectangle {
         width: 1
         height: 1
-        color: Qt.darker(root.children[0].color, 1.5)
+        color: Qt.darker(parent.color, 1.5)
         //color darker(color baseColor, real factor)
         //Returns a color darker than baseColor by the factor provided
         visible: separator
