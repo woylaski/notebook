@@ -134,5 +134,8 @@
         <file>qml/ManuToolBar2.qml</file>
         <file>qml/ManuLocationBar.qml</file>
         <file>qml/img/searchIcon.png</file>
+        <file>qml/groupview/GroupView.qml</file>
+        <file>qml/groupview/ScrollBar.qml</file>
+        <file>qml/TestGroupView.qml</file>
     </qresource>
 </RCC>

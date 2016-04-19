@@ -25,9 +25,15 @@ SOURCES += main.cpp \
     src/creator/MessageHandler.cpp \
     src/creator/ProjectManager.cpp \
     src/creator/QMLHighlighter.cpp \
-    src/creator/SyntaxHighlighter.cpp
+    src/creator/SyntaxHighlighter.cpp \
+    src/groupview/groupviewdroparea.cpp \
+    src/groupview/groupviewhelper.cpp \
+    src/groupview/groupviewproxy.cpp \
+    src/groupview/groupview.cpp \
+    src/groupview/instancemodel.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    images.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -51,7 +57,12 @@ HEADERS += \
     src/creator/MessageHandler.h \
     src/creator/ProjectManager.h \
     src/creator/QMLHighlighter.h \
-    src/creator/SyntaxHighlighter.h
+    src/creator/SyntaxHighlighter.h \
+    src/groupview/groupviewdroparea.h \
+    src/groupview/groupviewhelper.h \
+    src/groupview/groupviewproxy.h \
+    src/groupview/groupview.h \
+    src/groupview/instancemodel.h
 
 DISTFILES +=
 

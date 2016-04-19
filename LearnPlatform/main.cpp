@@ -11,6 +11,9 @@
 #include "src/fileio/fileio.h"
 #include "src/tricks/qqmlsvgiconhelper.h"
 
+#include "src/groupview/groupview.h"
+#include "src/groupview/instancemodel.h"
+
 int main(int argc, char *argv[])
 {
     qInstallMessageHandler(&MessageHandler::handler);
@@ -27,6 +30,7 @@ int main(int argc, char *argv[])
     app.installTranslator(&translator);
 
     //register type for qml
+    //GroupView::registerTypes();
     qmlRegisterType<FileIO>("manu.fileio", 1, 0, "FileIO");
     qmlRegisterType<QQmlSvgIconHelper>("manu.svgicon", 1, 0, "SvgIconHelper");
     qmlRegisterSingletonType<ProjectManager>("ProjectManager", 1, 1, "ProjectManager", &ProjectManager::projectManagerProvider);
