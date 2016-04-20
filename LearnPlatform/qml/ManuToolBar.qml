@@ -40,7 +40,7 @@ Rectangle {
                 var component = Qt.createComponent(modelData.action)
                 if (component.status == Component.Ready){
                     print("create componet ok ", modelData.action);
-                    var obj=component.createObject(application, {"x": 100, "y": 100});
+                    var obj=component.createObject(appWindow, {"x": 100, "y": 100});
                     obj.show()
                 }
                 else if(component.status == Component.Error){

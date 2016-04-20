@@ -23,7 +23,14 @@ ManuApplication{
             {"name":"fa_bookmark", "action":"Configure.qml"},
             {"name":"fa_building", "action":"WebBrowser.qml"},
             {"name":"fa_building", "action":"ManuScreenPicker.qml"},
-            {"name":"fa_building", "action":"SimplePrez.qml"}
+            {"name":"fa_building", "action":"SimplePrez.qml"},
+            {"name":"fa_building", "action":"TestGroupView.qml"},
+            {"name":"fa_building", "action":"TestLmsListModel.qml"},
+            {"name":"fa_building", "action":"TestPrinter.qml"},
+            {"name":"fa_building", "action":"TestPrintml.qml"},
+            {"name":"fa_building", "action":"TestDiskUsage.qml"},
+            {"name":"fa_building", "action":"ManuScreenCapture.qml"},
+            {"name":"fa_building", "action":"ManuNumberConvert.qml"},
         ]
     }
 

@@ -18,7 +18,9 @@ InstanceModel::InstanceModel(QObject *parent)
     setData(mimetypes, "Mime types", Qt::DisplayRole);
     setData(python, "Silly", Qt::DisplayRole);
 
-    auto add = [this](const QModelIndex &parent, const QString &name, const QString &icon = QString())
+    auto add = [this](const QModelIndex &parent, const QString &name, const QString &icon)
+    //auto add = [this](const QModelIndex &parent, const QString &name, const QString &icon = QString())
+
     {
         insertRow(rowCount(parent), parent);
         const QModelIndex i = index(rowCount(parent)-1, 0, parent);
@@ -26,71 +28,71 @@ InstanceModel::InstanceModel(QObject *parent)
         setData(i, "qrc:/images/icons/" + (icon.isNull() ? name.toLower().remove(' ') + ".png" : icon), Qt::DecorationRole);
     };
 
-    add(devices, "Audio Card");
-    add(devices, "Audio Headphones");
-    add(devices, "Camera");
-    add(devices, "Desktop");
-    add(devices, "Laptop");
-    add(devices, "Harddisk");
-    add(devices, "Optical Drive");
-    add(devices, "USB Pendrive");
-    add(devices, "Removable Media");
-    add(devices, "Keyboard");
-    add(devices, "Mouse");
-    add(devices, "Flash Memory Stick");
-    add(devices, "Flash SD MMC");
-    add(devices, "Flash Smart Media");
-    add(devices, "Floppy");
-    add(devices, "Blu-Ray");
-    add(devices, "DVD");
-    add(devices, "CD");
-    add(devices, "Network Wired");
-    add(devices, "Network Wireless");
-    add(devices, "Printer");
-    add(devices, "Smartphone");
-    add(devices, "Tablet");
-    add(devices, "Display");
+    add(devices, "Audio Card", QString());
+    add(devices, "Audio Headphones", QString());
+    add(devices, "Camera", QString());
+    add(devices, "Desktop", QString());
+    add(devices, "Laptop", QString());
+    add(devices, "Harddisk", QString());
+    add(devices, "Optical Drive", QString());
+    add(devices, "USB Pendrive", QString());
+    add(devices, "Removable Media", QString());
+    add(devices, "Keyboard", QString());
+    add(devices, "Mouse", QString());
+    add(devices, "Flash Memory Stick", QString());
+    add(devices, "Flash SD MMC", QString());
+    add(devices, "Flash Smart Media", QString());
+    add(devices, "Floppy", QString());
+    add(devices, "Blu-Ray", QString());
+    add(devices, "DVD", QString());
+    add(devices, "CD", QString());
+    add(devices, "Network Wired", QString());
+    add(devices, "Network Wireless", QString());
+    add(devices, "Printer", QString());
+    add(devices, "Smartphone", QString());
+    add(devices, "Tablet", QString());
+    add(devices, "Display", QString());
 
-    add(settings, "General");
-    add(settings, "Network");
-    add(settings, "Appearance");
-    add(settings, "System");
+    add(settings, "General", QString());
+    add(settings, "Network", QString());
+    add(settings, "Appearance", QString());
+    add(settings, "System", QString());
 
-    add(applications, "Engineering");
-    add(applications, "Graphics");
-    add(applications, "Internet");
-    add(applications, "Multimedia");
-    add(applications, "Office");
-    add(applications, "Other");
-    add(applications, "Science");
+    add(applications, "Engineering", QString());
+    add(applications, "Graphics", QString());
+    add(applications, "Internet", QString());
+    add(applications, "Multimedia", QString());
+    add(applications, "Office", QString());
+    add(applications, "Other", QString());
+    add(applications, "Science", QString());
 
-    add(mimetypes, "EPub");
-    add(mimetypes, "Google Earth");
-    add(mimetypes, "Illustrator");
-    add(mimetypes, "Javascript");
-    add(mimetypes, "MS Access");
-    add(mimetypes, "MS Excel");
-    add(mimetypes, "MS Powerpoint");
-    add(mimetypes, "MS Word");
-    add(mimetypes, "MS Word Template");
-    add(mimetypes, "OpenDocument Chart");
-    add(mimetypes, "OpenDocument Database");
-    add(mimetypes, "OpenDocument Formula");
-    add(mimetypes, "OpenDocument Formula Template");
-    add(mimetypes, "OpenDocument Graphics");
-    add(mimetypes, "OpenDocument Image");
-    add(mimetypes, "OpenDocument Presentation");
-    add(mimetypes, "OpenDocument Presentation Template");
-    add(mimetypes, "OpenDocument Spreadsheet");
-    add(mimetypes, "OpenDocument Spreadsheet Template");
-    add(mimetypes, "OpenDocument Text");
-    add(mimetypes, "PDF");
-    add(mimetypes, "PGP Encrypted");
-    add(mimetypes, "PGP Keys");
-    add(mimetypes, "PostScript");
-    add(mimetypes, "RSS");
-    add(mimetypes, "RTF");
-    add(mimetypes, "Scribus");
+    add(mimetypes, "EPub", QString());
+    add(mimetypes, "Google Earth", QString());
+    add(mimetypes, "Illustrator", QString());
+    add(mimetypes, "Javascript", QString());
+    add(mimetypes, "MS Access", QString());
+    add(mimetypes, "MS Excel", QString());
+    add(mimetypes, "MS Powerpoint", QString());
+    add(mimetypes, "MS Word", QString());
+    add(mimetypes, "MS Word Template", QString());
+    add(mimetypes, "OpenDocument Chart", QString());
+    add(mimetypes, "OpenDocument Database", QString());
+    add(mimetypes, "OpenDocument Formula", QString());
+    add(mimetypes, "OpenDocument Formula Template", QString());
+    add(mimetypes, "OpenDocument Graphics", QString());
+    add(mimetypes, "OpenDocument Image", QString());
+    add(mimetypes, "OpenDocument Presentation", QString());
+    add(mimetypes, "OpenDocument Presentation Template", QString());
+    add(mimetypes, "OpenDocument Spreadsheet", QString());
+    add(mimetypes, "OpenDocument Spreadsheet Template", QString());
+    add(mimetypes, "OpenDocument Text", QString());
+    add(mimetypes, "PDF", QString());
+    add(mimetypes, "PGP Encrypted", QString());
+    add(mimetypes, "PGP Keys", QString());
+    add(mimetypes, "PostScript", QString());
+    add(mimetypes, "RSS", QString());
+    add(mimetypes, "RTF", QString());
+    add(mimetypes, "Scribus", QString());
 
     add(python, "My", "my.jpg");
     add(python, "hovercraft", "hovercraft.jpg");
@@ -198,7 +200,8 @@ InstanceModel::Item::~Item()
 
 QStringList InstanceModel::mimeTypes() const
 {
-    return {"application/x-instance"};
+    return QStringList("application/x-instance");
+    //return {"application/x-instance"};
 }
 QMimeData *InstanceModel::mimeData(const QModelIndexList &indexes) const
 {

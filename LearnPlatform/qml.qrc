@@ -137,5 +137,15 @@
         <file>qml/groupview/GroupView.qml</file>
         <file>qml/groupview/ScrollBar.qml</file>
         <file>qml/TestGroupView.qml</file>
+        <file>qml/TestLmsListModel.qml</file>
+        <file>qml/TestPrinter.qml</file>
+        <file>qml/TestPrintml.qml</file>
+        <file>qml/TestDiskUsage.qml</file>
+        <file>qml/ManuScreenCapture.qml</file>
+        <file>qml/ManuNumberConvert.qml</file>
+        <file>qml/js/QChart.js</file>
+        <file>qml/js/QChartGallery.js</file>
+        <file>qml/QChart.qml</file>
+        <file>qml/QChartGallery.qml</file>
     </qresource>
 </RCC>
