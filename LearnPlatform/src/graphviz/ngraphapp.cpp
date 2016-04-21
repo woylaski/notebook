@@ -51,5 +51,5 @@ NGraphApp::~NGraphApp(){
     //m_app->exit();
     delete m_model;
     delete m_view;
-    delete m_app;
+    //delete m_app;
 }

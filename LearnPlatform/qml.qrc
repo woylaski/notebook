@@ -147,5 +147,12 @@
         <file>qml/js/QChartGallery.js</file>
         <file>qml/QChart.qml</file>
         <file>qml/QChartGallery.qml</file>
+        <file>qml/ManuColorTest.qml</file>
+        <file>qml/ManuAppSet.qml</file>
+        <file>qml/ManuAboutDialog.qml</file>
+        <file>qml/ManuViewPort.qml</file>
+        <file>qml/ManuPanelButton.qml</file>
+        <file>qml/ManuPanel.qml</file>
+        <file>qml/ManuAudioPlayer.qml</file>
     </qresource>
 </RCC>

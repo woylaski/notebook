@@ -44,7 +44,12 @@ SOURCES += main.cpp \
     src/graphviz/ngraph.cpp \
     src/graphviz/ngraphapp.cpp \
     src/graphviz/ngraphmodel.cpp \
-    src/graphviz/ngraphview.cpp
+    src/graphviz/ngraphview.cpp \
+    src/imgviewer/file.cpp \
+    src/imgviewer/filebackend.cpp \
+    src/imgviewer/appeventfilter.cpp \
+    src/devinfo/devinfo.cpp \
+    src/network/network.cpp
 
 RESOURCES += qml.qrc \
     images.qrc
@@ -90,7 +95,12 @@ HEADERS += \
     src/graphviz/ngraph.h \
     src/graphviz/ngraphapp.h \
     src/graphviz/ngraphmodel.h \
-    src/graphviz/ngraphview.h
+    src/graphviz/ngraphview.h \
+    src/imgviewer/file.h \
+    src/imgviewer/filebackend.h \
+    src/imgviewer/appeventfilter.h \
+    src/devinfo/devinfo.h \
+    src/network/network.h
 
 DISTFILES += \
     music.db
