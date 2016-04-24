@@ -9,7 +9,7 @@ class QObject;
 namespace GroupView
 {
     void registerTypes();
-    QAbstractItemModel *makeProxy(QAbstractItemModel *model, QObject *parent = nullptr);
+    QAbstractItemModel *makeProxy(QAbstractItemModel *model, QObject *parent = 0);
 }
 
 #endif // GROUPVIEW_H

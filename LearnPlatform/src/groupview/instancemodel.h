@@ -8,7 +8,7 @@
 class InstanceModel : public QAbstractItemModel
 {
 public:
-    InstanceModel(QObject *parent = nullptr);
+    InstanceModel(QObject *parent = 0);
 
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
     QModelIndex parent(const QModelIndex &child) const override;
@@ -34,10 +34,10 @@ public:
 private:
     struct Item
     {
-        explicit Item(Item *p = nullptr) : parent(p) {}
+        explicit Item(Item *p = 0) : parent(p) {}
         ~Item();
         QHash<int, QVariant> values;
-        Item *parent = nullptr;
+        Item *parent = 0;
         QVector<Item *> items;
     };
     Item *m_root = new Item;

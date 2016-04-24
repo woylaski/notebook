@@ -1,10 +1,10 @@
-#include "GroupView.h"
+#include "groupview.h"
 
 #include <QtQml>
 
-#include "GroupViewDropArea.h"
-#include "GroupViewHelper.h"
-#include "GroupViewProxy.h"
+#include "groupviewdroparea.h"
+#include "groupviewhelper.h"
+#include "groupviewproxy.h"
 
 void GroupView::registerTypes()
 {

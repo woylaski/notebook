@@ -4,6 +4,7 @@
 #include <QTimer>
 #include <QNetworkInterface>
 #include <QDateTime>
+#include <qdatastream.h>
 
 Network::Network(QObject *parent) : QObject(parent)
     ,udpPort(45454)

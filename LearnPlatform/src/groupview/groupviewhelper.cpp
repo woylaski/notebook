@@ -1,4 +1,4 @@
-#include "GroupViewHelper.h"
+#include "groupviewhelper.h"
 
 #include <QQuickItem>
 #include <QMimeData>

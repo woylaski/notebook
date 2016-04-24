@@ -43,7 +43,7 @@ private:
   Q_PROPERTY(bool debugVerbose READ debugVerbose WRITE setDebugVerbose NOTIFY debugVerboseChanged)
 public:
   Printer(QQuickItem *parent = 0);
-  ~Printer();
+  //~Printer();
 public:
   Q_INVOKABLE void beginPrinting();
   Q_INVOKABLE void newPage();

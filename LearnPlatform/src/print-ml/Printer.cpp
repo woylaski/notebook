@@ -27,11 +27,11 @@ Printer::Printer(QQuickItem *parent):
   connect(m_pageSize, SIGNAL(pageSizeChanged()), this, SLOT(updatePageSize()));
 }
 
-Printer::~Printer()
+/*Printer::~Printer()
 {
   endPrinting();
 }
-
+*/
 void Printer::beginPrinting()
 {
   if(!m_window)

@@ -1,5 +1,7 @@
 TEMPLATE = app
 
+CONFIG += c++11
+
 QT += \
     core gui qml quick \
     multimedia sql \
@@ -33,12 +35,6 @@ SOURCES += main.cpp \
     src/groupview/instancemodel.cpp \
     src/database/database.cpp \
     src/database/lmslistmodel.cpp \
-    src/printer/printer.cpp \
-    src/print-ml/MiniPage.cpp \
-    src/print-ml/PageSize.cpp \
-    src/print-ml/Printer.cpp \
-    src/print-ml/QuickItemPainter.cpp \
-    src/print-ml/StyledText.cpp \
     src/diskusage/filesystemwalker.cpp \
     src/gbyzanz/controller.cpp \
     src/graphviz/ngraph.cpp \
@@ -84,12 +80,6 @@ HEADERS += \
     src/groupview/instancemodel.h \
     src/database/database.h \
     src/database/lmslistmodel.h \
-    src/printer/printer.h \
-    src/print-ml/MiniPage.h \
-    src/print-ml/PageSize.h \
-    src/print-ml/Printer.h \
-    src/print-ml/QuickItemPainter.h \
-    src/print-ml/StyledText.h \
     src/diskusage/filesystemwalker.h \
     src/gbyzanz/controller.h \
     src/graphviz/ngraph.h \

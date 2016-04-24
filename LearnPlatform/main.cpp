@@ -15,11 +15,11 @@
 #include "src/groupview/groupview.h"
 #include "src/groupview/instancemodel.h"
 #include "src/database/lmslistmodel.h"
-#include "src/printer/printer.h"
+//#include "src/printer/printer.h"
 
-#include "src/print-ml/MiniPage.h"
-#include "src/print-ml/Printer.h"
-#include "src/print-ml/PageSize.h"
+//#include "src/print-ml/MiniPage.h"
+//#include "src/print-ml/Printer.h"
+//#include "src/print-ml/PageSize.h"
 
 #include "src/diskusage/filesystemwalker.h"
 #include "src/gbyzanz/controller.h"
@@ -68,12 +68,12 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonType<ProjectManager>("ProjectManager", 1, 1, "ProjectManager", &ProjectManager::projectManagerProvider);
     qmlRegisterType<SyntaxHighlighter>("SyntaxHighlighter", 1, 1, "SyntaxHighlighter");
     qmlRegisterType<LMSListModel>("manu.dblistmodel", 1, 0, "LMSListModel");
-    qmlRegisterType<Printer>("manu.printer", 1, 0, "Printer");
+    //qmlRegisterType<Printer>("manu.printer", 1, 0, "Printer");
 
     // @uri org.storyml.print
-    qmlRegisterType<MiniPage>("manu.printml", 1, 0, "MiniPage");
-    qmlRegisterType<Printer>("manu.printml", 1, 0, "Printer");
-    qmlRegisterType<PageSize>("manu.printml", 1, 0, "PageSize");
+    //qmlRegisterType<MiniPage>("manu.printml", 1, 0, "MiniPage");
+    //qmlRegisterType<Printer>("manu.printml", 1, 0, "Printer");
+    //qmlRegisterType<PageSize>("manu.printml", 1, 0, "PageSize");
 
     qmlRegisterType<Controller>("manu.gbyzanz", 1, 0, "Controller");
     qmlRegisterType<DevInfo>("manu.devinfo", 0, 1, "DevInfo");

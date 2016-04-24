@@ -7,7 +7,7 @@
 #include <QAbstractItemModel>
 #include <QModelIndex>
 
-#include "GroupViewProxy.h"
+#include "groupviewproxy.h"
 
 class QQuickItem;
 

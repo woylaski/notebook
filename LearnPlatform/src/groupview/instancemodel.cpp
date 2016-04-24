@@ -1,4 +1,4 @@
-#include "InstanceModel.h"
+#include "instancemodel.h"
 
 #include <QColor>
 #include <QMimeData>

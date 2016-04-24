@@ -1,6 +1,6 @@
-#include "GroupViewDropArea.h"
+#include "groupviewdroparea.h"
 #include <QMimeData>
-#include "GroupViewHelper.h"
+#include "groupviewhelper.h"
 
 class MimeDataSourceStealer : public QMimeData
 {

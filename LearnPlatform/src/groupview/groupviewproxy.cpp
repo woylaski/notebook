@@ -1,4 +1,4 @@
-#include "GroupViewProxy.h"
+#include "groupviewproxy.h"
 
 GroupViewProxy::GroupViewProxy(QObject *parent)
     : QIdentityProxyModel(parent)
