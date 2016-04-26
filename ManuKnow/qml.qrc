@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>MainForm.ui.qml</file>
+        <file>qml/qmldir</file>
+        <file>qml/ManuColors.qml</file>
+        <file>qml/ManuFonts.qml</file>
+        <file>qml/js/LocalDataBase.js</file>
     </qresource>
 </RCC>
