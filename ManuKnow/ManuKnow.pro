@@ -8,7 +8,9 @@ SOURCES += main.cpp \
     src/manu_workenv.cpp \
     src/manu_filesystem.cpp \
     src/manu_stringutils.cpp \
-    src/manu_plugins.cpp
+    src/manu_plugins.cpp \
+    src/manu_device.cpp \
+    src/manu_units.cpp
 
 RESOURCES += qml.qrc
 
@@ -24,4 +26,6 @@ HEADERS += \
     src/manu_common.h \
     src/manu_filesystem.h \
     src/manu_stringutils.h \
-    src/manu_plugins.h
+    src/manu_plugins.h \
+    src/manu_device.h \
+    src/manu_units.h

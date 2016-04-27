@@ -4,6 +4,15 @@
         <file>qml/qmldir</file>
         <file>qml/ManuColors.qml</file>
         <file>qml/ManuFonts.qml</file>
-        <file>qml/js/LocalDataBase.js</file>
+        <file>qml/js/ManuCore.js</file>
+        <file>qml/js/ManuLocalDB.js</file>
+        <file>qml/js/ManuLogger.js</file>
+        <file>qml/ManuSettings.qml</file>
+        <file>qml/js/ManuRegex.js</file>
+        <file>qml/ManuAppWindow.qml</file>
+        <file>qml/js/ManuObject.js</file>
+        <file>qml/ManuScreenInfo.qml</file>
+        <file>qml/js/ManuDevice.js</file>
+        <file>qml/ManuUnits.qml</file>
     </qresource>
 </RCC>
