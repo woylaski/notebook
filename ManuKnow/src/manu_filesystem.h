@@ -17,11 +17,16 @@ public:
 
     //Q_INVOKABLE对外提供的方法，也可以发射信号, 可以被QML调用
     //Q_INVOKABLE  QString readString(void);
-    Q_INVOKABLE  QByteArray readBytes(QString &filename);
+    Q_INVOKABLE  QByteArray readBytes(QString filename);
     Q_INVOKABLE  QString readString(QString filename);
     //Q_INVOKABLE  QString readString(QString &filename);
     //Q_INVOKABLE  bool writeString(void);
-    Q_INVOKABLE  bool writeString(QString& data);
+    Q_INVOKABLE  bool writeString(QString data);
+    Q_INVOKABLE  bool saveFile(QString filename, QString data);
+    Q_INVOKABLE  bool createFile(QString filename);
+    Q_INVOKABLE  bool deleteFile(QString filename);
+    Q_INVOKABLE  bool listDirInfo(QString dirname);
+    Q_INVOKABLE  bool listFileInfo(QString filename);
 
     //属性读取的方法
     QString source();

@@ -12,6 +12,7 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QTextCodec>
 
 #define MANU_DEBUG false
 

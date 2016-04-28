@@ -33,7 +33,12 @@ function listProperty(obj) {
     }
 }
 
-function haveProperty(obj, property) {
+function hasProperty2(obj, property)
+{
+    return obj.hasOwnProperty(property)
+}
+
+function hasProperty(obj, property) {
     var keys = Object.keys(obj);
     for(var i = 0; i < keys.length; i++) {
         var key = keys[i];
@@ -51,6 +56,30 @@ function fuzzyProperty(obj, keyword) {
         // prints all properties, signals, functions from object
         if(key.toLowerCase().match(keyword))
             console.log(key + ' : ' + obj[key]);
+    }
+}
+
+function listData(obj)
+{
+    if(!obj.hasOwnProperty('data')){
+        print('not have property data')
+        return
+    }
+
+    for (var i=0; i<obj.data.length; ++i){
+        print(obj.data[i])
+    }
+}
+
+function listChildren(obj)
+{
+    if(!obj.hasOwnProperty('children')){
+        print('not have property children')
+        return
+    }
+
+    for (var i=0; i<obj.children.length; ++i){
+        print(obj.children[i])
     }
 }
 

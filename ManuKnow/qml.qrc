@@ -12,7 +12,13 @@
         <file>qml/ManuAppWindow.qml</file>
         <file>qml/js/ManuObject.js</file>
         <file>qml/ManuScreenInfo.qml</file>
-        <file>qml/js/ManuDevice.js</file>
         <file>qml/ManuUnits.qml</file>
+        <file>qml/ManuSplitView.qml</file>
+        <file>qml/ManuTopic.qml</file>
+        <file>qml/ManuTopicMenu.qml</file>
+        <file>qml/ManuWorkArea.qml</file>
+        <file>qml/ManuTextButton.qml</file>
+        <file>qml/js/Style.js</file>
+        <file>qml/ManuIconLabel.qml</file>
     </qresource>
 </RCC>

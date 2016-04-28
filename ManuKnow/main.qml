@@ -6,10 +6,11 @@ import "qml/js/ManuLocalDB.js" as ManuLocalDB
 import "qml/js/ManuCore.js" as ManuCore
 import "qml"
 
+//https://www.kullo.net/blog/advanced-filedialog-in-qml/
 ManuAppWindow {
     id: root
 
-    ManuScreenInfo{}
+    //ManuScreenInfo{}
     Component.onCompleted: {
         print("dp is ", Units.dp, Units.multiplier)
         print("gridunit is ", Device.gridUnit)
