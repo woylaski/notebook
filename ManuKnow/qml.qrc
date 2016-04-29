@@ -20,5 +20,7 @@
         <file>qml/ManuTextButton.qml</file>
         <file>qml/js/Style.js</file>
         <file>qml/ManuIconLabel.qml</file>
+        <file>qml/ManuFileBrowser.qml</file>
+        <file>qml/images/icon_Folder.png</file>
     </qresource>
 </RCC>

@@ -43,6 +43,13 @@ void ManuFileIO::setContent(QString data)
     emit contentChanged(data);
 }
 
+void get_fileinfo(QUrl *file)
+{
+    if (file->isLocalFile()) {
+        QFileInfo fi(file->toLocalFile());
+    }
+}
+
 void urlToString()
 {
     QUrl url;
